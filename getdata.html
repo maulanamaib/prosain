@@ -159,6 +159,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">TUGAS pipelines</a></li>
+
+
 </ul>
 
     </div>
@@ -360,7 +362,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -376,6 +380,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TUGAS pipelines</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-reqression">Linear Reqression</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">Decision Tree</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -409,7 +424,25 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Data/data_sqlServer.csv&#39;</span><span class="p">)</span>
-<span class="c1"># print(df)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepallength  sepalwidth  petallength  petalwidth           class
+0              6         4.0          1.2         0.2     Iris-setosa
+1              6         4.4          1.5         0.4     Iris-setosa
+2              6         3.8          1.7         0.3     Iris-setosa
+3              6         4.2          1.4         0.2     Iris-setosa
+4              6         3.5          1.3         0.2     Iris-setosa
+..           ...         ...          ...         ...             ...
+145            7         3.1          5.6         2.4  Iris-virginica
+146            7         3.1          5.1         2.3  Iris-virginica
+147            7         3.2          5.9         2.3  Iris-virginica
+148            7         3.3          5.7         2.5  Iris-virginica
+149            7         3.0          5.2         2.3  Iris-virginica
+
+[150 rows x 5 columns]
 </pre></div>
 </div>
 </div>
@@ -418,7 +451,25 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_SqlServer</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;sepallength&#39;</span><span class="p">,</span><span class="s1">&#39;sepalwidth&#39;</span><span class="p">,</span><span class="s1">&#39;petallength&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># data_SqlServer.insert(0, &#39;id&#39;, range(1, 1 + len(df)))</span>
-<span class="c1"># print(data_SqlServer)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_SqlServer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     petalwidth           class
+0           0.2     Iris-setosa
+1           0.4     Iris-setosa
+2           0.3     Iris-setosa
+3           0.2     Iris-setosa
+4           0.2     Iris-setosa
+..          ...             ...
+145         2.4  Iris-virginica
+146         2.3  Iris-virginica
+147         2.3  Iris-virginica
+148         2.5  Iris-virginica
+149         2.3  Iris-virginica
+
+[150 rows x 2 columns]
 </pre></div>
 </div>
 </div>
@@ -431,7 +482,25 @@ document.write(`
 <span class="c1"># metadata = db.MetaData()</span>
 <span class="c1"># census = db.Table(&#39;census&#39;, metadata, autoload=True, autoload_with=engine)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Data/data_postgresSql.csv&#39;</span><span class="p">)</span>
-<span class="c1"># print(df)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepallength  sepalwidth  petallength  petalwidth           class
+0            5.1         3.5          1.4         0.2     Iris-setosa
+1            4.9         3.0          1.4         0.2     Iris-setosa
+2            4.7         3.2          1.3         0.2     Iris-setosa
+3            4.6         3.1          1.5         0.2     Iris-setosa
+4            5.0         3.6          1.4         0.2     Iris-setosa
+..           ...         ...          ...         ...             ...
+145          6.7         3.0          5.2         2.3  Iris-virginica
+146          6.3         2.5          5.0         1.9  Iris-virginica
+147          6.5         3.0          5.2         2.0  Iris-virginica
+148          6.2         3.4          5.4         2.3  Iris-virginica
+149          5.9         3.0          5.1         1.8  Iris-virginica
+
+[150 rows x 5 columns]
 </pre></div>
 </div>
 </div>
@@ -440,7 +509,25 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_postgreSQL</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;sepalwidth&#39;</span><span class="p">,</span><span class="s1">&#39;petallength&#39;</span><span class="p">,</span><span class="s1">&#39;petalwidth&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># data_postgreSQL.insert(0, &#39;id&#39;, range(1, 1 + len(df)))</span>
-<span class="c1"># print(data_postgreSQL)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_postgreSQL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepallength
+0            5.1
+1            4.9
+2            4.7
+3            4.6
+4            5.0
+..           ...
+145          6.7
+146          6.3
+147          6.5
+148          6.2
+149          5.9
+
+[150 rows x 1 columns]
 </pre></div>
 </div>
 </div>
@@ -473,9 +560,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM iris&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM iriss&quot;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-<span class="c1"># print(data)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;sepallegth&#39;, &#39;sepalwidth&#39;, &#39;petallegth&#39;, &#39;petalwidth&#39;, &#39;class&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;4&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;4&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;6&#39;, &#39;4&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;6&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;6&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;1&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;6&#39;, &#39;4&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;6&#39;, &#39;4&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;4&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;2&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;4&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;1&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;4&#39;, &#39;2&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;1&#39;, &#39;0&#39;, &#39;Iris-setosa&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;2&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;5&#39;, &#39;2&#39;, &#39;3&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;5&#39;, &#39;2&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;2&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;2&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;2&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;2&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;2&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;5&#39;, &#39;2&#39;, &#39;3&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;3&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;4&#39;, &#39;1&#39;, &#39;Iris-versicolor&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;6&#39;, &#39;3&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;8&#39;, &#39;3&#39;, &#39;7&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;5&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;4&#39;, &#39;6&#39;, &#39;3&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;8&#39;, &#39;4&#39;, &#39;7&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;8&#39;, &#39;3&#39;, &#39;7&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;2&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;8&#39;, &#39;3&#39;, &#39;7&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;8&#39;, &#39;4&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;6&#39;, &#39;1&#39;, &#39;Iris-virginica&#39;), (&#39;8&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;6&#39;, &#39;3&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;7&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;), (&#39;6&#39;, &#39;3&#39;, &#39;5&#39;, &#39;2&#39;, &#39;Iris-virginica&#39;)]
 </pre></div>
 </div>
 </div>
@@ -483,7 +575,12 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="c1"># print(column)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;sepallegth&#39;, &#39;sepalwidth&#39;, &#39;petallegth&#39;, &#39;petalwidth&#39;, &#39;class&#39;)
 </pre></div>
 </div>
 </div>
@@ -519,7 +616,26 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_postgreSQLCloud</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;sepallegth&#39;</span><span class="p">,</span><span class="s1">&#39;petallegth&#39;</span><span class="p">,</span><span class="s1">&#39;petalwidth&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># data_postgreSQLCloud.insert(0, &#39;id&#39;, range(1, 1 + len(df)))</span>
-<span class="c1"># print(data_postgreSQLCloud)</span>
+<span class="n">data_postgreSQLCloud</span><span class="p">[</span><span class="s1">&#39;sepalwidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data_postgreSQLCloud</span><span class="p">[</span><span class="s1">&#39;sepalwidth&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_postgreSQLCloud</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepalwidth
+0             4
+1             3
+2             3
+3             4
+4             4
+..          ...
+144           3
+145           3
+146           3
+147           3
+148           3
+
+[149 rows x 1 columns]
 </pre></div>
 </div>
 </div>
@@ -542,7 +658,25 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_Mysql</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;sepallength&#39;</span><span class="p">,</span><span class="s1">&#39;sepalwidth&#39;</span><span class="p">,</span><span class="s1">&#39;petalwidth&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># data_Mysql.insert(0, &#39;id&#39;, range(1, 1 + len(df)))</span>
-<span class="c1"># print(data_Mysql)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_Mysql</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     petallength
+0            1.4
+1            1.4
+2            1.3
+3            1.5
+4            1.4
+..           ...
+145          5.2
+146          5.0
+147          5.2
+148          5.4
+149          5.1
+
+[150 rows x 1 columns]
 </pre></div>
 </div>
 </div>
@@ -552,6 +686,8 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import orchest</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
 <span class="c1"># from ipynb.fs.full.PostgresSQLlocal import *</span>
 <span class="c1"># from ipynb.fs.full.PostgresSQLcloud import *</span>
 <span class="c1"># from ipynb.fs.full.MySQLlocal import *</span>
@@ -564,8 +700,8 @@ document.write(`
 <span class="n">df_data</span> <span class="o">=</span> <span class="n">new_data_iris</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">df_target</span> <span class="o">=</span> <span class="n">new_data_iris</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">new_data_iris</span> <span class="o">=</span> <span class="n">new_data_iris</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
-
 <span class="c1"># print(type(new_data_iris))</span>
+
 
 <span class="c1"># df_datatarget = new_data_iris.drop([&#39;class&#39;],axis=1)</span>
 <span class="c1"># df_data = new_data_iris</span>
@@ -576,10 +712,10 @@ document.write(`
 <span class="c1"># The &quot;/data&quot; directory is a special directory managed by Orchest</span>
 <span class="c1"># to allow data to be persisted and shared across pipelines and</span>
 <span class="c1"># even projects.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dowloading California housing data...&quot;</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">data_home</span><span class="o">=</span><span class="s2">&quot;/data&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_data</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_target</span><span class="p">)</span>
+<span class="c1"># print(&quot;Dowloading California housing data...&quot;)</span>
+<span class="c1"># data = datasets.fetch_california_housing(data_home=&quot;/data&quot;)</span>
+<span class="c1"># print(df_data)</span>
+<span class="c1"># print(df_target)</span>
 <span class="c1"># Convert the data into a DataFrame.</span>
 <span class="c1"># df_data = pd.DataFrame(data[&quot;data&quot;], columns=data[&quot;feature_names&quot;])</span>
 <span class="c1"># df_target = pd.DataFrame(data[&quot;target&quot;], columns=[&quot;MedHouseVal&quot;])</span>
@@ -591,165 +727,702 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dowloading California housing data...
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_data</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[5.1 &#39;4&#39; 1.4 0.2]
- [4.9 &#39;3&#39; 1.4 0.4]
- [4.7 &#39;3&#39; 1.3 0.3]
- [4.6 &#39;4&#39; 1.5 0.2]
- [5.0 &#39;4&#39; 1.4 0.2]
- [5.4 &#39;3&#39; 1.7 1.5]
- [4.6 &#39;3&#39; 1.4 1.3]
- [5.0 &#39;3&#39; 1.5 1.5]
- [4.4 &#39;3&#39; 1.4 1.3]
- [4.9 &#39;4&#39; 1.5 1.6]
- [5.4 &#39;3&#39; 1.5 1.5]
- [4.8 &#39;3&#39; 1.6 1.0]
- [4.8 &#39;3&#39; 1.4 1.4]
- [4.3 &#39;4&#39; 1.1 1.3]
- [5.8 &#39;4&#39; 1.2 1.5]
- [5.7 &#39;4&#39; 1.5 1.0]
- [5.4 &#39;4&#39; 1.3 1.5]
- [5.1 &#39;4&#39; 1.4 1.1]
- [5.7 &#39;4&#39; 1.7 1.8]
- [5.1 &#39;3&#39; 1.5 1.3]
- [5.4 &#39;4&#39; 1.7 1.5]
- [5.1 &#39;4&#39; 1.5 1.2]
- [4.6 &#39;3&#39; 1.0 1.3]
- [5.1 &#39;3&#39; 1.7 1.5]
- [4.8 &#39;3&#39; 1.9 1.0]
- [5.0 &#39;3&#39; 1.6 1.1]
- [5.0 &#39;4&#39; 1.6 1.0]
- [5.2 &#39;3&#39; 1.5 1.2]
- [5.2 &#39;3&#39; 1.4 1.6]
- [4.7 &#39;3&#39; 1.6 1.6]
- [4.8 &#39;3&#39; 1.6 1.3]
- [5.4 &#39;4&#39; 1.5 1.3]
- [5.2 &#39;4&#39; 1.5 1.3]
- [5.5 &#39;3&#39; 1.4 1.2]
- [4.9 &#39;3&#39; 1.5 1.4]
- [5.0 &#39;4&#39; 1.2 1.2]
- [5.5 &#39;3&#39; 1.3 1.3]
- [4.9 &#39;3&#39; 1.5 1.2]
- [4.4 &#39;3&#39; 1.3 1.3]
- [5.1 &#39;4&#39; 1.5 1.3]
- [5.0 &#39;2&#39; 1.3 1.3]
- [4.5 &#39;3&#39; 1.3 2.5]
- [4.4 &#39;4&#39; 1.3 1.9]
- [5.0 &#39;4&#39; 1.6 1.8]
- [5.1 &#39;3&#39; 1.9 2.2]
- [4.8 &#39;4&#39; 1.4 2.0]
- [5.1 &#39;3&#39; 1.6 1.9]
- [4.6 &#39;4&#39; 1.4 2.0]
- [5.3 &#39;3&#39; 1.5 2.4]
- [5.0 &#39;3&#39; 1.4 2.3]
- [7.0 &#39;3&#39; 4.7 1.8]
- [6.4 &#39;3&#39; 4.5 1.5]
- [6.9 &#39;2&#39; 4.9 2.0]
- [5.5 &#39;3&#39; 4.0 1.8]
- [6.5 &#39;3&#39; 4.6 1.8]
- [5.7 &#39;3&#39; 4.5 1.8]
- [6.3 &#39;2&#39; 4.7 2.1]
- [4.9 &#39;3&#39; 3.3 2.2]
- [6.6 &#39;3&#39; 4.6 1.5]
- [5.2 &#39;2&#39; 3.9 1.4]
- [5.0 &#39;3&#39; 3.5 2.4]
- [5.9 &#39;2&#39; 4.2 1.8]
- [6.0 &#39;3&#39; 4.0 1.8]
- [6.1 &#39;3&#39; 4.7 1.9]
- [5.6 &#39;3&#39; 3.6 1.9]
- [6.7 &#39;3&#39; 4.4 2.0]
- [5.6 &#39;3&#39; 4.5 2.3]
- [5.8 &#39;2&#39; 4.1 1.8]
- [6.2 &#39;3&#39; 4.5 0.2]
- [5.6 &#39;3&#39; 3.9 0.2]
- [5.9 &#39;3&#39; 4.8 0.2]
- [6.1 &#39;3&#39; 4.0 0.2]
- [6.3 &#39;3&#39; 4.9 0.2]
- [6.1 &#39;3&#39; 4.7 0.4]
- [6.4 &#39;3&#39; 4.3 0.3]
- [6.6 &#39;3&#39; 4.4 0.2]
- [6.8 &#39;3&#39; 4.8 0.2]
- [6.7 &#39;3&#39; 5.0 0.1]
- [6.0 &#39;3&#39; 4.5 0.2]
- [5.7 &#39;2&#39; 3.5 0.2]
- [5.5 &#39;2&#39; 3.8 0.1]
- [5.5 &#39;3&#39; 3.7 0.1]
- [5.8 &#39;3&#39; 3.9 0.4]
- [6.0 &#39;3&#39; 5.1 0.3]
- [5.4 &#39;3&#39; 4.5 0.3]
- [6.0 &#39;3&#39; 4.5 0.2]
- [6.7 &#39;2&#39; 4.7 0.4]
- [6.3 &#39;3&#39; 4.4 0.2]
- [5.6 &#39;3&#39; 4.1 0.5]
- [5.5 &#39;3&#39; 4.0 0.2]
- [5.5 &#39;3&#39; 4.4 0.2]
- [6.1 &#39;3&#39; 4.6 0.4]
- [5.8 &#39;2&#39; 4.0 0.2]
- [5.0 &#39;3&#39; 3.3 0.2]
- [5.6 &#39;3&#39; 4.2 0.2]
- [5.7 &#39;3&#39; 4.2 0.2]
- [5.7 &#39;3&#39; 4.2 0.4]
- [6.2 &#39;3&#39; 4.3 0.1]
- [5.1 &#39;3&#39; 3.0 0.1]
- [5.7 &#39;3&#39; 4.1 0.2]
- [6.3 &#39;3&#39; 6.0 0.1]
- [5.8 &#39;3&#39; 5.1 0.2]
- [7.1 &#39;3&#39; 5.9 0.2]
- [6.3 &#39;3&#39; 5.6 0.3]
- [6.5 &#39;3&#39; 5.8 0.3]
- [7.6 &#39;3&#39; 6.6 0.2]
- [4.9 &#39;3&#39; 4.5 0.6]
- [7.3 &#39;3&#39; 6.3 0.4]
- [6.7 &#39;4&#39; 5.8 0.3]
- [7.2 &#39;3&#39; 6.1 0.2]
- [6.5 &#39;3&#39; 5.1 0.2]
- [6.4 &#39;3&#39; 5.3 0.2]
- [6.8 &#39;3&#39; 5.5 0.2]
- [5.7 &#39;3&#39; 5.0 1.4]
- [5.8 &#39;3&#39; 5.1 1.5]
- [6.4 &#39;3&#39; 5.3 1.0]
- [6.5 &#39;4&#39; 5.5 1.3]
- [7.7 &#39;3&#39; 6.7 1.4]
- [7.7 &#39;2&#39; 6.9 1.0]
- [6.0 &#39;3&#39; 5.0 1.4]
- [6.9 &#39;3&#39; 5.7 1.4]
- [5.6 &#39;3&#39; 4.9 1.4]
- [7.7 &#39;3&#39; 6.7 1.7]
- [6.3 &#39;3&#39; 4.9 1.5]
- [6.7 &#39;3&#39; 5.7 1.5]
- [7.2 &#39;3&#39; 6.0 1.0]
- [6.2 &#39;3&#39; 4.8 1.1]
- [6.1 &#39;3&#39; 4.9 2.1]
- [6.4 &#39;3&#39; 5.6 2.1]
- [7.2 &#39;3&#39; 5.8 1.7]
- [7.4 &#39;4&#39; 6.1 1.8]
- [7.9 &#39;3&#39; 6.4 1.8]
- [6.4 &#39;3&#39; 5.6 2.5]
- [6.3 &#39;3&#39; 5.1 2.1]
- [6.1 &#39;3&#39; 5.6 2.2]
- [7.7 &#39;3&#39; 6.1 2.3]
- [6.3 &#39;3&#39; 5.6 2.3]
- [6.4 &#39;3&#39; 5.5 2.0]
- [6.0 &#39;3&#39; 4.8 2.1]
- [6.9 &#39;3&#39; 5.4 1.8]
- [6.7 &#39;3&#39; 5.6 1.6]
- [6.9 &#39;3&#39; 5.1 1.9]
- [5.8 &#39;3&#39; 5.1 2.0]
- [6.8 &#39;3&#39; 5.9 2.3]
- [6.7 &#39;3&#39; 5.7 2.1]
- [6.7 &#39;3&#39; 5.2 2.4]
- [6.3 &#39;3&#39; 5.0 2.3]
- [6.5 &#39;3&#39; 5.2 2.3]
- [6.2 &#39;3&#39; 5.4 2.5]
- [5.9 nan 5.1 2.3]]
-[0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
- 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0 0
- 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
- 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
- 2 2]
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5.1, 4. , 1.4, 0.2],
+       [4.9, 3. , 1.4, 0.4],
+       [4.7, 3. , 1.3, 0.3],
+       [4.6, 4. , 1.5, 0.2],
+       [5. , 4. , 1.4, 0.2],
+       [5.4, 3. , 1.7, 1.5],
+       [4.6, 3. , 1.4, 1.3],
+       [5. , 3. , 1.5, 1.5],
+       [4.4, 3. , 1.4, 1.3],
+       [4.9, 4. , 1.5, 1.6],
+       [5.4, 3. , 1.5, 1.5],
+       [4.8, 3. , 1.6, 1. ],
+       [4.8, 3. , 1.4, 1.4],
+       [4.3, 4. , 1.1, 1.3],
+       [5.8, 4. , 1.2, 1.5],
+       [5.7, 4. , 1.5, 1. ],
+       [5.4, 4. , 1.3, 1.5],
+       [5.1, 4. , 1.4, 1.1],
+       [5.7, 4. , 1.7, 1.8],
+       [5.1, 3. , 1.5, 1.3],
+       [5.4, 4. , 1.7, 1.5],
+       [5.1, 4. , 1.5, 1.2],
+       [4.6, 3. , 1. , 1.3],
+       [5.1, 3. , 1.7, 1.5],
+       [4.8, 3. , 1.9, 1. ],
+       [5. , 3. , 1.6, 1.1],
+       [5. , 4. , 1.6, 1. ],
+       [5.2, 3. , 1.5, 1.2],
+       [5.2, 3. , 1.4, 1.6],
+       [4.7, 3. , 1.6, 1.6],
+       [4.8, 3. , 1.6, 1.3],
+       [5.4, 4. , 1.5, 1.3],
+       [5.2, 4. , 1.5, 1.3],
+       [5.5, 3. , 1.4, 1.2],
+       [4.9, 3. , 1.5, 1.4],
+       [5. , 4. , 1.2, 1.2],
+       [5.5, 3. , 1.3, 1.3],
+       [4.9, 3. , 1.5, 1.2],
+       [4.4, 3. , 1.3, 1.3],
+       [5.1, 4. , 1.5, 1.3],
+       [5. , 2. , 1.3, 1.3],
+       [4.5, 3. , 1.3, 2.5],
+       [4.4, 4. , 1.3, 1.9],
+       [5. , 4. , 1.6, 1.8],
+       [5.1, 3. , 1.9, 2.2],
+       [4.8, 4. , 1.4, 2. ],
+       [5.1, 3. , 1.6, 1.9],
+       [4.6, 4. , 1.4, 2. ],
+       [5.3, 3. , 1.5, 2.4],
+       [5. , 3. , 1.4, 2.3],
+       [7. , 3. , 4.7, 1.8],
+       [6.4, 3. , 4.5, 1.5],
+       [6.9, 2. , 4.9, 2. ],
+       [5.5, 3. , 4. , 1.8],
+       [6.5, 3. , 4.6, 1.8],
+       [5.7, 3. , 4.5, 1.8],
+       [6.3, 2. , 4.7, 2.1],
+       [4.9, 3. , 3.3, 2.2],
+       [6.6, 3. , 4.6, 1.5],
+       [5.2, 2. , 3.9, 1.4],
+       [5. , 3. , 3.5, 2.4],
+       [5.9, 2. , 4.2, 1.8],
+       [6. , 3. , 4. , 1.8],
+       [6.1, 3. , 4.7, 1.9],
+       [5.6, 3. , 3.6, 1.9],
+       [6.7, 3. , 4.4, 2. ],
+       [5.6, 3. , 4.5, 2.3],
+       [5.8, 2. , 4.1, 1.8],
+       [6.2, 3. , 4.5, 0.2],
+       [5.6, 3. , 3.9, 0.2],
+       [5.9, 3. , 4.8, 0.2],
+       [6.1, 3. , 4. , 0.2],
+       [6.3, 3. , 4.9, 0.2],
+       [6.1, 3. , 4.7, 0.4],
+       [6.4, 3. , 4.3, 0.3],
+       [6.6, 3. , 4.4, 0.2],
+       [6.8, 3. , 4.8, 0.2],
+       [6.7, 3. , 5. , 0.1],
+       [6. , 3. , 4.5, 0.2],
+       [5.7, 2. , 3.5, 0.2],
+       [5.5, 2. , 3.8, 0.1],
+       [5.5, 3. , 3.7, 0.1],
+       [5.8, 3. , 3.9, 0.4],
+       [6. , 3. , 5.1, 0.3],
+       [5.4, 3. , 4.5, 0.3],
+       [6. , 3. , 4.5, 0.2],
+       [6.7, 2. , 4.7, 0.4],
+       [6.3, 3. , 4.4, 0.2],
+       [5.6, 3. , 4.1, 0.5],
+       [5.5, 3. , 4. , 0.2],
+       [5.5, 3. , 4.4, 0.2],
+       [6.1, 3. , 4.6, 0.4],
+       [5.8, 2. , 4. , 0.2],
+       [5. , 3. , 3.3, 0.2],
+       [5.6, 3. , 4.2, 0.2],
+       [5.7, 3. , 4.2, 0.2],
+       [5.7, 3. , 4.2, 0.4],
+       [6.2, 3. , 4.3, 0.1],
+       [5.1, 3. , 3. , 0.1],
+       [5.7, 3. , 4.1, 0.2],
+       [6.3, 3. , 6. , 0.1],
+       [5.8, 3. , 5.1, 0.2],
+       [7.1, 3. , 5.9, 0.2],
+       [6.3, 3. , 5.6, 0.3],
+       [6.5, 3. , 5.8, 0.3],
+       [7.6, 3. , 6.6, 0.2],
+       [4.9, 3. , 4.5, 0.6],
+       [7.3, 3. , 6.3, 0.4],
+       [6.7, 4. , 5.8, 0.3],
+       [7.2, 3. , 6.1, 0.2],
+       [6.5, 3. , 5.1, 0.2],
+       [6.4, 3. , 5.3, 0.2],
+       [6.8, 3. , 5.5, 0.2],
+       [5.7, 3. , 5. , 1.4],
+       [5.8, 3. , 5.1, 1.5],
+       [6.4, 3. , 5.3, 1. ],
+       [6.5, 4. , 5.5, 1.3],
+       [7.7, 3. , 6.7, 1.4],
+       [7.7, 2. , 6.9, 1. ],
+       [6. , 3. , 5. , 1.4],
+       [6.9, 3. , 5.7, 1.4],
+       [5.6, 3. , 4.9, 1.4],
+       [7.7, 3. , 6.7, 1.7],
+       [6.3, 3. , 4.9, 1.5],
+       [6.7, 3. , 5.7, 1.5],
+       [7.2, 3. , 6. , 1. ],
+       [6.2, 3. , 4.8, 1.1],
+       [6.1, 3. , 4.9, 2.1],
+       [6.4, 3. , 5.6, 2.1],
+       [7.2, 3. , 5.8, 1.7],
+       [7.4, 4. , 6.1, 1.8],
+       [7.9, 3. , 6.4, 1.8],
+       [6.4, 3. , 5.6, 2.5],
+       [6.3, 3. , 5.1, 2.1],
+       [6.1, 3. , 5.6, 2.2],
+       [7.7, 3. , 6.1, 2.3],
+       [6.3, 3. , 5.6, 2.3],
+       [6.4, 3. , 5.5, 2. ],
+       [6. , 3. , 4.8, 2.1],
+       [6.9, 3. , 5.4, 1.8],
+       [6.7, 3. , 5.6, 1.6],
+       [6.9, 3. , 5.1, 1.9],
+       [5.8, 3. , 5.1, 2. ],
+       [6.8, 3. , 5.9, 2.3],
+       [6.7, 3. , 5.7, 2.1],
+       [6.7, 3. , 5.2, 2.4],
+       [6.3, 3. , 5. , 2.3],
+       [6.5, 3. , 5.2, 2.3],
+       [6.2, 3. , 5.4, 2.5],
+       [5.9, nan, 5.1, 2.3]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nef_df</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">df_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">NameError</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="n">a567100c6ed7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">nef_df</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">df_data</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nef_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5.1, 4. , 1.4, 0.2],
+       [4.9, 3. , 1.4, 0.4],
+       [4.7, 3. , 1.3, 0.3],
+       [4.6, 4. , 1.5, 0.2],
+       [5. , 4. , 1.4, 0.2],
+       [5.4, 3. , 1.7, 1.5],
+       [4.6, 3. , 1.4, 1.3],
+       [5. , 3. , 1.5, 1.5],
+       [4.4, 3. , 1.4, 1.3],
+       [4.9, 4. , 1.5, 1.6],
+       [5.4, 3. , 1.5, 1.5],
+       [4.8, 3. , 1.6, 1. ],
+       [4.8, 3. , 1.4, 1.4],
+       [4.3, 4. , 1.1, 1.3],
+       [5.8, 4. , 1.2, 1.5],
+       [5.7, 4. , 1.5, 1. ],
+       [5.4, 4. , 1.3, 1.5],
+       [5.1, 4. , 1.4, 1.1],
+       [5.7, 4. , 1.7, 1.8],
+       [5.1, 3. , 1.5, 1.3],
+       [5.4, 4. , 1.7, 1.5],
+       [5.1, 4. , 1.5, 1.2],
+       [4.6, 3. , 1. , 1.3],
+       [5.1, 3. , 1.7, 1.5],
+       [4.8, 3. , 1.9, 1. ],
+       [5. , 3. , 1.6, 1.1],
+       [5. , 4. , 1.6, 1. ],
+       [5.2, 3. , 1.5, 1.2],
+       [5.2, 3. , 1.4, 1.6],
+       [4.7, 3. , 1.6, 1.6],
+       [4.8, 3. , 1.6, 1.3],
+       [5.4, 4. , 1.5, 1.3],
+       [5.2, 4. , 1.5, 1.3],
+       [5.5, 3. , 1.4, 1.2],
+       [4.9, 3. , 1.5, 1.4],
+       [5. , 4. , 1.2, 1.2],
+       [5.5, 3. , 1.3, 1.3],
+       [4.9, 3. , 1.5, 1.2],
+       [4.4, 3. , 1.3, 1.3],
+       [5.1, 4. , 1.5, 1.3],
+       [5. , 2. , 1.3, 1.3],
+       [4.5, 3. , 1.3, 2.5],
+       [4.4, 4. , 1.3, 1.9],
+       [5. , 4. , 1.6, 1.8],
+       [5.1, 3. , 1.9, 2.2],
+       [4.8, 4. , 1.4, 2. ],
+       [5.1, 3. , 1.6, 1.9],
+       [4.6, 4. , 1.4, 2. ],
+       [5.3, 3. , 1.5, 2.4],
+       [5. , 3. , 1.4, 2.3],
+       [7. , 3. , 4.7, 1.8],
+       [6.4, 3. , 4.5, 1.5],
+       [6.9, 2. , 4.9, 2. ],
+       [5.5, 3. , 4. , 1.8],
+       [6.5, 3. , 4.6, 1.8],
+       [5.7, 3. , 4.5, 1.8],
+       [6.3, 2. , 4.7, 2.1],
+       [4.9, 3. , 3.3, 2.2],
+       [6.6, 3. , 4.6, 1.5],
+       [5.2, 2. , 3.9, 1.4],
+       [5. , 3. , 3.5, 2.4],
+       [5.9, 2. , 4.2, 1.8],
+       [6. , 3. , 4. , 1.8],
+       [6.1, 3. , 4.7, 1.9],
+       [5.6, 3. , 3.6, 1.9],
+       [6.7, 3. , 4.4, 2. ],
+       [5.6, 3. , 4.5, 2.3],
+       [5.8, 2. , 4.1, 1.8],
+       [6.2, 3. , 4.5, 0.2],
+       [5.6, 3. , 3.9, 0.2],
+       [5.9, 3. , 4.8, 0.2],
+       [6.1, 3. , 4. , 0.2],
+       [6.3, 3. , 4.9, 0.2],
+       [6.1, 3. , 4.7, 0.4],
+       [6.4, 3. , 4.3, 0.3],
+       [6.6, 3. , 4.4, 0.2],
+       [6.8, 3. , 4.8, 0.2],
+       [6.7, 3. , 5. , 0.1],
+       [6. , 3. , 4.5, 0.2],
+       [5.7, 2. , 3.5, 0.2],
+       [5.5, 2. , 3.8, 0.1],
+       [5.5, 3. , 3.7, 0.1],
+       [5.8, 3. , 3.9, 0.4],
+       [6. , 3. , 5.1, 0.3],
+       [5.4, 3. , 4.5, 0.3],
+       [6. , 3. , 4.5, 0.2],
+       [6.7, 2. , 4.7, 0.4],
+       [6.3, 3. , 4.4, 0.2],
+       [5.6, 3. , 4.1, 0.5],
+       [5.5, 3. , 4. , 0.2],
+       [5.5, 3. , 4.4, 0.2],
+       [6.1, 3. , 4.6, 0.4],
+       [5.8, 2. , 4. , 0.2],
+       [5. , 3. , 3.3, 0.2],
+       [5.6, 3. , 4.2, 0.2],
+       [5.7, 3. , 4.2, 0.2],
+       [5.7, 3. , 4.2, 0.4],
+       [6.2, 3. , 4.3, 0.1],
+       [5.1, 3. , 3. , 0.1],
+       [5.7, 3. , 4.1, 0.2],
+       [6.3, 3. , 6. , 0.1],
+       [5.8, 3. , 5.1, 0.2],
+       [7.1, 3. , 5.9, 0.2],
+       [6.3, 3. , 5.6, 0.3],
+       [6.5, 3. , 5.8, 0.3],
+       [7.6, 3. , 6.6, 0.2],
+       [4.9, 3. , 4.5, 0.6],
+       [7.3, 3. , 6.3, 0.4],
+       [6.7, 4. , 5.8, 0.3],
+       [7.2, 3. , 6.1, 0.2],
+       [6.5, 3. , 5.1, 0.2],
+       [6.4, 3. , 5.3, 0.2],
+       [6.8, 3. , 5.5, 0.2],
+       [5.7, 3. , 5. , 1.4],
+       [5.8, 3. , 5.1, 1.5],
+       [6.4, 3. , 5.3, 1. ],
+       [6.5, 4. , 5.5, 1.3],
+       [7.7, 3. , 6.7, 1.4],
+       [7.7, 2. , 6.9, 1. ],
+       [6. , 3. , 5. , 1.4],
+       [6.9, 3. , 5.7, 1.4],
+       [5.6, 3. , 4.9, 1.4],
+       [7.7, 3. , 6.7, 1.7],
+       [6.3, 3. , 4.9, 1.5],
+       [6.7, 3. , 5.7, 1.5],
+       [7.2, 3. , 6. , 1. ],
+       [6.2, 3. , 4.8, 1.1],
+       [6.1, 3. , 4.9, 2.1],
+       [6.4, 3. , 5.6, 2.1],
+       [7.2, 3. , 5.8, 1.7],
+       [7.4, 4. , 6.1, 1.8],
+       [7.9, 3. , 6.4, 1.8],
+       [6.4, 3. , 5.6, 2.5],
+       [6.3, 3. , 5.1, 2.1],
+       [6.1, 3. , 5.6, 2.2],
+       [7.7, 3. , 6.1, 2.3],
+       [6.3, 3. , 5.6, 2.3],
+       [6.4, 3. , 5.5, 2. ],
+       [6. , 3. , 4.8, 2.1],
+       [6.9, 3. , 5.4, 1.8],
+       [6.7, 3. , 5.6, 1.6],
+       [6.9, 3. , 5.1, 1.9],
+       [5.8, 3. , 5.1, 2. ],
+       [6.8, 3. , 5.9, 2.3],
+       [6.7, 3. , 5.7, 2.1],
+       [6.7, 3. , 5.2, 2.4],
+       [6.3, 3. , 5. , 2.3],
+       [6.5, 3. , 5.2, 2.3],
+       [6.2, 3. , 5.4, 2.5],
+       [5.9, 0. , 5.1, 2.3]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">nef_df</span><span class="p">,</span> <span class="n">df_target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import orchest</span>
+<span class="c1"># from sklearn.model_selection import train_test_split</span>
+<span class="c1"># from sklearn.pipeline import Pipeline</span>
+<span class="c1"># from sklearn.preprocessing import MinMaxScaler</span>
+
+<span class="c1"># # Retrieve the data from the previous step.</span>
+<span class="c1"># data = orchest.get_inputs() </span>
+<span class="c1"># data = [(df_data, df_target)]</span>
+<span class="c1"># X, y = data[&quot;data&quot;]</span>
+
+<span class="c1"># Print messages are useful when you are keeping an eye on the logs of</span>
+<span class="c1"># a pipeline step.</span>
+<span class="c1"># print(&quot;Scaling the data...&quot;)</span>
+
+<span class="c1"># scaler = MinMaxScaler()</span>
+
+<span class="c1"># X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)</span>
+<span class="c1"># X_train = scaler.fit_transform(X_train)</span>
+<span class="c1"># X_test = scaler.transform(X_test)</span>
+<span class="c1"># df_data.dropna(axis=1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import pandas as pd</span>
+<span class="c1"># from numpy import nan</span>
+<span class="c1"># l1 = df_data</span>
+<span class="c1"># l2 = [item for item in l1 if not(df_data.isnan(item)) == True]</span>
+<span class="c1"># l2</span>
+<span class="n">X_test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7.1, 3. , 5.9, 0.2],
+       [6.8, 3. , 5.9, 2.3],
+       [5.8, 3. , 5.1, 2. ],
+       [6.7, 3. , 5.2, 2.4],
+       [5.1, 3. , 1.7, 1.5],
+       [5.4, 4. , 1.5, 1.3],
+       [5.6, 3. , 4.1, 0.5],
+       [5.5, 3. , 1.4, 1.2],
+       [4.8, 3. , 1.6, 1. ],
+       [5.1, 3. , 3. , 0.1],
+       [7.4, 4. , 6.1, 1.8],
+       [7.7, 3. , 6.7, 1.4],
+       [4.9, 3. , 1.4, 0.4],
+       [6.5, 3. , 5.8, 0.3],
+       [6.2, 3. , 4.3, 0.1],
+       [7.2, 3. , 5.8, 1.7],
+       [6. , 3. , 5.1, 0.3],
+       [6.5, 3. , 5.1, 0.2],
+       [6.3, 3. , 4.9, 0.2],
+       [7.7, 3. , 6.7, 1.7],
+       [6.5, 4. , 5.5, 1.3],
+       [6.3, 3. , 6. , 0.1],
+       [5.1, 3. , 1.5, 1.3],
+       [5.6, 3. , 4.9, 1.4],
+       [4.8, 4. , 1.4, 2. ],
+       [4.8, 3. , 1.4, 1.4],
+       [5. , 4. , 1.4, 0.2],
+       [6.1, 3. , 4.9, 2.1],
+       [5.5, 3. , 4. , 1.8],
+       [4.9, 3. , 4.5, 0.6]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># X_train = scaler.fit_transform(X_train)</span>
+<span class="c1"># X_test = scaler.transform(X_test)</span>
+<span class="n">X_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.7, 3. , 5.6, 1.6],
+       [4.8, 3. , 1.4, 1.4],
+       [4.9, 3. , 3.3, 2.2],
+       [5.1, 4. , 1.4, 1.1],
+       [6.4, 3. , 5.3, 1. ],
+       [4.4, 3. , 1.4, 1.3],
+       [4.9, 4. , 1.5, 1.6],
+       [5.7, 3. , 4.5, 1.8],
+       [6. , 3. , 5. , 1.4],
+       [6.6, 3. , 4.6, 1.5],
+       [5.1, 4. , 1.5, 1.2],
+       [5.4, 4. , 1.3, 1.5],
+       [5.6, 3. , 4.2, 0.2],
+       [6.3, 3. , 5.6, 2.3],
+       [5.7, 3. , 4.2, 0.2],
+       [6.7, 2. , 4.7, 0.4],
+       [6.2, 3. , 4.8, 1.1],
+       [5.7, 2. , 3.5, 0.2],
+       [6.7, 3. , 5.7, 2.1],
+       [6.9, 3. , 5.4, 1.8],
+       [5.2, 4. , 1.5, 1.3],
+       [5. , 2. , 1.3, 1.3],
+       [4.9, 3. , 1.4, 0.4],
+       [5.4, 4. , 1.7, 1.5],
+       [6.4, 3. , 4.5, 1.5],
+       [6.9, 3. , 5.7, 1.4],
+       [6.3, 2. , 4.7, 2.1],
+       [5.4, 3. , 1.5, 1.5],
+       [6.4, 3. , 5.6, 2.1],
+       [5.1, 3. , 1.6, 1.9],
+       [6.6, 3. , 4.4, 0.2],
+       [5.1, 4. , 1.4, 0.2],
+       [5. , 4. , 1.6, 1. ],
+       [5.5, 2. , 3.8, 0.1],
+       [6.7, 4. , 5.8, 0.3],
+       [7.7, 3. , 6.7, 1.7],
+       [7.6, 3. , 6.6, 0.2],
+       [5.5, 3. , 3.7, 0.1],
+       [5.8, 4. , 1.2, 1.5],
+       [6.4, 3. , 5.3, 0.2],
+       [5.4, 3. , 4.5, 0.3],
+       [5.1, 3. , 3. , 0.1],
+       [7.3, 3. , 6.3, 0.4],
+       [4.8, 3. , 1.6, 1. ],
+       [5.7, 4. , 1.5, 1. ],
+       [4.8, 3. , 1.9, 1. ],
+       [6.2, 3. , 4.3, 0.1],
+       [5. , 4. , 1.2, 1.2],
+       [6. , 3. , 5.1, 0.3],
+       [5.5, 3. , 1.4, 1.2],
+       [6.2, 3. , 4.5, 0.2],
+       [6.3, 3. , 5. , 2.3],
+       [6.3, 3. , 4.9, 0.2],
+       [6. , 3. , 4.8, 2.1],
+       [5.6, 3. , 4.5, 2.3],
+       [7.2, 3. , 5.8, 1.7],
+       [6.3, 3. , 4.9, 1.5],
+       [6.1, 3. , 4.9, 2.1],
+       [4.9, 3. , 1.5, 1.2],
+       [6.1, 3. , 4. , 0.2],
+       [6.1, 3. , 4.7, 1.9],
+       [6. , 3. , 4. , 1.8],
+       [5.5, 3. , 1.3, 1.3],
+       [6.5, 3. , 5.1, 0.2],
+       [4.5, 3. , 1.3, 2.5],
+       [6.7, 3. , 5.2, 2.4],
+       [5.6, 3. , 3.9, 0.2],
+       [6.3, 3. , 6. , 0.1],
+       [7.2, 3. , 6.1, 0.2],
+       [7.7, 3. , 6.7, 1.4],
+       [6.8, 3. , 4.8, 0.2],
+       [5.7, 4. , 1.7, 1.8],
+       [6.3, 3. , 5.6, 0.3],
+       [4.4, 4. , 1.3, 1.9],
+       [4.6, 4. , 1.5, 0.2],
+       [5. , 3. , 1.5, 1.5],
+       [6. , 3. , 4.5, 0.2],
+       [6.3, 3. , 4.4, 0.2],
+       [6.7, 3. , 5. , 0.1],
+       [6.3, 3. , 5.1, 2.1],
+       [6.2, 3. , 5.4, 2.5],
+       [6.4, 3. , 4.3, 0.3],
+       [6.9, 3. , 5.1, 1.9],
+       [4.9, 3. , 1.5, 1.4],
+       [5.8, 3. , 5.1, 2. ],
+       [5.8, 2. , 4. , 0.2],
+       [5.9, 3. , 4.8, 0.2],
+       [5.7, 3. , 4.2, 0.4],
+       [6.5, 3. , 4.6, 1.8],
+       [5.2, 2. , 3.9, 1.4],
+       [5.6, 3. , 4.1, 0.5],
+       [4.9, 3. , 4.5, 0.6],
+       [5. , 3. , 1.6, 1.1],
+       [5.8, 2. , 4.1, 1.8],
+       [4.6, 3. , 1. , 1.3],
+       [5.5, 3. , 4. , 1.8],
+       [6.5, 3. , 5.8, 0.3],
+       [5.7, 3. , 5. , 1.4],
+       [5. , 4. , 1.6, 1.8],
+       [6.7, 3. , 4.4, 2. ],
+       [6.7, 3. , 5.7, 1.5],
+       [5.1, 3. , 1.9, 2.2],
+       [6.5, 3. , 5.2, 2.3],
+       [4.3, 4. , 1.1, 1.3],
+       [6.5, 4. , 5.5, 1.3],
+       [6.1, 3. , 4.7, 0.4],
+       [5.8, 3. , 5.1, 1.5],
+       [7.7, 2. , 6.9, 1. ],
+       [5. , 3. , 3.3, 0.2],
+       [5.5, 3. , 4. , 0.2],
+       [5.9, 0. , 5.1, 2.3],
+       [7.9, 3. , 6.4, 1.8],
+       [6.1, 3. , 5.6, 2.2],
+       [5.7, 3. , 4.1, 0.2],
+       [5. , 4. , 1.4, 0.2],
+       [7.2, 3. , 6. , 1. ],
+       [5.5, 3. , 4.4, 0.2],
+       [6.1, 3. , 4.6, 0.4],
+       [5.8, 3. , 5.1, 0.2],
+       [5. , 3. , 3.5, 2.4]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 2., 1., 1., 2., 0., 0., 1., 0., 1., 2., 1., 1., 2., 2., 1., 0.,
+       2., 2., 2., 0., 2., 2., 0., 2., 1., 1., 2., 0., 2., 1., 0., 1., 2.,
+       1., 2., 1., 2., 0., 2., 0., 0., 1., 0., 0., 0., 1., 1., 1., 0., 0.,
+       0., 1., 0., 1., 2., 2., 0., 1., 2., 0., 2., 0., 1., 2., 0., 1., 2.,
+       1., 0., 0., 2., 2., 0., 2., 1., 1., 1., 1., 2., 1., 0., 1., 0., 0.,
+       0., 0., 1., 1., 2., 2., 0., 2., 0., 2., 0., 0., 2., 0., 1., 0., 1.,
+       1., 2., 0., 2., 0., 1., 0., 2., 2., 2., 0., 1., 2., 2., 2., 1., 2.,
+       1.])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="linear-reqression">
+<h1>Linear Reqression<a class="headerlink" href="#linear-reqression" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X_test.dropna(axis=0)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a prediction and determine the error.</span>
+<span class="n">y_test_prediction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_test_prediction</span><span class="p">)</span>
+<span class="c1"># test_rmse_lr =model.score(X_test,y_test)</span>
+<span class="n">test_rmse_lr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_prediction</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.  2.  1.  0.  1.  2. -0.  1.  2.  0.  1.  2.  2.  1.  1.  2.  2.  2.
+  0.  1.  1.  2.  2.  0.  2.  2.  2.  1.  1.  1.]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="decision-tree">
+<h1>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="c1"># Fit model.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeRegressor()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeRegressor</label><div class="sk-toggleable__content"><pre>DecisionTreeRegressor()</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a prediction and determine the error.</span>
+<span class="n">y_test_prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">test_rmse_dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_prediction</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>#svm</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span><span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="c1"># Fit model.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-5 {color: black;background-color: white;}#sk-container-id-5 pre{padding: 0;}#sk-container-id-5 div.sk-toggleable {background-color: white;}#sk-container-id-5 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-5 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-5 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-5 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-5 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-5 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-5 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-5 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-5 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-5 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-5 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-5 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-5 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-5 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-5 div.sk-item {position: relative;z-index: 1;}#sk-container-id-5 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-5 div.sk-item::before, #sk-container-id-5 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-5 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-5 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-5 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-5 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-5 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-5 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-5 div.sk-label-container {text-align: center;}#sk-container-id-5 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-5 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SVR()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" checked><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">SVR</label><div class="sk-toggleable__content"><pre>SVR()</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a prediction and determine the error.</span>
+<span class="n">y_test_prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">y_test_prediction</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">y_test_prediction</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_test_prediction</span><span class="p">)</span>
+<span class="n">test_rmse_svm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_prediction</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.  2.  1.  0.  1.  2. -0.  1.  2.  0.  1.  2.  2.  1.  1.  2.  2.  2.
+  0.  1.  1.  2.  1.  0.  2.  2.  2.  1.  1.  1.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>#result</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;linear-regression-rmse : </span><span class="si">{</span><span class="n">test_rmse_lr</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;decision-tree-regressor-rmse : </span><span class="si">{</span><span class="n">test_rmse_dt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;svm-regressor-rmse  : </span><span class="si">{</span><span class="n">test_rmse_svm</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>linear-regression-rmse : 1.0
+decision-tree-regressor-rmse : 0.983192080250175
+svm-regressor-rmse  : 0.983192080250175
 </pre></div>
 </div>
 </div>
@@ -799,6 +1472,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TUGAS pipelines</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-reqression">Linear Reqression</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">Decision Tree</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
