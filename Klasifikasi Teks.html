@@ -427,7 +427,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-07fa31b4-0934-49ba-8147-85c899fb5a8f">
+  <div id="df-0a867c84-356f-4c34-a290-4488fde8630d">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -511,7 +511,7 @@ document.write(`
 </table>
 <p>805 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-07fa31b4-0934-49ba-8147-85c899fb5a8f')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0a867c84-356f-4c34-a290-4488fde8630d')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -562,12 +562,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-07fa31b4-0934-49ba-8147-85c899fb5a8f button.colab-df-convert');
+          document.querySelector('#df-0a867c84-356f-4c34-a290-4488fde8630d button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-07fa31b4-0934-49ba-8147-85c899fb5a8f');
+          const element = document.querySelector('#df-0a867c84-356f-4c34-a290-4488fde8630d');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -686,6 +686,13 @@ document.write(`
 <span class="ne">--&gt; </span><span class="mi">210</span>     <span class="k">return</span> <span class="n">_compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">211</span> 
 <span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">def</span> <span class="nf">subn</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<span class="nn">/usr/lib/python3.9/re.py</span> in <span class="ni">filter</span><span class="nt">(match, template)</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="c1"># literal replacement</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="k">return</span> <span class="n">template</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">331</span>     <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="n">template</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>         <span class="k">return</span> <span class="n">sre_parse</span><span class="o">.</span><span class="n">expand_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">match</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span>     <span class="k">return</span> <span class="nb">filter</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
