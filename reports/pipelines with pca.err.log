@@ -17,57 +17,72 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-data_postgreSQLCloud= df.drop(['petallength','petalwidth','class'],axis=1)
-data_postgreSQLCloud['sepallength'] = pd.to_numeric(data_postgreSQLCloud['sepallength'])
-data_postgreSQLCloud['sepalwidth'] = pd.to_numeric(data_postgreSQLCloud['sepalwidth'])
+import mysql.connector
+mydb = mysql.connector.connect(
+  host="sql10.freemysqlhosting.net",
+  user="sql10605964",
+  password="HlZVvJbmQQ",
+  database = "sql10605964"
+)
+cursor = mydb.cursor()
+cursor.execute("select * from TABLE1")
+result = cursor.fetchall()
 
-print(data_postgreSQLCloud)
+column =['sepallength','sepalwidth','petallength','petalwidth','class']
+data_sql = pd.DataFrame(result,columns =column )
+print(data_sql.head())
+data_Mysql= data_sql.drop(['sepallength','sepalwidth','petalwidth','class'],axis=1)
+data_Mysql['petallength'] = pd.to_numeric(data_Mysql['petallength'])
+data_Mysql
 ------------------
 
 [0;31m[0m
-[0;31mKeyError[0mTraceback (most recent call last)
-[0;32m<ipython-input-13-26967c2e3213>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0mdata_postgreSQLCloud[0m[0;34m=[0m [0mdf[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0;34m[[0m[0;34m'petallength'[0m[0;34m,[0m[0;34m'petalwidth'[0m[0;34m,[0m[0;34m'class'[0m[0;34m][0m[0;34m,[0m[0maxis[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0mdata_postgreSQLCloud[0m[0;34m[[0m[0;34m'sepallength'[0m[0;34m][0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mto_numeric[0m[0;34m([0m[0mdata_postgreSQLCloud[0m[0;34m[[0m[0;34m'sepallength'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0mdata_postgreSQLCloud[0m[0;34m[[0m[0;34m'sepalwidth'[0m[0;34m][0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mto_numeric[0m[0;34m([0m[0mdata_postgreSQLCloud[0m[0;34m[[0m[0;34m'sepalwidth'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0;34m[0m[0m
-[1;32m      5[0m [0mprint[0m[0;34m([0m[0mdata_postgreSQLCloud[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mMySQLInterfaceError[0mTraceback (most recent call last)
+[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m_open_connection[0;34m(self)[0m
+[1;32m    287[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 288[0;31m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m**[0m[0mcnx_kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    289[0m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconverter_str_fallback[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_converter_str_fallback[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.9/dist-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
-[1;32m    309[0m                     [0mstacklevel[0m[0;34m=[0m[0mstacklevel[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    310[0m                 )
-[0;32m--> 311[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    312[0m [0;34m[0m[0m
-[1;32m    313[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+[0;31mMySQLInterfaceError[0m: Access denied for user 'sql10605964'@'35.238.210.244' (using password: YES)
 
-[0;32m/usr/local/lib/python3.9/dist-packages/pandas/core/frame.py[0m in [0;36mdrop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
-[1;32m   4955[0m                 [0mweight[0m  [0;36m1.0[0m     [0;36m0.8[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   4956[0m         """
-[0;32m-> 4957[0;31m         return super().drop(
-[0m[1;32m   4958[0m             [0mlabels[0m[0;34m=[0m[0mlabels[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   4959[0m             [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+The above exception was the direct cause of the following exception:
 
-[0;32m/usr/local/lib/python3.9/dist-packages/pandas/core/generic.py[0m in [0;36mdrop[0;34m(self, labels, axis, index, columns, level, inplace, errors)[0m
-[1;32m   4265[0m         [0;32mfor[0m [0maxis[0m[0;34m,[0m [0mlabels[0m [0;32min[0m [0maxes[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   4266[0m             [0;32mif[0m [0mlabels[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 4267[0;31m                 [0mobj[0m [0;34m=[0m [0mobj[0m[0;34m.[0m[0m_drop_axis[0m[0;34m([0m[0mlabels[0m[0;34m,[0m [0maxis[0m[0;34m,[0m [0mlevel[0m[0;34m=[0m[0mlevel[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   4268[0m [0;34m[0m[0m
-[1;32m   4269[0m         [0;32mif[0m [0minplace[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;31mProgrammingError[0mTraceback (most recent call last)
+[0;32m<ipython-input-7-93450956c2f1>[0m in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m [0;32mimport[0m [0mmysql[0m[0;34m.[0m[0mconnector[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m mydb = mysql.connector.connect(
+[0m[1;32m      3[0m   [0mhost[0m[0;34m=[0m[0;34m"sql10.freemysqlhosting.net"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m   [0muser[0m[0;34m=[0m[0;34m"sql10605964"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m   [0mpassword[0m[0;34m=[0m[0;34m"HlZVvJbmQQ"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.9/dist-packages/pandas/core/generic.py[0m in [0;36m_drop_axis[0;34m(self, labels, axis, level, errors, consolidate, only_slice)[0m
-[1;32m   4309[0m                 [0mnew_axis[0m [0;34m=[0m [0maxis[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0mlabels[0m[0;34m,[0m [0mlevel[0m[0;34m=[0m[0mlevel[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   4310[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 4311[0;31m                 [0mnew_axis[0m [0;34m=[0m [0maxis[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0mlabels[0m[0;34m,[0m [0merrors[0m[0;34m=[0m[0merrors[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   4312[0m             [0mindexer[0m [0;34m=[0m [0maxis[0m[0;34m.[0m[0mget_indexer[0m[0;34m([0m[0mnew_axis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   4313[0m [0;34m[0m[0m
+[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/pooling.py[0m in [0;36mconnect[0;34m(*args, **kwargs)[0m
+[1;32m    291[0m [0;34m[0m[0m
+[1;32m    292[0m     [0;32mif[0m [0mCMySQLConnection[0m [0;32mand[0m [0;32mnot[0m [0muse_pure[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 293[0;31m         [0;32mreturn[0m [0mCMySQLConnection[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    294[0m     [0;32mreturn[0m [0mMySQLConnection[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    295[0m [0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.9/dist-packages/pandas/core/indexes/base.py[0m in [0;36mdrop[0;34m(self, labels, errors)[0m
-[1;32m   6659[0m         [0;32mif[0m [0mmask[0m[0;34m.[0m[0many[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   6660[0m             [0;32mif[0m [0merrors[0m [0;34m!=[0m [0;34m"ignore"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 6661[0;31m                 [0;32mraise[0m [0mKeyError[0m[0;34m([0m[0;34mf"{list(labels[mask])} not found in axis"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   6662[0m             [0mindexer[0m [0;34m=[0m [0mindexer[0m[0;34m[[0m[0;34m~[0m[0mmask[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m   6663[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdelete[0m[0;34m([0m[0mindexer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m__init__[0;34m(self, **kwargs)[0m
+[1;32m    116[0m [0;34m[0m[0m
+[1;32m    117[0m         [0;32mif[0m [0mkwargs[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 118[0;31m             [0mself[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    119[0m [0;34m[0m[0m
+[1;32m    120[0m     [0;32mdef[0m [0m_add_default_conn_attrs[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mKeyError[0m: "['petallength'] not found in axis"
-KeyError: "['petallength'] not found in axis"
+[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/abstracts.py[0m in [0;36mconnect[0;34m(self, **kwargs)[0m
+[1;32m   1176[0m [0;34m[0m[0m
+[1;32m   1177[0m         [0mself[0m[0;34m.[0m[0mdisconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1178[0;31m         [0mself[0m[0;34m.[0m[0m_open_connection[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1179[0m         [0;31m# Server does not allow to run any other statement different from ALTER[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1180[0m         [0;31m# when user's password has been expired.[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m_open_connection[0;34m(self)[0m
+[1;32m    291[0m                 [0mself[0m[0;34m.[0m[0mconverter[0m[0;34m.[0m[0mstr_fallback[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_converter_str_fallback[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    292[0m         [0;32mexcept[0m [0mMySQLInterfaceError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 293[0;31m             raise get_mysql_exception(
+[0m[1;32m    294[0m                 [0mmsg[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0mmsg[0m[0;34m,[0m [0merrno[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0merrno[0m[0;34m,[0m [0msqlstate[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0msqlstate[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    295[0m             ) from err
+
+[0;31mProgrammingError[0m: 1045 (28000): Access denied for user 'sql10605964'@'35.238.210.244' (using password: YES)
+ProgrammingError: 1045 (28000): Access denied for user 'sql10605964'@'35.238.210.244' (using password: YES)
 

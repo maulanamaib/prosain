@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,8 +37,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'pipelines with pca';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="Klasifikasi%20Teks.html" />
     <link rel="prev" title="TUGAS pipelines" href="getdata.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -513,21 +514,25 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting mysql-connector-python
   Downloading mysql_connector_python-8.0.32-cp39-cp39-manylinux1_x86_64.whl (23.5 MB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/23.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.4/23.5 MB</span> <span class=" -Color -Color-Red">11.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
+     ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.6/23.5 MB</span> <span class=" -Color -Color-Red">49.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.1/23.5 MB</span> <span class=" -Color -Color-Red">74.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.2/23.5 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
-     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.1/23.5 MB</span> <span class=" -Color -Color-Red">16.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-     ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.6/23.5 MB</span> <span class=" -Color -Color-Red">53.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.5/23.5 MB</span> <span class=" -Color -Color-Red">150.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">17.6/23.5 MB</span> <span class=" -Color -Color-Red">171.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">173.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">173.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">173.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.4/23.5 MB</span> <span class=" -Color -Color-Red">121.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">17.0/23.5 MB</span> <span class=" -Color -Color-Red">123.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━ <span class=" -Color -Color-Green">21.6/23.5 MB</span> <span class=" -Color -Color-Red">125.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">129.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">129.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">129.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">173.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">49.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: protobuf&lt;=3.20.3,&gt;=3.11.0 in /usr/local/lib/python3.9/dist-packages (from mysql-connector-python) (3.19.6)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">129.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">46.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: protobuf&lt;=3.20.3,&gt;=3.11.0 in /usr/local/lib/python3.9/dist-packages (from mysql-connector-python) (3.20.3)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: mysql-connector-python
@@ -561,163 +566,56 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  sepallength sepalwidth petallength petalwidth        class
-0         5.1        3.5         1.4        0.2  Iris-setosa
-1         4.9        3.0         1.4        0.2  Iris-setosa
-2         4.7        3.2         1.3        0.2  Iris-setosa
-3         4.6        3.1         1.5        0.2  Iris-setosa
-4         5.0        3.6         1.4        0.2  Iris-setosa
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">MySQLInterfaceError</span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.9/dist-packages/mysql/connector/connection_cext.py</span> in <span class="ni">_open_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">287</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">288</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_cmysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">**</span><span class="n">cnx_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">289</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_cmysql</span><span class="o">.</span><span class="n">converter_str_fallback</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_converter_str_fallback</span>
+
+<span class="ne">MySQLInterfaceError</span>: Access denied for user &#39;sql10605964&#39;@&#39;35.238.210.244&#39; (using password: YES)
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ProgrammingError</span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-7-93450956c2f1&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">mysql.connector</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">mydb</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>   <span class="n">host</span><span class="o">=</span><span class="s2">&quot;sql10.freemysqlhosting.net&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="n">user</span><span class="o">=</span><span class="s2">&quot;sql10605964&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>   <span class="n">password</span><span class="o">=</span><span class="s2">&quot;HlZVvJbmQQ&quot;</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/mysql/connector/pooling.py</span> in <span class="ni">connect</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span> 
+<span class="g g-Whitespace">    </span><span class="mi">292</span>     <span class="k">if</span> <span class="n">CMySQLConnection</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">use_pure</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">293</span>         <span class="k">return</span> <span class="n">CMySQLConnection</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span>     <span class="k">return</span> <span class="n">MySQLConnection</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span> 
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/mysql/connector/connection_cext.py</span> in <span class="ni">__init__</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span> 
+<span class="g g-Whitespace">    </span><span class="mi">117</span>         <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">118</span>             <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span> 
+<span class="g g-Whitespace">    </span><span class="mi">120</span>     <span class="k">def</span> <span class="nf">_add_default_conn_attrs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/mysql/connector/abstracts.py</span> in <span class="ni">connect</span><span class="nt">(self, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="bp">self</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1178</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>         <span class="c1"># Server does not allow to run any other statement different from ALTER</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>         <span class="c1"># when user&#39;s password has been expired.</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/mysql/connector/connection_cext.py</span> in <span class="ni">_open_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">converter</span><span class="o">.</span><span class="n">str_fallback</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_converter_str_fallback</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span>         <span class="k">except</span> <span class="n">MySQLInterfaceError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">293</span>             <span class="k">raise</span> <span class="n">get_mysql_exception</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span>                 <span class="n">msg</span><span class="o">=</span><span class="n">err</span><span class="o">.</span><span class="n">msg</span><span class="p">,</span> <span class="n">errno</span><span class="o">=</span><span class="n">err</span><span class="o">.</span><span class="n">errno</span><span class="p">,</span> <span class="n">sqlstate</span><span class="o">=</span><span class="n">err</span><span class="o">.</span><span class="n">sqlstate</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span>             <span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+
+<span class="ne">ProgrammingError</span>: 1045 (28000): Access denied for user &#39;sql10605964&#39;@&#39;35.238.210.244&#39; (using password: YES)
 </pre></div>
 </div>
-<div class="output text_html">
-  <div id="df-0b8354b1-eb27-4752-b610-fc202bbfb776">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>petallength</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1.4</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1.4</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.3</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1.5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.4</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>145</th>
-      <td>5.2</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>147</th>
-      <td>5.2</td>
-    </tr>
-    <tr>
-      <th>148</th>
-      <td>5.4</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>5.1</td>
-    </tr>
-  </tbody>
-</table>
-<p>150 rows × 1 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-0b8354b1-eb27-4752-b610-fc202bbfb776')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-0b8354b1-eb27-4752-b610-fc202bbfb776 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-0b8354b1-eb27-4752-b610-fc202bbfb776');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
 </div>
 </div>
 <div class="section" id="postgres-cloud">
@@ -805,50 +703,20 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyError</span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">26967</span><span class="n">c2e3213</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_postgreSQLCloud</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;petallength&#39;</span><span class="p">,</span><span class="s1">&#39;petalwidth&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">data_postgreSQLCloud</span><span class="p">[</span><span class="s1">&#39;sepallength&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data_postgreSQLCloud</span><span class="p">[</span><span class="s1">&#39;sepallength&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data_postgreSQLCloud</span><span class="p">[</span><span class="s1">&#39;sepalwidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data_postgreSQLCloud</span><span class="p">[</span><span class="s1">&#39;sepalwidth&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">data_postgreSQLCloud</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepallength  sepalwidth
+0            5.1         3.5
+1            4.9         3.0
+2            4.7         3.2
+3            4.6         3.1
+4            5.0         3.6
+..           ...         ...
+145          6.7         3.0
+146          6.3         2.5
+147          6.5         3.0
+148          6.2         3.4
+149          5.9         3.0
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span> 
-<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/frame.py</span> in <span class="ni">drop</span><span class="nt">(self, labels, axis, index, columns, level, inplace, errors)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4955</span>                 <span class="n">weight</span>  <span class="mf">1.0</span>     <span class="mf">0.8</span>
-<span class="g g-Whitespace">   </span><span class="mi">4956</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">4957</span><span class="s2">         return super().drop(</span>
-<span class="g g-Whitespace">   </span><span class="mi">4958</span><span class="s2">             labels=labels,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4959</span><span class="s2">             axis=axis,</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/generic.py</span> in <span class="ni">drop</span><span class="nt">(self, labels, axis, index, columns, level, inplace, errors)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4265</span><span class="s2">         for axis, labels in axes.items():</span>
-<span class="g g-Whitespace">   </span><span class="mi">4266</span><span class="s2">             if labels is not None:</span>
-<span class="ne">-&gt; </span><span class="mi">4267</span><span class="s2">                 obj = obj._drop_axis(labels, axis, level=level, errors=errors)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4268</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">4269</span><span class="s2">         if inplace:</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/generic.py</span> in <span class="ni">_drop_axis</span><span class="nt">(self, labels, axis, level, errors, consolidate, only_slice)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4309</span><span class="s2">                 new_axis = axis.drop(labels, level=level, errors=errors)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4310</span><span class="s2">             else:</span>
-<span class="ne">-&gt; </span><span class="mi">4311</span><span class="s2">                 new_axis = axis.drop(labels, errors=errors)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4312</span><span class="s2">             indexer = axis.get_indexer(new_axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4313</span><span class="s2"> </span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/indexes/base.py</span> in <span class="ni">drop</span><span class="nt">(self, labels, errors)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6659</span><span class="s2">         if mask.any():</span>
-<span class="g g-Whitespace">   </span><span class="mi">6660</span><span class="s2">             if errors != &quot;ignore&quot;:</span>
-<span class="ne">-&gt; </span><span class="mi">6661</span><span class="s2">                 raise KeyError(f&quot;{list(labels[mask])} not found in axis&quot;)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6662</span><span class="s2">             indexer = indexer[~mask]</span>
-<span class="g g-Whitespace">   </span><span class="mi">6663</span><span class="s2">         return self.delete(indexer)</span>
-
-<span class="ne">KeyError</span>: &quot;[&#39;petallength&#39;] not found in axis&quot;
+[150 rows x 2 columns]
 </pre></div>
 </div>
 </div>
@@ -1531,7 +1399,10 @@ svm-regressor-rmse  : 0.9660917830792959
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="getdata.html"
@@ -1542,7 +1413,19 @@ svm-regressor-rmse  : 0.9660917830792959
         <p class="prev-next-title">TUGAS pipelines</p>
       </div>
     </a>
+    <a class="right-next"
+       href="Klasifikasi%20Teks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1577,7 +1460,7 @@ svm-regressor-rmse  : 0.9660917830792959
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1607,7 +1490,7 @@ By Maulana
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1616,8 +1499,8 @@ By Maulana
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

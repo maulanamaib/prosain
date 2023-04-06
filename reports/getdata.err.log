@@ -22,7 +22,7 @@ nef_df = np.nan_to_num(df_data)
 
 [0;31m[0m
 [0;31mNameError[0mTraceback (most recent call last)
-[0;32m<ipython-input-18-a567100c6ed7>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-18-a567100c6ed7>[0m in [0;36m<cell line: 1>[0;34m()[0m
 [0;32m----> 1[0;31m [0mnef_df[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mnan_to_num[0m[0;34m([0m[0mdf_data[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;31mNameError[0m: name 'np' is not defined
