@@ -153,10 +153,13 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Home</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Task</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getdata.html">TUGAS pipelines</a></li>
 
 
@@ -544,7 +547,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ecad0dec-2b9c-446d-8d67-a4eea12aa9f6">
+  <div id="df-0e537b6e-2f18-41a8-8897-f73d8e4fe768">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -676,7 +679,7 @@ document.write(`
 </table>
 <p>860 rows × 6 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-ecad0dec-2b9c-446d-8d67-a4eea12aa9f6')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0e537b6e-2f18-41a8-8897-f73d8e4fe768')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -727,12 +730,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-ecad0dec-2b9c-446d-8d67-a4eea12aa9f6 button.colab-df-convert');
+          document.querySelector('#df-0e537b6e-2f18-41a8-8897-f73d8e4fe768 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-ecad0dec-2b9c-446d-8d67-a4eea12aa9f6');
+          const element = document.querySelector('#df-0e537b6e-2f18-41a8-8897-f73d8e4fe768');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1622,7 +1625,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-2988608c-4deb-49b5-8b1b-438c41c4aac2">
+  <div id="df-39e46b85-6690-4643-a0b8-50abda50f3f4">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1934,7 +1937,7 @@ document.write(`
 </table>
 <p>831 rows × 9246 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-2988608c-4deb-49b5-8b1b-438c41c4aac2')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-39e46b85-6690-4643-a0b8-50abda50f3f4')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1985,12 +1988,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-2988608c-4deb-49b5-8b1b-438c41c4aac2 button.colab-df-convert');
+          document.querySelector('#df-39e46b85-6690-4643-a0b8-50abda50f3f4 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-2988608c-4deb-49b5-8b1b-438c41c4aac2');
+          const element = document.querySelector('#df-39e46b85-6690-4643-a0b8-50abda50f3f4');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2097,11 +2100,11 @@ Name: sistem, Length: 831, dtype: int64
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are 18828 records: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">18828</span><span class="p">))</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/generic.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5573</span>         <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5574</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">5575</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5576</span> 
-<span class="g g-Whitespace">   </span><span class="mi">5577</span>     <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">5900</span>         <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5901</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">5902</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5903</span> 
+<span class="g g-Whitespace">   </span><span class="mi">5904</span>     <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
 <span class="ne">AttributeError</span>: &#39;DataFrame&#39; object has no attribute &#39;label&#39;
 </pre></div>
