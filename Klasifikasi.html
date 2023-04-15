@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Klasifikasi';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extractive-Text-Summarization" href="Extractive-Text-Summarization.html" />
     <link rel="prev" title="Pipelines with PCA" href="pipelines%20with%20pca.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -168,6 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="pipelines%20with%20pca.html">Pipelines with PCA</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Klasifikasi Teks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extractive-Text-Summarization.html">Extractive-Text-Summarization</a></li>
 </ul>
 
     </div>
@@ -422,7 +424,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-774b4324-9673-458f-b236-bfb9d7169cef">
+  <div id="df-a5d11267-e1c9-4a74-b843-63b7fef734e0">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -506,7 +508,7 @@ document.write(`
 </table>
 <p>805 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-774b4324-9673-458f-b236-bfb9d7169cef')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a5d11267-e1c9-4a74-b843-63b7fef734e0')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -557,12 +559,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-774b4324-9673-458f-b236-bfb9d7169cef button.colab-df-convert');
+          document.querySelector('#df-a5d11267-e1c9-4a74-b843-63b7fef734e0 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-774b4324-9673-458f-b236-bfb9d7169cef');
+          const element = document.querySelector('#df-a5d11267-e1c9-4a74-b843-63b7fef734e0');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -681,6 +683,13 @@ document.write(`
 <span class="ne">--&gt; </span><span class="mi">210</span>     <span class="k">return</span> <span class="n">_compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">211</span> 
 <span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">def</span> <span class="nf">subn</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<span class="nn">/usr/lib/python3.9/re.py</span> in <span class="ni">filter</span><span class="nt">(match, template)</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="c1"># literal replacement</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="k">return</span> <span class="n">template</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">331</span>     <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="n">template</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>         <span class="k">return</span> <span class="n">sre_parse</span><span class="o">.</span><span class="n">expand_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">match</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span>     <span class="k">return</span> <span class="nb">filter</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -2804,6 +2813,15 @@ weighted avg       0.85      0.85      0.85       161
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Pipelines with PCA</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Extractive-Text-Summarization.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Extractive-Text-Summarization</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
