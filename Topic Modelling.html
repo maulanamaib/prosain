@@ -408,13 +408,13 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: youtube-comment-scraper-python in /usr/local/lib/python3.10/dist-packages (1.0.0)
-Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from youtube-comment-scraper-python) (2.27.1)
 Requirement already satisfied: bot-studio in /usr/local/lib/python3.10/dist-packages (from youtube-comment-scraper-python) (1.4.0)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from youtube-comment-scraper-python) (2.27.1)
 Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from bot-studio-&gt;youtube-comment-scraper-python) (4.65.0)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (3.4)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (1.26.15)
 Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (2.0.12)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (1.26.15)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (2022.12.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (3.4)
 </pre></div>
 </div>
 </div>
@@ -442,20 +442,22 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: selenium in /usr/local/lib/python3.10/dist-packages (4.9.1)
+Requirement already satisfied: trio~=0.17 in /usr/local/lib/python3.10/dist-packages (from selenium) (0.22.0)
 Requirement already satisfied: certifi&gt;=2021.10.8 in /usr/local/lib/python3.10/dist-packages (from selenium) (2022.12.7)
 Requirement already satisfied: urllib3[socks]&lt;3,&gt;=1.26 in /usr/local/lib/python3.10/dist-packages (from selenium) (1.26.15)
 Requirement already satisfied: trio-websocket~=0.9 in /usr/local/lib/python3.10/dist-packages (from selenium) (0.10.2)
-Requirement already satisfied: trio~=0.17 in /usr/local/lib/python3.10/dist-packages (from selenium) (0.22.0)
-Requirement already satisfied: async-generator&gt;=1.9 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.10)
+Requirement already satisfied: sniffio in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.3.0)
 Requirement already satisfied: outcome in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.2.0)
 Requirement already satisfied: idna in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (3.4)
 Requirement already satisfied: exceptiongroup&gt;=1.0.0rc9 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.1.1)
+Requirement already satisfied: async-generator&gt;=1.9 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.10)
 Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (23.1.0)
 Requirement already satisfied: sortedcontainers in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (2.4.0)
-Requirement already satisfied: sniffio in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.3.0)
 Requirement already satisfied: wsproto&gt;=0.14 in /usr/local/lib/python3.10/dist-packages (from trio-websocket~=0.9-&gt;selenium) (1.2.0)
 Requirement already satisfied: PySocks!=1.5.7,&lt;2.0,&gt;=1.5.6 in /usr/local/lib/python3.10/dist-packages (from urllib3[socks]&lt;3,&gt;=1.26-&gt;selenium) (1.7.1)
-Requirement already satisfied: h11&lt;1,&gt;=0.9.0 in /usr/local/lib/python3.10/dist-packages (from wsproto&gt;=0.14-&gt;trio-websocket~=0.9-&gt;selenium) (0.14.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: h11&lt;1,&gt;=0.9.0 in /usr/local/lib/python3.10/dist-packages (from wsproto&gt;=0.14-&gt;trio-websocket~=0.9-&gt;selenium) (0.14.0)
 </pre></div>
 </div>
 </div>
@@ -596,7 +598,11 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;2023-05-08T16:08:08Z&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;2023-05-08T16:14:14Z&#39;,
+  &#39;Anak Comel&#39;,
+  &#39;Lembaga Survey....?  Tanda tanya besar..&#39;,
+  0],
+ [&#39;2023-05-08T16:08:08Z&#39;,
   &#39;Erick kurniawan Kurniawan&#39;,
   &#39;Ganjar melejit&lt;br&gt;Anis menjerit pecirit&#39;,
   0],
@@ -1686,7 +1692,15 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
  [&#39;2023-05-06T00:24:29Z&#39;,
   &#39;Yudi 86&#39;,
   &#39;Terima kasih karena hasil survey akan mengikuti sesuai dengan pesanan dan uang yang masuk.&lt;br&gt;Para lembaga survey juga tidak bisa di pungkiri bahwa mereka juga nggk mau ngecek hasil beginian tanpa ada uang alias GRATIS.&#39;,
-  9],
+  10],
+ [&#39;2023-05-08T16:17:20Z&#39;,
+  &#39;Anak Comel&#39;,
+  &#39;Saya tidak di survey.. Saya Pak Anis Yess.. Dan ada 100 teman saya juga tidak di survey tp siap pilih Pak Anis&#39;,
+  0],
+ [&#39;2023-05-08T16:15:43Z&#39;,
+  &#39;Anak Comel&#39;,
+  &#39;Lembaga survey... Semoga di ampuni dosa dosanya.. Dan anak cucunya sehat sehat selalu...  Lembaga survey..???  Pingin ketawa aja&#39;,
+  0],
  [&#39;2023-05-06T16:58:10Z&#39;,
   &#39;put put&#39;,
   &#39;@Yudi 86 lu yg goblok coy..org menanggapi komentar pembuka status..bukan komentar lu dibawah..emang dia ada TAG bls komen lu..bahlul..lu yg harus pinter dikit bermain sosmed kalau menanggapi komen .mana balesan komen lu diatas..mana utk yg bawah..kalau mau ganti status..lu edit komen lu di awal..bukan nambahi komen dgn menjawab status sendiri&#39;,
@@ -1699,14 +1713,6 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
   &#39;Fakhih Sukma&#39;,
   &#39;Buzzer2 Johanes hya percya survey jka jagoanny yg unggul. Kl gtu buat aj survey sndr 🤣🤣&#39;,
   2],
- [&#39;2023-05-06T09:12:53Z&#39;,
-  &#39;put put&#39;,
-  &#39;Tergantung selera lu tong..kalau jagoan lu diatas..lu anggap surve bener..paling kredibel..giliran jagoan nyungsep koar2 surve bayaran..&lt;br&gt;Lu kencing aja di terminal bayar&#39;,
-  0],
- [&#39;2023-05-06T08:16:57Z&#39;,
-  &#39;Yudi 86&#39;,
-  &#39;@Siti Rahmi &lt;br&gt;Nanti ada yang datang ke rumahmu memberi tahu.&#39;,
-  0],
  [&#39;2023-05-06T00:22:43Z&#39;,
   &#39;Yanah Yanah&#39;,
   &#39;Yang merusak bangsa ini adalah pembohongan pupblik..ngk malu malu nya cari uang hanya pandai berbohong.. Yang nanyak sebenarnya sudah paham siapa siapa yang mash punya harga diri untuk kemajuan bangsa ini.&#39;,
@@ -2296,7 +2302,7 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
  [&#39;2023-05-05T14:54:52Z&#39;,
   &#39;Halim Hariyanto&#39;,
   &#39;Nesia harus pinter pilih pemimpin karena banyak yg ambisi dibalut dgn ucapan2 manis dan merasa punya basis  pendukung&#39;,
-  1],
+  2],
  [&#39;2023-05-05T14:52:42Z&#39;,
   &#39;Sawmil L&#39;,
   &#39;survenya ganjar di palestina bukan di indonesia 😂😂😂 tunggu serangan balik pasukan sakit hati gara2 gagalnya piala dunia pak ganjar&#39;,
@@ -3609,23 +3615,23 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
  [&#39;2023-05-08T16:04:15Z&#39;,
   &#39;Jasman Parmadi&#39;,
   &#39;Lembaga survai yang kredibel itu lembaga survai yang memenangkan Anies doang&lt;br&gt;Dan kalau survainya Ganjar atau Prabowo itu lembaga survai Abal Abal bayaran survai oligarki survai suruhan karena hanya Anies orang pintar dan kuat di Indonesia&#39;,
-  1],
+  0],
  [&#39;2023-05-07T08:37:57Z&#39;,
   &#39;Arman Rohman&#39;,
   &#39;kenapa survay Anis rendah kok PD 5akut y&#39;,
-  1],
+  0],
  [&#39;2023-05-07T00:55:27Z&#39;,
   &#39;Am essa Essa&#39;,
   &#39;@Aant Kawier85 hhhhh anis gitu lohh banjir di masukin kedalam tanah teuri dari yaman sampai2 yaman tandus dan kering karna airnya di masukin kedalam tanah&#39;,
-  4],
+  3],
  [&#39;2023-05-07T00:50:43Z&#39;,
   &#39;Kurniadi&#39;,
   &#39;Tapi setidaknya menjadi gambaran,, karna sangat berat jika yg paling rendah hasil survenya bisa jadi pemenang&#39;,
-  1],
+  0],
  [&#39;2023-05-07T00:13:00Z&#39;,
   &#39;Yoso Yos&#39;,
   &#39;Pendukung anis ya wk wk wk,    pasti panik ya wk wk wk.....&#39;,
-  3],
+  2],
  [&#39;2023-05-05T10:12:56Z&#39;,
   &#39;Marthinus Hamakonda&#39;,
   &#39;Survey yg pas di TPS dari situ baru terbukti&#39;,
@@ -3941,7 +3947,6 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
   &#39;Ucup Supriyadi&#39;,
   &#39;Erik rohir mah kelautin saja lah...&#39;,
   0],
- [&#39;2023-05-05T09:01:10Z&#39;, &#39;Miftah Huda&#39;, &#39;GANJAR PRANOWO PRESIDEN&#39;, 0],
  ...]
 </pre></div>
 </div>
@@ -3949,14 +3954,14 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">comments</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;publishedAt&#39;</span><span class="p">,</span> <span class="s1">&#39;authorDisplayName&#39;</span><span class="p">,</span> <span class="s1">&#39;komentar&#39;</span><span class="p">,</span> <span class="s1">&#39;likeCount&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">comments</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;publishedAt&#39;</span><span class="p">,</span> <span class="s1">&#39;authorDisplayName&#39;</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">,</span> <span class="s1">&#39;likeCount&#39;</span><span class="p">])</span>
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d350dd20-b3f3-44a5-ac1c-b749f5f3f5aa">
+  <div id="df-420817e9-9671-4e62-8d03-d799462f1ba5">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -3978,44 +3983,44 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
       <th></th>
       <th>publishedAt</th>
       <th>authorDisplayName</th>
-      <th>komentar</th>
+      <th>comment</th>
       <th>likeCount</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>2023-05-08T16:14:14Z</td>
+      <td>Anak Comel</td>
+      <td>Lembaga Survey....?  Tanda tanya besar..</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>2023-05-08T16:08:08Z</td>
       <td>Erick kurniawan Kurniawan</td>
       <td>Ganjar melejit&lt;br&gt;Anis menjerit pecirit</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>2023-05-08T16:01:57Z</td>
       <td>Zainul Muhlisin</td>
       <td>TGB Panutan semua rakyat. &lt;br&gt;Bersama TGB Indo...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
       <td>2023-05-08T15:41:06Z</td>
       <td>Tedi Tedi</td>
       <td>Surfey yang baik,ada d tps</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>2023-05-08T15:17:56Z</td>
       <td>Japung 498</td>
       <td>Anis 🤭</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2023-05-08T15:17:13Z</td>
-      <td>Adman Ns</td>
-      <td>Saya adman asal kota sampit warga trasmigrasi ...</td>
       <td>0</td>
     </tr>
     <tr>
@@ -4026,35 +4031,35 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
       <td>...</td>
     </tr>
     <tr>
-      <th>1798</th>
+      <th>1799</th>
       <td>2023-05-05T05:48:25Z</td>
       <td>ASTA Asta</td>
       <td>@Basori Wisnu. maybe you have a lot to learn a...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1799</th>
+      <th>1800</th>
       <td>2023-05-05T05:47:32Z</td>
       <td>Duni Duni</td>
       <td>@Agus1903 😂😂😂😂 bilang aja perjudian klau klah ...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1800</th>
+      <th>1801</th>
       <td>2023-05-05T05:45:07Z</td>
       <td>Agus1903</td>
       <td>@ASTA Asta jls negara yg bayar. Am kyk sy sblm...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1801</th>
+      <th>1802</th>
       <td>2023-05-05T05:42:46Z</td>
       <td>Basori Wisnu.</td>
       <td>@ASTA Asta hahaa.. gayamu cok!!</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1802</th>
+      <th>1803</th>
       <td>2023-05-05T04:54:07Z</td>
       <td>Radi Lasgab</td>
       <td>Aneis</td>
@@ -4062,9 +4067,9 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
     </tr>
   </tbody>
 </table>
-<p>1803 rows × 4 columns</p>
+<p>1804 rows × 4 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-d350dd20-b3f3-44a5-ac1c-b749f5f3f5aa')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-420817e9-9671-4e62-8d03-d799462f1ba5')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -4115,12 +4120,12 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 
       <script>
         const buttonEl =
-          document.querySelector('#df-d350dd20-b3f3-44a5-ac1c-b749f5f3f5aa button.colab-df-convert');
+          document.querySelector('#df-420817e9-9671-4e62-8d03-d799462f1ba5 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-d350dd20-b3f3-44a5-ac1c-b749f5f3f5aa');
+          const element = document.querySelector('#df-420817e9-9671-4e62-8d03-d799462f1ba5');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -4143,7 +4148,7 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;komentar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -4272,14 +4277,14 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;komentar&#39;</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">])</span>
 <span class="n">data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-6bf6380e-2b9f-4e77-b90b-341499f30dc8">
+  <div id="df-7f9ef56a-c281-4f2f-ac25-bc9e94075d90">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -4301,44 +4306,44 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
       <th></th>
       <th>publishedAt</th>
       <th>authorDisplayName</th>
-      <th>komentar</th>
+      <th>comment</th>
       <th>likeCount</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>2023-05-08T16:14:14Z</td>
+      <td>Anak Comel</td>
+      <td>Lembaga Survey....?  Tanda tanya besar..</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>2023-05-08T16:08:08Z</td>
       <td>Erick kurniawan Kurniawan</td>
       <td>Ganjar melejit&lt;br&gt;Anis menjerit pecirit</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>2023-05-08T16:01:57Z</td>
       <td>Zainul Muhlisin</td>
       <td>TGB Panutan semua rakyat. &lt;br&gt;Bersama TGB Indo...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
       <td>2023-05-08T15:41:06Z</td>
       <td>Tedi Tedi</td>
       <td>Surfey yang baik,ada d tps</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>2023-05-08T15:17:56Z</td>
       <td>Japung 498</td>
       <td>Anis 🤭</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2023-05-08T15:17:13Z</td>
-      <td>Adman Ns</td>
-      <td>Saya adman asal kota sampit warga trasmigrasi ...</td>
       <td>0</td>
     </tr>
     <tr>
@@ -4349,35 +4354,35 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
       <td>...</td>
     </tr>
     <tr>
-      <th>1798</th>
+      <th>1799</th>
       <td>2023-05-05T05:48:25Z</td>
       <td>ASTA Asta</td>
       <td>@Basori Wisnu. maybe you have a lot to learn a...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1799</th>
+      <th>1800</th>
       <td>2023-05-05T05:47:32Z</td>
       <td>Duni Duni</td>
       <td>@Agus1903 😂😂😂😂 bilang aja perjudian klau klah ...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1800</th>
+      <th>1801</th>
       <td>2023-05-05T05:45:07Z</td>
       <td>Agus1903</td>
       <td>@ASTA Asta jls negara yg bayar. Am kyk sy sblm...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1801</th>
+      <th>1802</th>
       <td>2023-05-05T05:42:46Z</td>
       <td>Basori Wisnu.</td>
       <td>@ASTA Asta hahaa.. gayamu cok!!</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1802</th>
+      <th>1803</th>
       <td>2023-05-05T04:54:07Z</td>
       <td>Radi Lasgab</td>
       <td>Aneis</td>
@@ -4385,9 +4390,9 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
     </tr>
   </tbody>
 </table>
-<p>1803 rows × 4 columns</p>
+<p>1804 rows × 4 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-6bf6380e-2b9f-4e77-b90b-341499f30dc8')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7f9ef56a-c281-4f2f-ac25-bc9e94075d90')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -4438,12 +4443,12 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 
       <script>
         const buttonEl =
-          document.querySelector('#df-6bf6380e-2b9f-4e77-b90b-341499f30dc8 button.colab-df-convert');
+          document.querySelector('#df-7f9ef56a-c281-4f2f-ac25-bc9e94075d90 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-6bf6380e-2b9f-4e77-b90b-341499f30dc8');
+          const element = document.querySelector('#df-7f9ef56a-c281-4f2f-ac25-bc9e94075d90');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -4466,7 +4471,7 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;komentar&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -4512,11 +4517,11 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 3       0      0    0    0   0    0     0           0        0     0  ...   
 4       0      0    0    0   0    0     0           0        0     0  ...   
 ...   ...    ...  ...  ...  ..  ...   ...         ...      ...   ...  ...   
-1798    0      0    0    0   0    0     0           0        0     0  ...   
 1799    0      0    0    0   0    0     0           0        0     0  ...   
 1800    0      0    0    0   0    0     0           0        0     0  ...   
 1801    0      0    0    0   0    0     0           0        0     0  ...   
 1802    0      0    0    0   0    0     0           0        0     0  ...   
+1803    0      0    0    0   0    0     0           0        0     0  ...   
 
       zarky  zen  zolim  zolimi  zoonk  zurve  𝚃𝚊𝚝𝚊𝚙  𝚐𝚊𝚗𝚓𝚊𝚛  𝚖𝚎𝚗𝚊𝚗𝚐  𝚙𝚊𝚔  
 0         0    0      0       0      0      0      0       0       0    0  
@@ -4525,13 +4530,13 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 3         0    0      0       0      0      0      0       0       0    0  
 4         0    0      0       0      0      0      0       0       0    0  
 ...     ...  ...    ...     ...    ...    ...    ...     ...     ...  ...  
-1798      0    0      0       0      0      0      0       0       0    0  
 1799      0    0      0       0      0      0      0       0       0    0  
 1800      0    0      0       0      0      0      0       0       0    0  
 1801      0    0      0       0      0      0      0       0       0    0  
 1802      0    0      0       0      0      0      0       0       0    0  
+1803      0    0      0       0      0      0      0       0       0    0  
 
-[1803 rows x 5507 columns]
+[1804 rows x 5505 columns]
 
 TD-IDF Vectorizer
 
@@ -4542,11 +4547,11 @@ TD-IDF Vectorizer
 3     0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 4     0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 ...   ...    ...  ...  ...  ...  ...   ...         ...      ...   ...  ...   
-1798  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 1799  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 1800  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 1801  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 1802  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
+1803  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 
       zarky  zen  zolim  zolimi  zoonk  zurve  𝚃𝚊𝚝𝚊𝚙  𝚐𝚊𝚗𝚓𝚊𝚛  𝚖𝚎𝚗𝚊𝚗𝚐  𝚙𝚊𝚔  
 0       0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
@@ -4555,13 +4560,13 @@ TD-IDF Vectorizer
 3       0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 4       0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 ...     ...  ...    ...     ...    ...    ...    ...     ...     ...  ...  
-1798    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 1799    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 1800    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 1801    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 1802    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
+1803    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 
-[1803 rows x 5507 columns]
+[1804 rows x 5505 columns]
 </pre></div>
 </div>
 </div>
@@ -4573,7 +4578,7 @@ TD-IDF Vectorizer
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1803, 5507)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1804, 5505)
 </pre></div>
 </div>
 </div>
@@ -4606,9 +4611,9 @@ TD-IDF Vectorizer
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ukuran Matrix U : (5507, 2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ukuran Matrix U : (5505, 2)
 Ukuran Matrix Λ : (2, 2)
-Ukuran Matrix VT : (2, 1803)
+Ukuran Matrix VT : (2, 1804)
 </pre></div>
 </div>
 </div>
@@ -4637,21 +4642,21 @@ Ukuran Matrix VT : (2, 1803)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil Jika Matrix U di transpose 
 
 Topic 0:  [&#39;ganjar&#39;, &#39;pak&#39;, &#39;yg&#39;, &#39;anies&#39;, &#39;br&#39;]
-Bobot :  [0.3825341428166072, 0.2508515335264289, 0.24767311538017833, 0.2475819042760902, 0.2327011862257386]
+Bobot :  [0.38085276334511037, 0.25230076685912495, 0.24694401361378018, 0.24647664677460587, 0.2321551400349722]
 Topic 1:  [&#39;ganjar&#39;, &#39;pranowo&#39;, &#39;pak&#39;, &#39;ri&#39;, &#39;presiden&#39;]
-Bobot :  [0.6148218113890752, 0.2993242254700568, 0.2466176410312337, 0.15863117739573507, 0.11260857433417212]
+Bobot :  [0.6160865943525313, 0.29971304903826623, 0.24463035764986585, 0.1588840829835179, 0.11301513371793316]
 
 
 Hasil Matrix U
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.01981110e-003, -5.56736605e-003],
-       [ 1.44927867e-003, -6.49913117e-004],
-       [ 4.64354323e-004, -2.07282624e-004],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.00783476e-003, -5.53535424e-003],
+       [ 1.45914129e-003, -6.62376763e-004],
+       [ 4.63169198e-004, -2.04204621e-004],
        ...,
-       [ 7.58949960e-117,  3.10160237e-117],
-       [ 7.58949960e-117,  3.10160237e-117],
-       [ 7.58949960e-117,  3.10160237e-117]])
+       [-6.96384402e-117, -1.80525155e-116],
+       [-6.96384402e-117, -1.80525155e-116],
+       [-6.96384402e-117, -1.80525155e-116]])
 </pre></div>
 </div>
 </div>
@@ -4663,8 +4668,8 @@ Hasil Matrix U
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.46113734, 0.        ],
-       [0.        , 4.96651957]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.46984095, 0.        ],
+       [0.        , 4.96872462]])
 </pre></div>
 </div>
 </div>
@@ -4689,10 +4694,10 @@ Hasil Matrix U
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil Jika Matrix V di transpose 
 
-Topic 0:  [&#39;dangat&#39;, &#39;diurus&#39;, &#39;bercermin&#39;, &#39;bodo&#39;, &#39;16&#39;]
-Bobot :  [0.06676231519403014, 0.06676231519403014, 0.06574095257814255, 0.06525055414464553, 0.06516432824830896]
-Topic 1:  [&#39;balik&#39;, &#39;bukan&#39;, &#39;ditempat&#39;, &#39;25&#39;, &#39;agamis&#39;]
-Bobot :  [0.12379329290793491, 0.12379329290793491, 0.12379329290793491, 0.11471387005436616, 0.11471387005436616]
+Topic 0:  [&#39;dana&#39;, &#39;diunggulkan&#39;, &#39;bercermin&#39;, &#39;bodo&#39;, &#39;emg&#39;]
+Bobot :  [0.06671311305644444, 0.06671311305644444, 0.0660334196696187, 0.06514461624283081, 0.06493678273054564]
+Topic 1:  [&#39;balik&#39;, &#39;bukan&#39;, &#39;ditebang2&#39;, &#39;25th&#39;, &#39;agar&#39;]
+Bobot :  [0.12399290394878897, 0.12399290394878897, 0.12399290394878897, 0.11486245486071117, 0.11486245486071117]
 </pre></div>
 </div>
 </div>
@@ -4704,10 +4709,10 @@ Bobot :  [0.12379329290793491, 0.12379329290793491, 0.12379329290793491, 0.11471
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.60670743e-002,  1.53974905e-002,  1.14599986e-002, ...,
-         1.54448571e-002,  1.73544489e-004,  3.81992137e-119],
-       [ 1.76897748e-002, -4.85069693e-003, -9.27059002e-003, ...,
-        -1.53708764e-002,  6.15705674e-005,  2.07291225e-119]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.24313795e-002,  2.60426670e-002,  1.53596063e-002, ...,
+         1.53971317e-002,  1.72434643e-004,  1.41296374e-117],
+       [-2.06645201e-002,  1.77816323e-002, -4.74097072e-003, ...,
+        -1.52730340e-002,  6.28561910e-005,  4.76708729e-117]])
 </pre></div>
 </div>
 </div>
