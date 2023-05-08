@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Sains Data</title>
+    <title>Topic Modelling &#8212; Sains Data</title>
   
   
   
@@ -160,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Task</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getdata.html">TUGAS pipelines</a></li>
 
 
@@ -170,6 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Klasifikasi.html">Klasifikasi Teks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Extractive-Text-Summarization.html">Extractive-Text-Summarization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Pagerank.html">Pagerank</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Topic Modelling</a></li>
 </ul>
 
     </div>
@@ -371,9 +372,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -384,19 +383,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Topic Modelling</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -406,7 +397,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell docutils container">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-modelling">
+<h1>Topic Modelling<a class="headerlink" href="#topic-modelling" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">youtube</span><span class="o">-</span><span class="n">comment</span><span class="o">-</span><span class="n">scraper</span><span class="o">-</span><span class="n">python</span>
 </pre></div>
@@ -414,105 +407,14 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting youtube-comment-scraper-python
-  Downloading youtube-comment-scraper-python-1.0.0.tar.gz (2.6 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: youtube-comment-scraper-python in /usr/local/lib/python3.10/dist-packages (1.0.0)
 Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from youtube-comment-scraper-python) (2.27.1)
-Collecting bot-studio
-  Downloading bot_studio-1.4.0.tar.gz (55.4 MB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/55.4 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/55.4 MB</span> <span class=" -Color -Color-Red">30.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.4/55.4 MB</span> <span class=" -Color -Color-Red">63.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.2/55.4 MB</span> <span class=" -Color -Color-Red">67.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.6/55.4 MB</span> <span class=" -Color -Color-Red">84.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.0/55.4 MB</span> <span class=" -Color -Color-Red">88.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">17.6/55.4 MB</span> <span class=" -Color -Color-Red">97.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">20.7/55.4 MB</span> <span class=" -Color -Color-Red">92.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">23.6/55.4 MB</span> <span class=" -Color -Color-Red">87.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">26.1/55.4 MB</span> <span class=" -Color -Color-Red">81.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">28.9/55.4 MB</span> <span class=" -Color -Color-Red">75.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">31.2/55.4 MB</span> <span class=" -Color -Color-Red">72.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">33.9/55.4 MB</span> <span class=" -Color -Color-Red">71.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">36.5/55.4 MB</span> <span class=" -Color -Color-Red">72.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ <span class=" -Color -Color-Green">39.4/55.4 MB</span> <span class=" -Color -Color-Red">74.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">42.2/55.4 MB</span> <span class=" -Color -Color-Red">77.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">44.9/55.4 MB</span> <span class=" -Color -Color-Red">77.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ <span class=" -Color -Color-Green">47.3/55.4 MB</span> <span class=" -Color -Color-Red">75.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ <span class=" -Color -Color-Green">49.5/55.4 MB</span> <span class=" -Color -Color-Red">69.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ <span class=" -Color -Color-Green">52.3/55.4 MB</span> <span class=" -Color -Color-Red">69.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.2/55.4 MB</span> <span class=" -Color -Color-Red">71.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">70.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">55.4/55.4 MB</span> <span class=" -Color -Color-Red">8.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: bot-studio in /usr/local/lib/python3.10/dist-packages (from youtube-comment-scraper-python) (1.4.0)
 Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from bot-studio-&gt;youtube-comment-scraper-python) (4.65.0)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (2022.12.7)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (3.4)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (1.26.15)
 Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (2.0.12)
-Building wheels for collected packages: youtube-comment-scraper-python, bot-studio
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for youtube-comment-scraper-python (setup.py) ... ?25l?25hdone
-  Created wheel for youtube-comment-scraper-python: filename=youtube_comment_scraper_python-1.0.0-py3-none-any.whl size=2496 sha256=3d0a173a8522391a4c4170bb95e729d26fb56e5811a7b3b59755420106c699a4
-  Stored in directory: /root/.cache/pip/wheels/f6/9f/b0/3fe3409f715dc587381e398bf35f036176660d9ab9ea9394ae
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for bot-studio (setup.py) ... ?25l?25hdone
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Created wheel for bot-studio: filename=bot_studio-1.4.0-py3-none-any.whl size=55391278 sha256=b1e0c8f4c23c33623b2ace9350e47d9c38ad43fcb56b482d4fc9e283ecc39cb9
-  Stored in directory: /root/.cache/pip/wheels/4e/9c/f6/0f90e16ebe02cd78dd236080e1553bb9e1fc021de99b74b6a0
-Successfully built youtube-comment-scraper-python bot-studio
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: bot-studio, youtube-comment-scraper-python
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed bot-studio-1.4.0 youtube-comment-scraper-python-1.0.0
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (2022.12.7)
 </pre></div>
 </div>
 </div>
@@ -539,52 +441,21 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting selenium
-  Downloading selenium-4.9.1-py3-none-any.whl (6.6 MB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.7/6.6 MB</span> <span class=" -Color -Color-Red">51.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">6.5/6.6 MB</span> <span class=" -Color -Color-Red">104.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.6/6.6 MB</span> <span class=" -Color -Color-Red">63.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting trio~=0.17
-  Downloading trio-0.22.0-py3-none-any.whl (384 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/384.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">384.9/384.9 kB</span> <span class=" -Color -Color-Red">17.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: certifi&gt;=2021.10.8 in /usr/local/lib/python3.10/dist-packages (from selenium) (2022.12.7)
-Collecting trio-websocket~=0.9
-  Downloading trio_websocket-0.10.2-py3-none-any.whl (17 kB)
+Requirement already satisfied: selenium in /usr/local/lib/python3.10/dist-packages (4.9.1)
+Requirement already satisfied: certifi&gt;=2021.10.8 in /usr/local/lib/python3.10/dist-packages (from selenium) (2022.12.7)
 Requirement already satisfied: urllib3[socks]&lt;3,&gt;=1.26 in /usr/local/lib/python3.10/dist-packages (from selenium) (1.26.15)
-Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (23.1.0)
+Requirement already satisfied: trio-websocket~=0.9 in /usr/local/lib/python3.10/dist-packages (from selenium) (0.10.2)
+Requirement already satisfied: trio~=0.17 in /usr/local/lib/python3.10/dist-packages (from selenium) (0.22.0)
+Requirement already satisfied: async-generator&gt;=1.9 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.10)
+Requirement already satisfied: outcome in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.2.0)
 Requirement already satisfied: idna in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (3.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting outcome
-  Downloading outcome-1.2.0-py2.py3-none-any.whl (9.7 kB)
 Requirement already satisfied: exceptiongroup&gt;=1.0.0rc9 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.1.1)
-Requirement already satisfied: sniffio in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.3.0)
+Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (23.1.0)
 Requirement already satisfied: sortedcontainers in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (2.4.0)
-Collecting async-generator&gt;=1.9
-  Downloading async_generator-1.10-py3-none-any.whl (18 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wsproto&gt;=0.14
-  Downloading wsproto-1.2.0-py3-none-any.whl (24 kB)
+Requirement already satisfied: sniffio in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.3.0)
+Requirement already satisfied: wsproto&gt;=0.14 in /usr/local/lib/python3.10/dist-packages (from trio-websocket~=0.9-&gt;selenium) (1.2.0)
 Requirement already satisfied: PySocks!=1.5.7,&lt;2.0,&gt;=1.5.6 in /usr/local/lib/python3.10/dist-packages (from urllib3[socks]&lt;3,&gt;=1.26-&gt;selenium) (1.7.1)
-Collecting h11&lt;1,&gt;=0.9.0
-  Downloading h11-0.14.0-py3-none-any.whl (58 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/58.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">58.3/58.3 kB</span> <span class=" -Color -Color-Red">6.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: outcome, h11, async-generator, wsproto, trio, trio-websocket, selenium
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed async-generator-1.10 h11-0.14.0 outcome-1.2.0 selenium-4.9.1 trio-0.22.0 trio-websocket-0.10.2 wsproto-1.2.0
+Requirement already satisfied: h11&lt;1,&gt;=0.9.0 in /usr/local/lib/python3.10/dist-packages (from wsproto&gt;=0.14-&gt;trio-websocket~=0.9-&gt;selenium) (0.14.0)
 </pre></div>
 </div>
 </div>
@@ -597,19 +468,7 @@ Collecting h11&lt;1,&gt;=0.9.0
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting Sastrawi
-  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/209.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 kB</span> <span class=" -Color -Color-Red">7.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: Sastrawi
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed Sastrawi-1.0.1
+Requirement already satisfied: Sastrawi in /usr/local/lib/python3.10/dist-packages (1.0.1)
 </pre></div>
 </div>
 </div>
@@ -622,43 +481,8 @@ Collecting h11&lt;1,&gt;=0.9.0
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting symspellpy
-  Downloading symspellpy-6.7.7-py3-none-any.whl (2.6 MB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/2.6 MB</span> <span class=" -Color -Color-Red">29.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.6/2.6 MB</span> <span class=" -Color -Color-Red">38.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting editdistpy&gt;=0.1.3
-  Downloading editdistpy-0.1.3.tar.gz (57 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/57.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.2/57.2 kB</span> <span class=" -Color -Color-Red">5.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l?25hdone
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Getting requirements to build wheel ... ?25l?25hdone
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (pyproject.toml) ... ?25l?25hdone
-Building wheels for collected packages: editdistpy
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for editdistpy (pyproject.toml) ... ?25l?25hdone
-  Created wheel for editdistpy: filename=editdistpy-0.1.3-cp310-cp310-linux_x86_64.whl size=141753 sha256=ff33d99bbb74999bd2979fc11fbadde405f49cb0971ccc0f22f256d29734dfef
-  Stored in directory: /root/.cache/pip/wheels/88/6a/a6/a1283cc145323a1fb3d475bd158ee60b248ab1985230d266fc
-Successfully built editdistpy
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: editdistpy, symspellpy
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed editdistpy-0.1.3 symspellpy-6.7.7
+Requirement already satisfied: symspellpy in /usr/local/lib/python3.10/dist-packages (6.7.7)
+Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10/dist-packages (from symspellpy) (0.1.3)
 </pre></div>
 </div>
 </div>
@@ -772,7 +596,11 @@ Successfully built editdistpy
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;2023-05-08T16:01:57Z&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;2023-05-08T16:08:08Z&#39;,
+  &#39;Erick kurniawan Kurniawan&#39;,
+  &#39;Ganjar melejit&lt;br&gt;Anis menjerit pecirit&#39;,
+  0],
+ [&#39;2023-05-08T16:01:57Z&#39;,
   &#39;Zainul Muhlisin&#39;,
   &#39;TGB Panutan semua rakyat. &lt;br&gt;Bersama TGB Indonesia maju.&#39;,
   0],
@@ -3778,26 +3606,26 @@ Successfully built editdistpy
   &#39;Bani 11&#39;,
   &#39;Lembaga survey tidak mewakili rakyat Indonesia, tapi terkadang mempengaruhi pemilih. Jadi menurut saya sih lembaga survey bagian dari tim sukses atau juru kampanye. &lt;br&gt;Semoga rakyat tidak terpengaruh hasil lembaga survey.&#39;,
   21],
+ [&#39;2023-05-08T16:04:15Z&#39;,
+  &#39;Jasman Parmadi&#39;,
+  &#39;Lembaga survai yang kredibel itu lembaga survai yang memenangkan Anies doang&lt;br&gt;Dan kalau survainya Ganjar atau Prabowo itu lembaga survai Abal Abal bayaran survai oligarki survai suruhan karena hanya Anies orang pintar dan kuat di Indonesia&#39;,
+  1],
  [&#39;2023-05-07T08:37:57Z&#39;,
   &#39;Arman Rohman&#39;,
   &#39;kenapa survay Anis rendah kok PD 5akut y&#39;,
-  0],
+  1],
  [&#39;2023-05-07T00:55:27Z&#39;,
   &#39;Am essa Essa&#39;,
   &#39;@Aant Kawier85 hhhhh anis gitu lohh banjir di masukin kedalam tanah teuri dari yaman sampai2 yaman tandus dan kering karna airnya di masukin kedalam tanah&#39;,
-  3],
+  4],
  [&#39;2023-05-07T00:50:43Z&#39;,
   &#39;Kurniadi&#39;,
   &#39;Tapi setidaknya menjadi gambaran,, karna sangat berat jika yg paling rendah hasil survenya bisa jadi pemenang&#39;,
-  0],
+  1],
  [&#39;2023-05-07T00:13:00Z&#39;,
   &#39;Yoso Yos&#39;,
   &#39;Pendukung anis ya wk wk wk,    pasti panik ya wk wk wk.....&#39;,
-  2],
- [&#39;2023-05-07T00:11:28Z&#39;,
-  &#39;Giri Samudra Aji&#39;,
-  &#39;Kecerdasan Anies Luar Biasa... JALAN AJA DILOBANGIN SAMPAI MAKAN KORBAN...&#39;,
-  2],
+  3],
  [&#39;2023-05-05T10:12:56Z&#39;,
   &#39;Marthinus Hamakonda&#39;,
   &#39;Survey yg pas di TPS dari situ baru terbukti&#39;,
@@ -4114,10 +3942,6 @@ Successfully built editdistpy
   &#39;Erik rohir mah kelautin saja lah...&#39;,
   0],
  [&#39;2023-05-05T09:01:10Z&#39;, &#39;Miftah Huda&#39;, &#39;GANJAR PRANOWO PRESIDEN&#39;, 0],
- [&#39;2023-05-05T09:00:30Z&#39;,
-  &#39;Mas Boyo&#39;,
-  &#39;Ayo partai partai yg lain mending gabung sama partai PDIP,,.udh jelas pak Ganjar merakyat,,knapa partai yg lain gk percaya diri  muter muter kesana kesini melulu,,ayo Indonesia bersatu&#39;,
-  0],
  ...]
 </pre></div>
 </div>
@@ -4132,7 +3956,7 @@ Successfully built editdistpy
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c76d5ef9-23c2-4c5f-aa80-40ed7b2f6fa7">
+  <div id="df-d350dd20-b3f3-44a5-ac1c-b749f5f3f5aa">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -4161,37 +3985,37 @@ Successfully built editdistpy
   <tbody>
     <tr>
       <th>0</th>
+      <td>2023-05-08T16:08:08Z</td>
+      <td>Erick kurniawan Kurniawan</td>
+      <td>Ganjar melejit&lt;br&gt;Anis menjerit pecirit</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>2023-05-08T16:01:57Z</td>
       <td>Zainul Muhlisin</td>
       <td>TGB Panutan semua rakyat. &lt;br&gt;Bersama TGB Indo...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>2023-05-08T15:41:06Z</td>
       <td>Tedi Tedi</td>
       <td>Surfey yang baik,ada d tps</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
       <td>2023-05-08T15:17:56Z</td>
       <td>Japung 498</td>
       <td>Anis 🤭</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>2023-05-08T15:17:13Z</td>
       <td>Adman Ns</td>
       <td>Saya adman asal kota sampit warga trasmigrasi ...</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2023-05-08T15:10:46Z</td>
-      <td>Fadholi Kastawi</td>
-      <td>Mulutnya Metro sekarang sudah mulai nyinyir pa...</td>
       <td>0</td>
     </tr>
     <tr>
@@ -4202,35 +4026,35 @@ Successfully built editdistpy
       <td>...</td>
     </tr>
     <tr>
-      <th>1797</th>
+      <th>1798</th>
       <td>2023-05-05T05:48:25Z</td>
       <td>ASTA Asta</td>
       <td>@Basori Wisnu. maybe you have a lot to learn a...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1798</th>
+      <th>1799</th>
       <td>2023-05-05T05:47:32Z</td>
       <td>Duni Duni</td>
       <td>@Agus1903 😂😂😂😂 bilang aja perjudian klau klah ...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1799</th>
+      <th>1800</th>
       <td>2023-05-05T05:45:07Z</td>
       <td>Agus1903</td>
       <td>@ASTA Asta jls negara yg bayar. Am kyk sy sblm...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1800</th>
+      <th>1801</th>
       <td>2023-05-05T05:42:46Z</td>
       <td>Basori Wisnu.</td>
       <td>@ASTA Asta hahaa.. gayamu cok!!</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1801</th>
+      <th>1802</th>
       <td>2023-05-05T04:54:07Z</td>
       <td>Radi Lasgab</td>
       <td>Aneis</td>
@@ -4238,9 +4062,9 @@ Successfully built editdistpy
     </tr>
   </tbody>
 </table>
-<p>1802 rows × 4 columns</p>
+<p>1803 rows × 4 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-c76d5ef9-23c2-4c5f-aa80-40ed7b2f6fa7')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-d350dd20-b3f3-44a5-ac1c-b749f5f3f5aa')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -4291,12 +4115,12 @@ Successfully built editdistpy
 
       <script>
         const buttonEl =
-          document.querySelector('#df-c76d5ef9-23c2-4c5f-aa80-40ed7b2f6fa7 button.colab-df-convert');
+          document.querySelector('#df-d350dd20-b3f3-44a5-ac1c-b749f5f3f5aa button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-c76d5ef9-23c2-4c5f-aa80-40ed7b2f6fa7');
+          const element = document.querySelector('#df-d350dd20-b3f3-44a5-ac1c-b749f5f3f5aa');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -4455,7 +4279,7 @@ Successfully built editdistpy
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-fdcdc021-d768-4904-908b-0a5bcfcf24b9">
+  <div id="df-6bf6380e-2b9f-4e77-b90b-341499f30dc8">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -4484,37 +4308,37 @@ Successfully built editdistpy
   <tbody>
     <tr>
       <th>0</th>
+      <td>2023-05-08T16:08:08Z</td>
+      <td>Erick kurniawan Kurniawan</td>
+      <td>Ganjar melejit&lt;br&gt;Anis menjerit pecirit</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>2023-05-08T16:01:57Z</td>
       <td>Zainul Muhlisin</td>
       <td>TGB Panutan semua rakyat. &lt;br&gt;Bersama TGB Indo...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>2023-05-08T15:41:06Z</td>
       <td>Tedi Tedi</td>
       <td>Surfey yang baik,ada d tps</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
       <td>2023-05-08T15:17:56Z</td>
       <td>Japung 498</td>
       <td>Anis 🤭</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>2023-05-08T15:17:13Z</td>
       <td>Adman Ns</td>
       <td>Saya adman asal kota sampit warga trasmigrasi ...</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2023-05-08T15:10:46Z</td>
-      <td>Fadholi Kastawi</td>
-      <td>Mulutnya Metro sekarang sudah mulai nyinyir pa...</td>
       <td>0</td>
     </tr>
     <tr>
@@ -4525,35 +4349,35 @@ Successfully built editdistpy
       <td>...</td>
     </tr>
     <tr>
-      <th>1797</th>
+      <th>1798</th>
       <td>2023-05-05T05:48:25Z</td>
       <td>ASTA Asta</td>
       <td>@Basori Wisnu. maybe you have a lot to learn a...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1798</th>
+      <th>1799</th>
       <td>2023-05-05T05:47:32Z</td>
       <td>Duni Duni</td>
       <td>@Agus1903 😂😂😂😂 bilang aja perjudian klau klah ...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1799</th>
+      <th>1800</th>
       <td>2023-05-05T05:45:07Z</td>
       <td>Agus1903</td>
       <td>@ASTA Asta jls negara yg bayar. Am kyk sy sblm...</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1800</th>
+      <th>1801</th>
       <td>2023-05-05T05:42:46Z</td>
       <td>Basori Wisnu.</td>
       <td>@ASTA Asta hahaa.. gayamu cok!!</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1801</th>
+      <th>1802</th>
       <td>2023-05-05T04:54:07Z</td>
       <td>Radi Lasgab</td>
       <td>Aneis</td>
@@ -4561,9 +4385,9 @@ Successfully built editdistpy
     </tr>
   </tbody>
 </table>
-<p>1802 rows × 4 columns</p>
+<p>1803 rows × 4 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-fdcdc021-d768-4904-908b-0a5bcfcf24b9')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-6bf6380e-2b9f-4e77-b90b-341499f30dc8')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -4614,12 +4438,12 @@ Successfully built editdistpy
 
       <script>
         const buttonEl =
-          document.querySelector('#df-fdcdc021-d768-4904-908b-0a5bcfcf24b9 button.colab-df-convert');
+          document.querySelector('#df-6bf6380e-2b9f-4e77-b90b-341499f30dc8 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-fdcdc021-d768-4904-908b-0a5bcfcf24b9');
+          const element = document.querySelector('#df-6bf6380e-2b9f-4e77-b90b-341499f30dc8');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -4688,11 +4512,11 @@ Successfully built editdistpy
 3       0      0    0    0   0    0     0           0        0     0  ...   
 4       0      0    0    0   0    0     0           0        0     0  ...   
 ...   ...    ...  ...  ...  ..  ...   ...         ...      ...   ...  ...   
-1797    0      0    0    0   0    0     0           0        0     0  ...   
 1798    0      0    0    0   0    0     0           0        0     0  ...   
 1799    0      0    0    0   0    0     0           0        0     0  ...   
 1800    0      0    0    0   0    0     0           0        0     0  ...   
 1801    0      0    0    0   0    0     0           0        0     0  ...   
+1802    0      0    0    0   0    0     0           0        0     0  ...   
 
       zarky  zen  zolim  zolimi  zoonk  zurve  𝚃𝚊𝚝𝚊𝚙  𝚐𝚊𝚗𝚓𝚊𝚛  𝚖𝚎𝚗𝚊𝚗𝚐  𝚙𝚊𝚔  
 0         0    0      0       0      0      0      0       0       0    0  
@@ -4701,13 +4525,13 @@ Successfully built editdistpy
 3         0    0      0       0      0      0      0       0       0    0  
 4         0    0      0       0      0      0      0       0       0    0  
 ...     ...  ...    ...     ...    ...    ...    ...     ...     ...  ...  
-1797      0    0      0       0      0      0      0       0       0    0  
 1798      0    0      0       0      0      0      0       0       0    0  
 1799      0    0      0       0      0      0      0       0       0    0  
 1800      0    0      0       0      0      0      0       0       0    0  
 1801      0    0      0       0      0      0      0       0       0    0  
+1802      0    0      0       0      0      0      0       0       0    0  
 
-[1802 rows x 5508 columns]
+[1803 rows x 5507 columns]
 
 TD-IDF Vectorizer
 
@@ -4718,11 +4542,11 @@ TD-IDF Vectorizer
 3     0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 4     0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 ...   ...    ...  ...  ...  ...  ...   ...         ...      ...   ...  ...   
-1797  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 1798  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 1799  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 1800  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 1801  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
+1802  0.0    0.0  0.0  0.0  0.0  0.0   0.0         0.0      0.0   0.0  ...   
 
       zarky  zen  zolim  zolimi  zoonk  zurve  𝚃𝚊𝚝𝚊𝚙  𝚐𝚊𝚗𝚓𝚊𝚛  𝚖𝚎𝚗𝚊𝚗𝚐  𝚙𝚊𝚔  
 0       0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
@@ -4731,13 +4555,13 @@ TD-IDF Vectorizer
 3       0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 4       0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 ...     ...  ...    ...     ...    ...    ...    ...     ...     ...  ...  
-1797    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 1798    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 1799    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 1800    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 1801    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
+1802    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 
-[1802 rows x 5508 columns]
+[1803 rows x 5507 columns]
 </pre></div>
 </div>
 </div>
@@ -4749,7 +4573,7 @@ TD-IDF Vectorizer
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1802, 5508)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1803, 5507)
 </pre></div>
 </div>
 </div>
@@ -4782,9 +4606,9 @@ TD-IDF Vectorizer
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ukuran Matrix U : (5508, 2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ukuran Matrix U : (5507, 2)
 Ukuran Matrix Λ : (2, 2)
-Ukuran Matrix VT : (2, 1802)
+Ukuran Matrix VT : (2, 1803)
 </pre></div>
 </div>
 </div>
@@ -4813,21 +4637,21 @@ Ukuran Matrix VT : (2, 1802)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil Jika Matrix U di transpose 
 
 Topic 0:  [&#39;ganjar&#39;, &#39;pak&#39;, &#39;yg&#39;, &#39;anies&#39;, &#39;br&#39;]
-Bobot :  [0.38326843764049284, 0.2514599310146361, 0.2479474084133876, 0.24691584080476903, 0.23213686869525893]
+Bobot :  [0.3825341428166072, 0.2508515335264289, 0.24767311538017833, 0.2475819042760902, 0.2327011862257386]
 Topic 1:  [&#39;ganjar&#39;, &#39;pranowo&#39;, &#39;pak&#39;, &#39;ri&#39;, &#39;presiden&#39;]
-Bobot :  [0.6153929337342798, 0.29913553618840055, 0.2454619912725536, 0.15823618594271216, 0.11193734726386617]
+Bobot :  [0.6148218113890752, 0.2993242254700568, 0.2466176410312337, 0.15863117739573507, 0.11260857433417212]
 
 
 Hasil Matrix U
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.02377185e-003, -5.57905717e-003],
-       [ 1.44897341e-003, -6.84750183e-004],
-       [ 4.64801287e-004, -2.10342249e-004],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.01981110e-003, -5.56736605e-003],
+       [ 1.44927867e-003, -6.49913117e-004],
+       [ 4.64354323e-004, -2.07282624e-004],
        ...,
-       [ 9.17025367e-118, -1.10921491e-116],
-       [ 9.17025367e-118, -1.10921491e-116],
-       [ 9.17025367e-118, -1.10921491e-116]])
+       [ 7.58949960e-117,  3.10160237e-117],
+       [ 7.58949960e-117,  3.10160237e-117],
+       [ 7.58949960e-117,  3.10160237e-117]])
 </pre></div>
 </div>
 </div>
@@ -4839,8 +4663,8 @@ Hasil Matrix U
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.45654937, 0.        ],
-       [0.        , 4.96710679]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.46113734, 0.        ],
+       [0.        , 4.96651957]])
 </pre></div>
 </div>
 </div>
@@ -4865,10 +4689,10 @@ Hasil Matrix U
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil Jika Matrix V di transpose 
 
-Topic 0:  [&#39;dana&#39;, &#39;diulang2&#39;, &#39;berburuk&#39;, &#39;emg&#39;, &#39;bocah&#39;]
-Bobot :  [0.06697641390442141, 0.06697641390442141, 0.06586236651826238, 0.0654019103439831, 0.06529267862054072]
-Topic 1:  [&#39;bali&#39;, &#39;buka&#39;, &#39;ditawarin&#39;, &#39;24&#39;, &#39;agama&#39;]
-Bobot :  [0.1238936385531552, 0.1238936385531552, 0.1238936385531552, 0.11479135324361502, 0.11479135324361502]
+Topic 0:  [&#39;dangat&#39;, &#39;diurus&#39;, &#39;bercermin&#39;, &#39;bodo&#39;, &#39;16&#39;]
+Bobot :  [0.06676231519403014, 0.06676231519403014, 0.06574095257814255, 0.06525055414464553, 0.06516432824830896]
+Topic 1:  [&#39;balik&#39;, &#39;bukan&#39;, &#39;ditempat&#39;, &#39;25&#39;, &#39;agamis&#39;]
+Bobot :  [0.12379329290793491, 0.12379329290793491, 0.12379329290793491, 0.11471387005436616, 0.11471387005436616]
 </pre></div>
 </div>
 </div>
@@ -4880,10 +4704,10 @@ Bobot :  [0.1238936385531552, 0.1238936385531552, 0.1238936385531552, 0.11479135
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.54147272e-002,  1.14427038e-002,  2.72937906e-002, ...,
-         1.54659330e-002,  1.74145053e-004,  3.02102592e-118],
-       [-4.94840166e-003, -9.25319537e-003, -9.77693112e-003, ...,
-        -1.53993156e-002,  6.15397948e-005, -4.74884342e-117]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.60670743e-002,  1.53974905e-002,  1.14599986e-002, ...,
+         1.54448571e-002,  1.73544489e-004,  3.81992137e-119],
+       [ 1.76897748e-002, -4.85069693e-003, -9.27059002e-003, ...,
+        -1.53708764e-002,  6.15705674e-005,  2.07291225e-119]])
 </pre></div>
 </div>
 </div>
@@ -4929,6 +4753,7 @@ Bobot :  [0.1238936385531552, 0.1238936385531552, 0.1238936385531552, 0.11479135
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -4982,20 +4807,6 @@ Bobot :  [0.1238936385531552, 0.1238936385531552, 0.1238936385531552, 0.11479135
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
