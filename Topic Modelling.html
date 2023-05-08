@@ -372,7 +372,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -388,6 +390,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengambilan-comment-youtube">Pengambilan comment(youtube)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menjadikan-data-comment-berbentuk-dataframe">Menjadikan data comment berbentuk DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepocesing-data">Prepocesing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpan-data-dengan-bentuk-csv">Simpan Data dengan bentuk csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-data-yang-sudah-di-prepocesing">Ambil Data Yang sudah di prepocesing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengimplementasi-ke-tf-idf">Mengimplementasi ke TF-IDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunkan-svd">Menggunkan SVD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bobot-teks-dari-masing-masing-topik">Bobot teks dari masing-masing topik</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -411,10 +428,10 @@ Requirement already satisfied: youtube-comment-scraper-python in /usr/local/lib/
 Requirement already satisfied: bot-studio in /usr/local/lib/python3.10/dist-packages (from youtube-comment-scraper-python) (1.4.0)
 Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from youtube-comment-scraper-python) (2.27.1)
 Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from bot-studio-&gt;youtube-comment-scraper-python) (4.65.0)
-Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (2.0.12)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (1.26.15)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (2022.12.7)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (3.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (2022.12.7)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.10/dist-packages (from requests-&gt;youtube-comment-scraper-python) (2.0.12)
 </pre></div>
 </div>
 </div>
@@ -442,22 +459,20 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: selenium in /usr/local/lib/python3.10/dist-packages (4.9.1)
-Requirement already satisfied: trio~=0.17 in /usr/local/lib/python3.10/dist-packages (from selenium) (0.22.0)
-Requirement already satisfied: certifi&gt;=2021.10.8 in /usr/local/lib/python3.10/dist-packages (from selenium) (2022.12.7)
-Requirement already satisfied: urllib3[socks]&lt;3,&gt;=1.26 in /usr/local/lib/python3.10/dist-packages (from selenium) (1.26.15)
 Requirement already satisfied: trio-websocket~=0.9 in /usr/local/lib/python3.10/dist-packages (from selenium) (0.10.2)
-Requirement already satisfied: sniffio in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.3.0)
+Requirement already satisfied: urllib3[socks]&lt;3,&gt;=1.26 in /usr/local/lib/python3.10/dist-packages (from selenium) (1.26.15)
+Requirement already satisfied: certifi&gt;=2021.10.8 in /usr/local/lib/python3.10/dist-packages (from selenium) (2022.12.7)
+Requirement already satisfied: trio~=0.17 in /usr/local/lib/python3.10/dist-packages (from selenium) (0.22.0)
 Requirement already satisfied: outcome in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.2.0)
-Requirement already satisfied: idna in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (3.4)
+Requirement already satisfied: sortedcontainers in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (2.4.0)
 Requirement already satisfied: exceptiongroup&gt;=1.0.0rc9 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.1.1)
+Requirement already satisfied: idna in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (3.4)
+Requirement already satisfied: sniffio in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.3.0)
 Requirement already satisfied: async-generator&gt;=1.9 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (1.10)
 Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (23.1.0)
-Requirement already satisfied: sortedcontainers in /usr/local/lib/python3.10/dist-packages (from trio~=0.17-&gt;selenium) (2.4.0)
 Requirement already satisfied: wsproto&gt;=0.14 in /usr/local/lib/python3.10/dist-packages (from trio-websocket~=0.9-&gt;selenium) (1.2.0)
 Requirement already satisfied: PySocks!=1.5.7,&lt;2.0,&gt;=1.5.6 in /usr/local/lib/python3.10/dist-packages (from urllib3[socks]&lt;3,&gt;=1.26-&gt;selenium) (1.7.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: h11&lt;1,&gt;=0.9.0 in /usr/local/lib/python3.10/dist-packages (from wsproto&gt;=0.14-&gt;trio-websocket~=0.9-&gt;selenium) (0.14.0)
+Requirement already satisfied: h11&lt;1,&gt;=0.9.0 in /usr/local/lib/python3.10/dist-packages (from wsproto&gt;=0.14-&gt;trio-websocket~=0.9-&gt;selenium) (0.14.0)
 </pre></div>
 </div>
 </div>
@@ -513,6 +528,8 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 </div>
 </div>
+<div class="section" id="pengambilan-comment-youtube">
+<h2>Pengambilan comment(youtube)<a class="headerlink" href="#pengambilan-comment-youtube" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">video_comments</span><span class="p">(</span><span class="n">video_id</span><span class="p">):</span>
@@ -1693,6 +1710,10 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
   &#39;Yudi 86&#39;,
   &#39;Terima kasih karena hasil survey akan mengikuti sesuai dengan pesanan dan uang yang masuk.&lt;br&gt;Para lembaga survey juga tidak bisa di pungkiri bahwa mereka juga nggk mau ngecek hasil beginian tanpa ada uang alias GRATIS.&#39;,
   10],
+ [&#39;2023-05-08T16:29:47Z&#39;,
+  &#39;Yudi 86&#39;,
+  &#39;@Anak Comel &lt;br&gt;Mau pilih / tidak memilih itu adalah hak pribadi setiap warga negara.&#39;,
+  0],
  [&#39;2023-05-08T16:17:20Z&#39;,
   &#39;Anak Comel&#39;,
   &#39;Saya tidak di survey.. Saya Pak Anis Yess.. Dan ada 100 teman saya juga tidak di survey tp siap pilih Pak Anis&#39;,
@@ -1709,10 +1730,6 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
   &#39;Yudi 86&#39;,
   &#39;@Fakhih Sukma &lt;br&gt;Mohon maaf ...simak baik&amp;quot; di atas bahwa ada sebutan golput..jadi tidak memegang 1,2,3 pinter dikit ya.&#39;,
   0],
- [&#39;2023-05-06T16:50:32Z&#39;,
-  &#39;Fakhih Sukma&#39;,
-  &#39;Buzzer2 Johanes hya percya survey jka jagoanny yg unggul. Kl gtu buat aj survey sndr 🤣🤣&#39;,
-  2],
  [&#39;2023-05-06T00:22:43Z&#39;,
   &#39;Yanah Yanah&#39;,
   &#39;Yang merusak bangsa ini adalah pembohongan pupblik..ngk malu malu nya cari uang hanya pandai berbohong.. Yang nanyak sebenarnya sudah paham siapa siapa yang mash punya harga diri untuk kemajuan bangsa ini.&#39;,
@@ -3952,6 +3969,9 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="menjadikan-data-comment-berbentuk-dataframe">
+<h2>Menjadikan data comment berbentuk DataFrame<a class="headerlink" href="#menjadikan-data-comment-berbentuk-dataframe" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">comments</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;publishedAt&#39;</span><span class="p">,</span> <span class="s1">&#39;authorDisplayName&#39;</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">,</span> <span class="s1">&#39;likeCount&#39;</span><span class="p">])</span>
@@ -3961,7 +3981,7 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-420817e9-9671-4e62-8d03-d799462f1ba5">
+  <div id="df-63ec8ffa-e878-483f-9e79-dce462b39a2f">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -4069,7 +4089,7 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </table>
 <p>1804 rows × 4 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-420817e9-9671-4e62-8d03-d799462f1ba5')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-63ec8ffa-e878-483f-9e79-dce462b39a2f')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -4120,12 +4140,12 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 
       <script>
         const buttonEl =
-          document.querySelector('#df-420817e9-9671-4e62-8d03-d799462f1ba5 button.colab-df-convert');
+          document.querySelector('#df-63ec8ffa-e878-483f-9e79-dce462b39a2f button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-420817e9-9671-4e62-8d03-d799462f1ba5');
+          const element = document.querySelector('#df-63ec8ffa-e878-483f-9e79-dce462b39a2f');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -4146,6 +4166,9 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
   </div>
   </div></div>
 </div>
+</div>
+<div class="section" id="prepocesing-data">
+<h2>Prepocesing Data<a class="headerlink" href="#prepocesing-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -4260,6 +4283,9 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="simpan-data-dengan-bentuk-csv">
+<h2>Simpan Data dengan bentuk csv<a class="headerlink" href="#simpan-data-dengan-bentuk-csv" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/sainsdata/tugas/Data/youtube-comments.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -4267,6 +4293,9 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="ambil-data-yang-sudah-di-prepocesing">
+<h2>Ambil Data Yang sudah di prepocesing<a class="headerlink" href="#ambil-data-yang-sudah-di-prepocesing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span><span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/sainsdata/tugas/Data/youtube-comments.csv&quot;</span>
@@ -4284,7 +4313,7 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-7f9ef56a-c281-4f2f-ac25-bc9e94075d90">
+  <div id="df-fd1a1129-ae57-44df-8875-9e83fc43a111">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -4392,7 +4421,7 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 </table>
 <p>1804 rows × 4 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-7f9ef56a-c281-4f2f-ac25-bc9e94075d90')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-fd1a1129-ae57-44df-8875-9e83fc43a111')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -4443,12 +4472,12 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 
       <script>
         const buttonEl =
-          document.querySelector('#df-7f9ef56a-c281-4f2f-ac25-bc9e94075d90 button.colab-df-convert');
+          document.querySelector('#df-fd1a1129-ae57-44df-8875-9e83fc43a111 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-7f9ef56a-c281-4f2f-ac25-bc9e94075d90');
+          const element = document.querySelector('#df-fd1a1129-ae57-44df-8875-9e83fc43a111');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -4469,6 +4498,9 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
   </div>
   </div></div>
 </div>
+</div>
+<div class="section" id="mengimplementasi-ke-tf-idf">
+<h2>Mengimplementasi ke TF-IDF<a class="headerlink" href="#mengimplementasi-ke-tf-idf" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span>
@@ -4536,7 +4568,7 @@ Requirement already satisfied: editdistpy&gt;=0.1.3 in /usr/local/lib/python3.10
 1802      0    0      0       0      0      0      0       0       0    0  
 1803      0    0      0       0      0      0      0       0       0    0  
 
-[1804 rows x 5505 columns]
+[1804 rows x 5501 columns]
 
 TD-IDF Vectorizer
 
@@ -4566,11 +4598,14 @@ TD-IDF Vectorizer
 1802    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 1803    0.0  0.0    0.0     0.0    0.0    0.0    0.0     0.0     0.0  0.0  
 
-[1804 rows x 5505 columns]
+[1804 rows x 5501 columns]
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="menggunkan-svd">
+<h2>Menggunkan SVD<a class="headerlink" href="#menggunkan-svd" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tfidfvect</span><span class="o">.</span><span class="n">shape</span>
@@ -4578,7 +4613,7 @@ TD-IDF Vectorizer
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1804, 5505)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1804, 5501)
 </pre></div>
 </div>
 </div>
@@ -4611,13 +4646,16 @@ TD-IDF Vectorizer
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ukuran Matrix U : (5505, 2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ukuran Matrix U : (5501, 2)
 Ukuran Matrix Λ : (2, 2)
 Ukuran Matrix VT : (2, 1804)
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="bobot-teks-dari-masing-masing-topik">
+<h2>Bobot teks dari masing-masing topik<a class="headerlink" href="#bobot-teks-dari-masing-masing-topik" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the topics with their terms</span>
@@ -4642,21 +4680,21 @@ Ukuran Matrix VT : (2, 1804)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil Jika Matrix U di transpose 
 
 Topic 0:  [&#39;ganjar&#39;, &#39;pak&#39;, &#39;yg&#39;, &#39;anies&#39;, &#39;br&#39;]
-Bobot :  [0.38085276334511037, 0.25230076685912495, 0.24694401361378018, 0.24647664677460587, 0.2321551400349722]
+Bobot :  [0.3807363875625777, 0.2522446852012479, 0.2470275751413459, 0.2463992777086966, 0.23221245232914223]
 Topic 1:  [&#39;ganjar&#39;, &#39;pranowo&#39;, &#39;pak&#39;, &#39;ri&#39;, &#39;presiden&#39;]
-Bobot :  [0.6160865943525313, 0.29971304903826623, 0.24463035764986585, 0.1588840829835179, 0.11301513371793316]
+Bobot :  [0.616332489549882, 0.29983287747746146, 0.244733221380276, 0.15894685107204568, 0.11304096833793432]
 
 
 Hasil Matrix U
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.00783476e-003, -5.53535424e-003],
-       [ 1.45914129e-003, -6.62376763e-004],
-       [ 4.63169198e-004, -2.04204621e-004],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.00691371e-003, -5.53524667e-003],
+       [ 1.45859320e-003, -6.62408946e-004],
+       [ 4.63135783e-004, -2.04815687e-004],
        ...,
-       [-6.96384402e-117, -1.80525155e-116],
-       [-6.96384402e-117, -1.80525155e-116],
-       [-6.96384402e-117, -1.80525155e-116]])
+       [-4.44896084e-117, -1.82241003e-116],
+       [-4.44896084e-117, -1.82241003e-116],
+       [-4.44896084e-117, -1.82241003e-116]])
 </pre></div>
 </div>
 </div>
@@ -4668,8 +4706,8 @@ Hasil Matrix U
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.46984095, 0.        ],
-       [0.        , 4.96872462]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.47045647, 0.        ],
+       [0.        , 4.96862042]])
 </pre></div>
 </div>
 </div>
@@ -4695,9 +4733,9 @@ Hasil Matrix U
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil Jika Matrix V di transpose 
 
 Topic 0:  [&#39;dana&#39;, &#39;diunggulkan&#39;, &#39;bercermin&#39;, &#39;bodo&#39;, &#39;emg&#39;]
-Bobot :  [0.06671311305644444, 0.06671311305644444, 0.0660334196696187, 0.06514461624283081, 0.06493678273054564]
+Bobot :  [0.06668896504264335, 0.06668896504264335, 0.0660297101281509, 0.06512633922451312, 0.0649141560108334]
 Topic 1:  [&#39;balik&#39;, &#39;bukan&#39;, &#39;ditebang2&#39;, &#39;25th&#39;, &#39;agar&#39;]
-Bobot :  [0.12399290394878897, 0.12399290394878897, 0.12399290394878897, 0.11486245486071117, 0.11486245486071117]
+Bobot :  [0.1240449937470914, 0.1240449937470914, 0.1240449937470914, 0.11491074460291752, 0.11491074460291752]
 </pre></div>
 </div>
 </div>
@@ -4709,10 +4747,10 @@ Bobot :  [0.12399290394878897, 0.12399290394878897, 0.12399290394878897, 0.11486
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.24313795e-002,  2.60426670e-002,  1.53596063e-002, ...,
-         1.53971317e-002,  1.72434643e-004,  1.41296374e-117],
-       [-2.06645201e-002,  1.77816323e-002, -4.74097072e-003, ...,
-        -1.52730340e-002,  6.28561910e-005,  4.76708729e-117]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.24261280e-002,  2.60260439e-002,  1.53513147e-002, ...,
+         1.54364482e-002,  1.72608216e-004,  1.19439199e-117],
+       [-2.06242877e-002,  1.77771913e-002, -4.75799115e-003, ...,
+        -1.53089085e-002,  6.25407747e-005,  6.37365125e-117]])
 </pre></div>
 </div>
 </div>
@@ -4758,6 +4796,7 @@ Bobot :  [0.12399290394878897, 0.12399290394878897, 0.12399290394878897, 0.11486
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -4812,6 +4851,27 @@ Bobot :  [0.12399290394878897, 0.12399290394878897, 0.12399290394878897, 0.11486
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengambilan-comment-youtube">Pengambilan comment(youtube)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menjadikan-data-comment-berbentuk-dataframe">Menjadikan data comment berbentuk DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepocesing-data">Prepocesing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpan-data-dengan-bentuk-csv">Simpan Data dengan bentuk csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-data-yang-sudah-di-prepocesing">Ambil Data Yang sudah di prepocesing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengimplementasi-ke-tf-idf">Mengimplementasi ke TF-IDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunkan-svd">Menggunkan SVD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bobot-teks-dari-masing-masing-topik">Bobot teks dari masing-masing topik</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
