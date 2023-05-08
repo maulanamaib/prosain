@@ -425,7 +425,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a5d11267-e1c9-4a74-b843-63b7fef734e0">
+  <div id="df-3b3b580e-ebb5-4261-819f-74dd8910c008">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -509,7 +509,7 @@ document.write(`
 </table>
 <p>805 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-a5d11267-e1c9-4a74-b843-63b7fef734e0')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-3b3b580e-ebb5-4261-819f-74dd8910c008')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -560,12 +560,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-a5d11267-e1c9-4a74-b843-63b7fef734e0 button.colab-df-convert');
+          document.querySelector('#df-3b3b580e-ebb5-4261-819f-74dd8910c008 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-a5d11267-e1c9-4a74-b843-63b7fef734e0');
+          const element = document.querySelector('#df-3b3b580e-ebb5-4261-819f-74dd8910c008');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -648,28 +648,28 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="k">return</span> <span class="n">text</span>
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Abstrak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">stopwords</span><span class="p">)</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/series.py</span> in <span class="ni">apply</span><span class="nt">(self, func, convert_dtype, args, **kwargs)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/series.py</span> in <span class="ni">apply</span><span class="nt">(self, func, convert_dtype, args, **kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">4769</span>         <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 <span class="g g-Whitespace">   </span><span class="mi">4770</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="ne">-&gt; </span><span class="mi">4771</span><span class="sd">         return SeriesApply(self, func, convert_dtype, args, kwargs).apply()</span>
 <span class="g g-Whitespace">   </span><span class="mi">4772</span><span class="sd"> </span>
 <span class="g g-Whitespace">   </span><span class="mi">4773</span><span class="sd">     def _reduce(</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/apply.py</span> in <span class="ni">apply</span><span class="nt">(self)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/apply.py</span> in <span class="ni">apply</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1121</span><span class="sd"> </span>
 <span class="g g-Whitespace">   </span><span class="mi">1122</span><span class="sd">         # self.f is Callable</span>
 <span class="ne">-&gt; </span><span class="mi">1123</span><span class="sd">         return self.apply_standard()</span>
 <span class="g g-Whitespace">   </span><span class="mi">1124</span><span class="sd"> </span>
 <span class="g g-Whitespace">   </span><span class="mi">1125</span><span class="sd">     def agg(self):</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/core/apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd">             else:</span>
 <span class="g g-Whitespace">   </span><span class="mi">1173</span><span class="sd">                 values = obj.astype(object)._values</span>
 <span class="ne">-&gt; </span><span class="mi">1174</span><span class="sd">                 mapped = lib.map_infer(</span>
 <span class="g g-Whitespace">   </span><span class="mi">1175</span><span class="sd">                     values,</span>
 <span class="g g-Whitespace">   </span><span class="mi">1176</span><span class="sd">                     f,</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/pandas/_libs/lib.pyx</span> in <span class="ni">pandas._libs.lib.map_infer</span><span class="nt">()</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/_libs/lib.pyx</span> in <span class="ni">pandas._libs.lib.map_infer</span><span class="nt">()</span>
 
 <span class="nn">&lt;ipython-input-6-48775e6c6bbc&gt;</span> in <span class="ni">stopwords</span><span class="nt">(text)</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span><span class="sd">                 text.remove(word)</span>
@@ -678,19 +678,19 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">12</span><span class="sd">     return text</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span><span class="sd"> df[&#39;Abstrak&#39;] = df[&#39;Abstrak&#39;].apply(stopwords)</span>
 
-<span class="nn">/usr/lib/python3.9/re.py</span> in <span class="ni">sub</span><span class="nt">(pattern, repl, string, count, flags)</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span><span class="sd">     a callable, it&#39;s passed the Match object and must return</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span><span class="sd">     a replacement string to be used.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">210</span>     <span class="k">return</span> <span class="n">_compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span> 
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">def</span> <span class="nf">subn</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="nn">/usr/lib/python3.10/re.py</span> in <span class="ni">sub</span><span class="nt">(pattern, repl, string, count, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span><span class="sd">     a callable, it&#39;s passed the Match object and must return</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span><span class="sd">     a replacement string to be used.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">209</span>     <span class="k">return</span> <span class="n">_compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> 
+<span class="g g-Whitespace">    </span><span class="mi">211</span> <span class="k">def</span> <span class="nf">subn</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 
-<span class="nn">/usr/lib/python3.9/re.py</span> in <span class="ni">filter</span><span class="nt">(match, template)</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="c1"># literal replacement</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="k">return</span> <span class="n">template</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">331</span>     <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="n">template</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>         <span class="k">return</span> <span class="n">sre_parse</span><span class="o">.</span><span class="n">expand_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">match</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span>     <span class="k">return</span> <span class="nb">filter</span>
+<span class="nn">/usr/lib/python3.10/re.py</span> in <span class="ni">filter</span><span class="nt">(match, template)</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span>         <span class="c1"># literal replacement</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="k">return</span> <span class="n">template</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">330</span>     <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="n">template</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span>         <span class="k">return</span> <span class="n">sre_parse</span><span class="o">.</span><span class="n">expand_template</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">match</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="k">return</span> <span class="nb">filter</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

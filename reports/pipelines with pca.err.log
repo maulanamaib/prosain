@@ -1,19 +1,17 @@
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 1204, in execute
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/util.py", line 84, in wrapped
-    return just_run(coro(*args, **kwargs))
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/util.py", line 62, in just_run
-    return loop.run_until_complete(coro)
-  File "/usr/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 663, in async_execute
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 965, in async_execute_cell
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1058, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -36,14 +34,15 @@ data_Mysql['petallength'] = pd.to_numeric(data_Mysql['petallength'])
 data_Mysql
 ------------------
 
+
 [0;31m[0m
 [0;31mMySQLInterfaceError[0mTraceback (most recent call last)
-[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m_open_connection[0;34m(self)[0m
-[1;32m    287[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 288[0;31m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m**[0m[0mcnx_kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    289[0m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconverter_str_fallback[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_converter_str_fallback[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/usr/local/lib/python3.10/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m_open_connection[0;34m(self)[0m
+[1;32m    290[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 291[0;31m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m**[0m[0mcnx_kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    292[0m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconverter_str_fallback[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_converter_str_fallback[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mMySQLInterfaceError[0m: Access denied for user 'sql10605964'@'34.73.196.147' (using password: YES)
+[0;31mMySQLInterfaceError[0m: Access denied for user 'sql10605964'@'34.105.55.38' (using password: YES)
 
 The above exception was the direct cause of the following exception:
 
@@ -55,34 +54,33 @@ The above exception was the direct cause of the following exception:
 [1;32m      4[0m   [0muser[0m[0;34m=[0m[0;34m"sql10605964"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      5[0m   [0mpassword[0m[0;34m=[0m[0;34m"HlZVvJbmQQ"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/pooling.py[0m in [0;36mconnect[0;34m(*args, **kwargs)[0m
+[0;32m/usr/local/lib/python3.10/dist-packages/mysql/connector/pooling.py[0m in [0;36mconnect[0;34m(*args, **kwargs)[0m
 [1;32m    291[0m [0;34m[0m[0m
 [1;32m    292[0m     [0;32mif[0m [0mCMySQLConnection[0m [0;32mand[0m [0;32mnot[0m [0muse_pure[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 [0;32m--> 293[0;31m         [0;32mreturn[0m [0mCMySQLConnection[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m    294[0m     [0;32mreturn[0m [0mMySQLConnection[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [1;32m    295[0m [0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m__init__[0;34m(self, **kwargs)[0m
-[1;32m    116[0m [0;34m[0m[0m
-[1;32m    117[0m         [0;32mif[0m [0mkwargs[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 118[0;31m             [0mself[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    119[0m [0;34m[0m[0m
-[1;32m    120[0m     [0;32mdef[0m [0m_add_default_conn_attrs[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/usr/local/lib/python3.10/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m__init__[0;34m(self, **kwargs)[0m
+[1;32m    118[0m [0;34m[0m[0m
+[1;32m    119[0m         [0;32mif[0m [0mkwargs[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 120[0;31m             [0mself[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    121[0m [0;34m[0m[0m
+[1;32m    122[0m     [0;32mdef[0m [0m_add_default_conn_attrs[0m[0;34m([0m[0mself[0m[0;34m)[0m [0;34m->[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/abstracts.py[0m in [0;36mconnect[0;34m(self, **kwargs)[0m
-[1;32m   1176[0m [0;34m[0m[0m
-[1;32m   1177[0m         [0mself[0m[0;34m.[0m[0mdisconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1178[0;31m         [0mself[0m[0;34m.[0m[0m_open_connection[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1179[0m         [0;31m# Server does not allow to run any other statement different from ALTER[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1180[0m         [0;31m# when user's password has been expired.[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/usr/local/lib/python3.10/dist-packages/mysql/connector/abstracts.py[0m in [0;36mconnect[0;34m(self, **kwargs)[0m
+[1;32m   1179[0m [0;34m[0m[0m
+[1;32m   1180[0m         [0mself[0m[0;34m.[0m[0mdisconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1181[0;31m         [0mself[0m[0;34m.[0m[0m_open_connection[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1182[0m         [0;31m# Server does not allow to run any other statement different from ALTER[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1183[0m         [0;31m# when user's password has been expired.[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m_open_connection[0;34m(self)[0m
-[1;32m    291[0m                 [0mself[0m[0;34m.[0m[0mconverter[0m[0;34m.[0m[0mstr_fallback[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_converter_str_fallback[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    292[0m         [0;32mexcept[0m [0mMySQLInterfaceError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 293[0;31m             raise get_mysql_exception(
-[0m[1;32m    294[0m                 [0mmsg[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0mmsg[0m[0;34m,[0m [0merrno[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0merrno[0m[0;34m,[0m [0msqlstate[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0msqlstate[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    295[0m             ) from err
+[0;32m/usr/local/lib/python3.10/dist-packages/mysql/connector/connection_cext.py[0m in [0;36m_open_connection[0;34m(self)[0m
+[1;32m    294[0m                 [0mself[0m[0;34m.[0m[0mconverter[0m[0;34m.[0m[0mstr_fallback[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_converter_str_fallback[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    295[0m         [0;32mexcept[0m [0mMySQLInterfaceError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 296[0;31m             raise get_mysql_exception(
+[0m[1;32m    297[0m                 [0mmsg[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0mmsg[0m[0;34m,[0m [0merrno[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0merrno[0m[0;34m,[0m [0msqlstate[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0msqlstate[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    298[0m             ) from err
 
-[0;31mProgrammingError[0m: 1045 (28000): Access denied for user 'sql10605964'@'34.73.196.147' (using password: YES)
-ProgrammingError: 1045 (28000): Access denied for user 'sql10605964'@'34.73.196.147' (using password: YES)
+[0;31mProgrammingError[0m: 1045 (28000): Access denied for user 'sql10605964'@'34.105.55.38' (using password: YES)
 

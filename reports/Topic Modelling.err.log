@@ -30,8 +30,7 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['sw = ["aja","agan","barang","beli","baru","ada","adalah","ajaa","akan","aku","atas","buat","boss","agak","agar","apa","biar","bsa","alhmdulillah","alhamdulilah","akhir","allah","ane","arn","atau","audah","bang","aaaa","about","adik","ah","admin","and","as","bakalan","barank","amin","begini","begitu","beberapa"]', 'def stopwords(text):', "    '''a function for removing the stopword'''", '    import re', '    text = [word.lower() for word in text.split()]']
-...
-['                text.remove(word)', '    text = " ".join(text)', "    text = re.sub(r'(.+?)\\1+', r'\\1',text)", '    return text', "df['Abstrak'] = df['Abstrak'].apply(stopwords)"]
+from google.colab import drive
+drive.mount('/content/drive')
 -------------------
 
