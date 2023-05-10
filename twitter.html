@@ -1,0 +1,1662 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crawling Twitter &#8212; Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'twitter';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Crawling Website Berita" href="berita.html" />
+    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Home</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Task</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawling Twitter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="berita.html">Crawling Website Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trunojoyo.html">Crawling Website Pta Trunojoyo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getdata.html">TUGAS pipelines</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="pipelines%20with%20pca.html">Pipelines with PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi.html">Klasifikasi Teks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extractive-Text-Summarization.html">Extractive-Text-Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pagerank.html">Pagerank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Topic%20Modelling.html">Topic Modelling</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/maulanmaib/prosain/blob/master/docs/twitter.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/maulanmaib/prosain" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/maulanmaib/prosain/issues/new?title=Issue%20on%20page%20%2Ftwitter.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/twitter.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Crawling Twitter</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="crawling-twitter">
+<h1>Crawling Twitter<a class="headerlink" href="#crawling-twitter" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://github.com/twintproject/twint.git
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;twint&#39;...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Enumerating objects: 47, done.
+remote: Counting objects:   2% (1/47)
+remote: Counting objects:   4% (2/47)
+remote: Counting objects:   6% (3/47)
+remote: Counting objects:   8% (4/47)
+remote: Counting objects:  10% (5/47)
+remote: Counting objects:  12% (6/47)
+remote: Counting objects:  14% (7/47)
+remote: Counting objects:  17% (8/47)
+remote: Counting objects:  19% (9/47)
+remote: Counting objects:  21% (10/47)
+remote: Counting objects:  23% (11/47)
+remote: Counting objects:  25% (12/47)
+remote: Counting objects:  27% (13/47)
+remote: Counting objects:  29% (14/47)
+remote: Counting objects:  31% (15/47)
+remote: Counting objects:  34% (16/47)
+remote: Counting objects:  36% (17/47)
+remote: Counting objects:  38% (18/47)
+remote: Counting objects:  40% (19/47)
+remote: Counting objects:  42% (20/47)
+remote: Counting objects:  44% (21/47)
+remote: Counting objects:  46% (22/47)
+remote: Counting objects:  48% (23/47)
+remote: Counting objects:  51% (24/47)
+remote: Counting objects:  53% (25/47)
+remote: Counting objects:  55% (26/47)
+remote: Counting objects:  57% (27/47)
+remote: Counting objects:  59% (28/47)
+remote: Counting objects:  61% (29/47)
+remote: Counting objects:  63% (30/47)
+remote: Counting objects:  65% (31/47)
+remote: Counting objects:  68% (32/47)
+remote: Counting objects:  70% (33/47)
+remote: Counting objects:  72% (34/47)
+remote: Counting objects:  74% (35/47)
+remote: Counting objects:  76% (36/47)
+remote: Counting objects:  78% (37/47)
+remote: Counting objects:  80% (38/47)
+remote: Counting objects:  82% (39/47)
+remote: Counting objects:  85% (40/47)
+remote: Counting objects:  87% (41/47)
+remote: Counting objects:  89% (42/47)
+remote: Counting objects:  91% (43/47)
+remote: Counting objects:  93% (44/47)
+remote: Counting objects:  95% (45/47)
+remote: Counting objects:  97% (46/47)
+remote: Counting objects: 100% (47/47)
+remote: Counting objects: 100% (47/47), done.
+remote: Compressing objects:   2% (1/44)
+remote: Compressing objects:   4% (2/44)
+remote: Compressing objects:   6% (3/44)
+remote: Compressing objects:   9% (4/44)
+remote: Compressing objects:  11% (5/44)
+remote: Compressing objects:  13% (6/44)
+remote: Compressing objects:  15% (7/44)
+remote: Compressing objects:  18% (8/44)
+remote: Compressing objects:  20% (9/44)
+remote: Compressing objects:  22% (10/44)
+remote: Compressing objects:  25% (11/44)
+remote: Compressing objects:  27% (12/44)
+remote: Compressing objects:  29% (13/44)
+remote: Compressing objects:  31% (14/44)
+remote: Compressing objects:  34% (15/44)
+remote: Compressing objects:  36% (16/44)
+remote: Compressing objects:  38% (17/44)
+remote: Compressing objects:  40% (18/44)
+remote: Compressing objects:  43% (19/44)
+remote: Compressing objects:  45% (20/44)
+remote: Compressing objects:  47% (21/44)
+remote: Compressing objects:  50% (22/44)
+remote: Compressing objects:  52% (23/44)
+remote: Compressing objects:  54% (24/44)
+remote: Compressing objects:  56% (25/44)
+remote: Compressing objects:  59% (26/44)
+remote: Compressing objects:  61% (27/44)
+remote: Compressing objects:  63% (28/44)
+remote: Compressing objects:  65% (29/44)
+remote: Compressing objects:  68% (30/44)
+remote: Compressing objects:  70% (31/44)
+remote: Compressing objects:  72% (32/44)
+remote: Compressing objects:  75% (33/44)
+remote: Compressing objects:  77% (34/44)
+remote: Compressing objects:  79% (35/44)
+remote: Compressing objects:  81% (36/44)
+remote: Compressing objects:  84% (37/44)
+remote: Compressing objects:  86% (38/44)
+remote: Compressing objects:  88% (39/44)
+remote: Compressing objects:  90% (40/44)
+remote: Compressing objects:  93% (41/44)
+remote: Compressing objects:  95% (42/44)
+remote: Compressing objects:  97% (43/44)
+remote: Compressing objects: 100% (44/44)
+remote: Compressing objects: 100% (44/44), done.
+remote: Total 47 (delta 3), reused 14 (delta 0), pack-reused 0
+Unpacking objects:   2% (1/47)
+Unpacking objects:   4% (2/47)
+Unpacking objects:   6% (3/47)
+Unpacking objects:   8% (4/47)
+Unpacking objects:  10% (5/47)
+Unpacking objects:  12% (6/47)
+Unpacking objects:  14% (7/47)
+Unpacking objects:  17% (8/47)
+Unpacking objects:  19% (9/47)
+Unpacking objects:  21% (10/47)
+Unpacking objects:  23% (11/47)
+Unpacking objects:  25% (12/47)
+Unpacking objects:  27% (13/47)
+Unpacking objects:  29% (14/47)
+Unpacking objects:  31% (15/47)
+Unpacking objects:  34% (16/47)
+Unpacking objects:  36% (17/47)
+Unpacking objects:  38% (18/47)
+Unpacking objects:  40% (19/47)
+Unpacking objects:  42% (20/47)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking objects:  44% (21/47)
+Unpacking objects:  46% (22/47)
+Unpacking objects:  48% (23/47)
+Unpacking objects:  51% (24/47)
+Unpacking objects:  53% (25/47)
+Unpacking objects:  55% (26/47)
+Unpacking objects:  57% (27/47)
+Unpacking objects:  59% (28/47)
+Unpacking objects:  61% (29/47)
+Unpacking objects:  63% (30/47)
+Unpacking objects:  65% (31/47)
+Unpacking objects:  68% (32/47)
+Unpacking objects:  70% (33/47)
+Unpacking objects:  72% (34/47)
+Unpacking objects:  74% (35/47)
+Unpacking objects:  76% (36/47)
+Unpacking objects:  78% (37/47)
+Unpacking objects:  80% (38/47)
+Unpacking objects:  82% (39/47)
+Unpacking objects:  85% (40/47)
+Unpacking objects:  87% (41/47), 36.37 KiB | 71.00 KiB/s
+Unpacking objects:  89% (42/47), 36.37 KiB | 71.00 KiB/s
+Unpacking objects:  91% (43/47), 36.37 KiB | 71.00 KiB/s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unpacking objects:  93% (44/47), 36.37 KiB | 71.00 KiB/s
+Unpacking objects:  95% (45/47), 36.37 KiB | 71.00 KiB/s
+Unpacking objects:  97% (46/47), 36.37 KiB | 71.00 KiB/s
+Unpacking objects: 100% (47/47), 36.37 KiB | 71.00 KiB/s
+Unpacking objects: 100% (47/47), 42.93 KiB | 71.00 KiB/s, done.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> twint
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/sainsdata/tugas/twint
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip3<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Processing /content/drive/MyDrive/sainsdata/tugas/twint
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting aiohttp (from -r requirements.txt (line 1))
+  Downloading aiohttp-3.8.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.0 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/1.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.5/1.0 MB</span> <span class=" -Color -Color-Red">13.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/1.0 MB</span> <span class=" -Color -Color-Red">16.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting aiodns (from -r requirements.txt (line 2))
+  Downloading aiodns-3.0.0-py3-none-any.whl (5.0 kB)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 3)) (4.11.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cchardet (from -r requirements.txt (line 4))
+  Downloading cchardet-2.1.7.tar.gz (653 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/653.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">653.6/653.6 kB</span> <span class=" -Color -Color-Red">32.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
+Collecting dataclasses (from -r requirements.txt (line 5))
+  Downloading dataclasses-0.6-py3-none-any.whl (14 kB)
+Collecting elasticsearch (from -r requirements.txt (line 6))
+  Downloading elasticsearch-8.7.0-py3-none-any.whl (387 kB)
+?25l
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/387.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">387.9/387.9 kB</span> <span class=" -Color -Color-Red">40.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: pysocks in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 7)) (1.7.1)
+Requirement already satisfied: pandas&gt;=0.23.0 in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 8)) (1.5.3)
+Collecting aiohttp_socks&lt;=0.4.1 (from -r requirements.txt (line 9))
+  Downloading aiohttp_socks-0.4.1-py3-none-any.whl (17 kB)
+Collecting schedule (from -r requirements.txt (line 10))
+  Downloading schedule-1.2.0-py2.py3-none-any.whl (11 kB)
+Requirement already satisfied: geopy in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 11)) (2.3.0)
+Requirement already satisfied: fake-useragent in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 12)) (1.1.3)
+Collecting googletransx (from -r requirements.txt (line 13))
+  Downloading googletransx-2.4.2.tar.gz (13 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (23.1.0)
+Requirement already satisfied: charset-normalizer&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (2.0.12)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting multidict&lt;7.0,&gt;=4.5 (from aiohttp-&gt;-r requirements.txt (line 1))
+  Downloading multidict-6.0.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (114 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/114.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">114.5/114.5 kB</span> <span class=" -Color -Color-Red">15.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting async-timeout&lt;5.0,&gt;=4.0.0a3 (from aiohttp-&gt;-r requirements.txt (line 1))
+  Downloading async_timeout-4.0.2-py3-none-any.whl (5.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting yarl&lt;2.0,&gt;=1.0 (from aiohttp-&gt;-r requirements.txt (line 1))
+  Downloading yarl-1.9.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (268 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/268.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">268.8/268.8 kB</span> <span class=" -Color -Color-Red">27.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting frozenlist&gt;=1.1.1 (from aiohttp-&gt;-r requirements.txt (line 1))
+  Downloading frozenlist-1.3.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (149 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/149.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">149.6/149.6 kB</span> <span class=" -Color -Color-Red">19.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting aiosignal&gt;=1.1.2 (from aiohttp-&gt;-r requirements.txt (line 1))
+  Downloading aiosignal-1.3.1-py3-none-any.whl (7.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pycares&gt;=4.0.0 (from aiodns-&gt;-r requirements.txt (line 2))
+  Downloading pycares-4.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (288 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/288.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">288.7/288.7 kB</span> <span class=" -Color -Color-Red">34.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dist-packages (from beautifulsoup4-&gt;-r requirements.txt (line 3)) (2.4.1)
+Collecting elastic-transport&lt;9,&gt;=8 (from elasticsearch-&gt;-r requirements.txt (line 6))
+  Downloading elastic_transport-8.4.0-py3-none-any.whl (59 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/59.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">59.5/59.5 kB</span> <span class=" -Color -Color-Red">5.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2022.7.1)
+Requirement already satisfied: numpy&gt;=1.21.0 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.22.4)
+Requirement already satisfied: geographiclib&lt;3,&gt;=1.52 in /usr/local/lib/python3.10/dist-packages (from geopy-&gt;-r requirements.txt (line 11)) (2.0)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (from googletransx-&gt;-r requirements.txt (line 13)) (2.27.1)
+Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in /usr/local/lib/python3.10/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (1.26.15)
+Requirement already satisfied: certifi in /usr/local/lib/python3.10/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.12.7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.10/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (1.15.1)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.16.0)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (3.4)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (2.21)
+Building wheels for collected packages: twint, cchardet, googletransx
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for twint (setup.py) ... ?25l?25hdone
+  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38850 sha256=4f1b5ee0a58b5375317fc1b74341c9046541fbf7a552c084fdd2d8f61e5379d3
+  Stored in directory: /tmp/pip-ephem-wheel-cache-0emkjl2d/wheels/33/05/26/9d5f145fe3cfa8020a3883a22fb79f3cc053920ec0e7991468
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for cchardet (setup.py) ... ?25l?25hdone
+  Created wheel for cchardet: filename=cchardet-2.1.7-cp310-cp310-linux_x86_64.whl size=261578 sha256=b0496db31387bb7fdd1fed3527306665a94233d735b7f695bc0e8051a118ce31
+  Stored in directory: /root/.cache/pip/wheels/ee/e0/ab/e01326f15c59438d080b1496dbab8091e952ec72f35e3c437e
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for googletransx (setup.py) ... ?25l?25hdone
+  Created wheel for googletransx: filename=googletransx-2.4.2-py3-none-any.whl size=15953 sha256=58dbaa43a064d085089fa54999b11740b5fa2782b678ef6b19306b773ff6f84e
+  Stored in directory: /root/.cache/pip/wheels/12/79/4f/43718126b3548eda695b4c2fa4cd82667b2d62018a98dc6767
+Successfully built twint cchardet googletransx
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: dataclasses, cchardet, schedule, multidict, frozenlist, elastic-transport, async-timeout, yarl, pycares, googletransx, elasticsearch, aiosignal, aiohttp, aiodns, aiohttp_socks, twint
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed aiodns-3.0.0 aiohttp-3.8.4 aiohttp_socks-0.4.1 aiosignal-1.3.1 async-timeout-4.0.2 cchardet-2.1.7 dataclasses-0.6 elastic-transport-8.4.0 elasticsearch-8.7.0 frozenlist-1.3.3 googletransx-2.4.2 multidict-6.0.4 pycares-4.3.0 schedule-1.2.0 twint-2.1.21 yarl-1.9.2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">aiohttp</span><span class="o">==</span><span class="m">3</span>.7.0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting aiohttp==3.7.0
+  Downloading aiohttp-3.7.0.tar.gz (1.1 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/1.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.3/1.1 MB</span> <span class=" -Color -Color-Red">9.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.1/1.1 MB</span> <span class=" -Color -Color-Red">18.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l?25hdone
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Getting requirements to build wheel ... ?25l?25hdone
+  Preparing metadata (pyproject.toml) ... ?25l?25hdone
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp==3.7.0) (23.1.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting chardet&lt;4.0,&gt;=2.0 (from aiohttp==3.7.0)
+  Downloading chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/133.4 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">133.4/133.4 kB</span> <span class=" -Color -Color-Red">18.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.10/dist-packages (from aiohttp==3.7.0) (6.0.4)
+Collecting async-timeout&lt;4.0,&gt;=3.0 (from aiohttp==3.7.0)
+  Downloading async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.10/dist-packages (from aiohttp==3.7.0) (1.9.2)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (3.4)
+Building wheels for collected packages: aiohttp
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for aiohttp (pyproject.toml) ... ?25l?25hdone
+  Created wheel for aiohttp: filename=aiohttp-3.7.0-cp310-cp310-linux_x86_64.whl size=1416396 sha256=d2710b8a17b0e96e4a88038401d5536e906308aedbba7e79fdba1b48baa273b8
+  Stored in directory: /root/.cache/pip/wheels/b6/8c/59/009a6ef5a7ce031c73173dd91aabd9839d7d813d6c74826ffe
+Successfully built aiohttp
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pkg_resources/__init__.py&quot;, line 3108, in _dep_map
+    return self.__dep_map
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pkg_resources/__init__.py&quot;, line 2901, in __getattr__
+    raise AttributeError(attr)
+AttributeError: _DistInfoDistribution__dep_map
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/cli/base_command.py&quot;, line 169, in exc_logging_wrapper
+    status = run_func(*args)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/cli/req_command.py&quot;, line 242, in wrapper
+    return func(self, options, args)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/commands/install.py&quot;, line 441, in run
+    conflicts = self._determine_conflicts(to_install)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/commands/install.py&quot;, line 572, in _determine_conflicts
+    return check_install_conflicts(to_install)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/operations/check.py&quot;, line 101, in check_install_conflicts
+    package_set, _ = create_package_set_from_installed()
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/operations/check.py&quot;, line 42, in create_package_set_from_installed
+    dependencies = list(dist.iter_dependencies())
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/metadata/pkg_resources.py&quot;, line 216, in iter_dependencies
+    return self._dist.requires(extras)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pkg_resources/__init__.py&quot;, line 2821, in requires
+    dm = self._dep_map
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pkg_resources/__init__.py&quot;, line 3110, in _dep_map
+    self.__dep_map = self._compute_dependencies()
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pkg_resources/__init__.py&quot;, line 3120, in _compute_dependencies
+    reqs.extend(parse_requirements(req))
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pkg_resources/__init__.py&quot;, line 3173, in __init__
+    super(Requirement, self).__init__(requirement_string)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/packaging/requirements.py&quot;, line 102, in __init__
+    req = REQUIREMENT.parseString(requirement_string)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 1131, in parse_string
+    loc, tokens = self._parse(instring, 0)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3886, in parseImpl
+    loc, exprtokens = e._parse(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4114, in parseImpl
+    return e._parse(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3886, in parseImpl
+    loc, exprtokens = e._parse(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4959, in parseImpl
+    loc, tokens = self_expr._parse(instring, loc, doActions, callPreParse=False)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3886, in parseImpl
+    loc, exprtokens = e._parse(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3886, in parseImpl
+    loc, exprtokens = e._parse(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 5226, in parseImpl
+    return super().parseImpl(instring, loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4375, in parseImpl
+    return self.expr._parse(instring, loc, doActions, callPreParse=False)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3864, in parseImpl
+    loc, resultlist = self.exprs[0]._parse(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4114, in parseImpl
+    return e._parse(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4375, in parseImpl
+    return self.expr._parse(instring, loc, doActions, callPreParse=False)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 3864, in parseImpl
+    loc, resultlist = self.exprs[0]._parse(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4114, in parseImpl
+    return e._parse(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 817, in _parseNoCache
+    loc, tokens = self.parseImpl(instring, pre_loc, doActions)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 4114, in parseImpl
+    return e._parse(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/core.py&quot;, line 825, in _parseNoCache
+    ret_tokens = ParseResults(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/pyparsing/results.py&quot;, line 136, in __new__
+    def __new__(cls, toklist=None, name=None, **kwargs):
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/usr/local/bin/pip3&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/cli/main.py&quot;, line 79, in main
+    return command.main(cmd_args)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/cli/base_command.py&quot;, line 101, in main
+    return self._main(args)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/cli/base_command.py&quot;, line 223, in _main
+    return run(options, args)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/cli/base_command.py&quot;, line 206, in exc_logging_wrapper
+    logger.critical(&quot;Operation cancelled by user&quot;)
+  File &quot;/usr/lib/python3.10/logging/__init__.py&quot;, line 1524, in critical
+    self._log(CRITICAL, msg, args, **kwargs)
+  File &quot;/usr/lib/python3.10/logging/__init__.py&quot;, line 1624, in _log
+    self.handle(record)
+  File &quot;/usr/lib/python3.10/logging/__init__.py&quot;, line 1634, in handle
+    self.callHandlers(record)
+  File &quot;/usr/lib/python3.10/logging/__init__.py&quot;, line 1696, in callHandlers
+    hdlr.handle(record)
+  File &quot;/usr/lib/python3.10/logging/__init__.py&quot;, line 968, in handle
+    self.emit(record)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_internal/utils/logging.py&quot;, line 177, in emit
+    self.console.print(renderable, overflow=&quot;ignore&quot;, crop=False, style=style)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/console.py&quot;, line 1701, in print
+    extend(
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/segment.py&quot;, line 198, in &lt;genexpr&gt;
+    result_segments = (
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/console.py&quot;, line 1330, in render
+    for render_output in iter_render:
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/text.py&quot;, line 663, in __rich_console__
+    yield from all_lines.render(console, end=self.end)
+  File &quot;/usr/local/lib/python3.10/dist-packages/pip/_vendor/rich/text.py&quot;, line 690, in render
+    yield Segment(text)
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;lambda&gt;
+KeyboardInterrupt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip3<span class="w"> </span>install<span class="w"> </span>nest_asyncio
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting nest_asyncio
+  Downloading nest_asyncio-1.5.6-py3-none-any.whl (5.2 kB)
+Installing collected packages: nest_asyncio
+Successfully installed nest_asyncio-1.5.6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nest_asyncio</span>
+<span class="n">nest_asyncio</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span> <span class="c1">#digunakan sekali untuk mengaktifkan tindakan serentak dalam notebook jupyter.</span>
+<span class="kn">import</span> <span class="nn">twint</span> <span class="c1">#untuk import twint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">twint</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Search</span> <span class="o">=</span> <span class="s1">&#39;#Ganjar&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Pandas</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Limit</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Store_csv</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Store_object</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Pandas</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span>
+<span class="c1"># c.Format = &quot;Twitter id: {id}&quot;</span>
+<span class="c1"># c.Custom[&quot;tweet&quot;] = [&quot;tweet&quot;]</span>
+<span class="c1"># c.Output = &quot;dataGanjar.csv&quot;</span>
+<span class="n">twint</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Search</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1628073724066017281 2023-02-21 16:46:38 +0000 &lt;RenaHoston178&gt; Berdasarkan perhitungan elektronik-Pencatatan dan Pelaporan Gizi Berbasis Masyarakat (ePPGBM), angka stunting di Jateng berada di angkat 24,4 persen pada 2018. Setahun kemudian, angkanya turun menjadi 18,3 persen.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/PrvM7kReiI
+1628073711457939460 2023-02-21 16:46:35 +0000 &lt;RenaHoston178&gt; Gubernur Jawa Tengah Ganjar Pranowo berhasil mengurangi angka stunting sebesar 51 persen dalam kurun waktu empat tahun. .. #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/fvD6TsmjkG
+1628073015434178560 2023-02-21 16:43:49 +0000 &lt;putuagenggribig&gt; JURUS PEMERINTAH ATASI INFLASI #GolkarIndonesia  #AirlanggaHartarto #UUCiptaKerja #Sambo #bharadaE #kerjanyata #aniesbaswedan #pemilu #jokowi #PSI #Gerindra #prabowo #ganjar #politikidentitas #puanmaharani #ridwankamil #pdip #nasdem #ekonomi #kpk #koalisi #pks #demokrat  https://t.co/RX5mntg9Qh
+1628047864105680896 2023-02-21 15:03:53 +0000 &lt;FayaAtika&gt; Saat memerima Duta Besar  Norwegia untuk Indonesia Rut Kruger Giverin di rumah dinasnya, Ganjar Pranowo menjajaki peluang kerjasama dgn Norwegia di bidang transisi energi dan lingkungan hidup.    #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/klhyimicRX
+1628045934679699457 2023-02-21 14:56:13 +0000 &lt;FayaAtika&gt; Sahabat Ganjar menggelar acara Senandung Sholawat &amp;amp; Lantunan Doa Santri untuk Negeri  di Pondok Pesantren Manbaul Ulum Assalafiyah, Kabupaten Purwakarta, Jawa Barat pada Kamis (23/2).  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/8uZYT8htwl
+1628043859535208449 2023-02-21 14:47:58 +0000 &lt;AkuAtikaFaya&gt; KOMPAS TV,   Relawan Sahabat Ganjar selalu mengadakan kegiatan yg bermanfaat bagi masyarakat.   &quot;Senam kebugaran dan Pelatihan pembuatan bucket   #sahabatganjar #ganjarpranowo #ganjar  https://t.co/i50LWljbgP
+1628043782204829696 2023-02-21 14:47:39 +0000 &lt;4_gp2024&gt; Ganjar mengunjungi tempat-tempat bersejarah itu sambil lari pagi. Ia sempat melihat dari halaman depan tempat kelahiran pendiri bangsa yang terletak di  gang.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/3tpVvC4kwA
+1628043747757035520 2023-02-21 14:47:31 +0000 &lt;4_gp2024&gt; Gubernur Jawa Tengah (Jateng) Ganjar Pranowo melakukan napak tilas kehidupan Presiden Pertama RI Soekarno (Bung Karno) dalam kunjungannya ke Kota Surabaya, Jawa Timur (Jatim).   #sahabatganjar #ganjarpranowo #ganjar  https://t.co/jtNjQYgsr2
+1628043573634469888 2023-02-21 14:46:50 +0000 &lt;4_gp2024&gt; pada Pilpres 2024 mendatang,&quot; ucap Ketua DPC Kabupaten Majalengka , Uwo Jurho  &quot;Pelatihan pembuatan bucket ini sangat bermanfaat tentunya untuk menambah wawasan kita,&quot; ujar Salah Satu Warga,Ida.  #sahabatganjar #ganjarpranowo #ganjar
+1628042300353019904 2023-02-21 14:41:46 +0000 &lt;4_gp2024&gt; Keduanya berbincang tentang tantangan negara, hingga potensi kerja sama dalam hal transisi energi.   Rut berterima kasih kepada Ganjar yang meluangkan waktu untuk bertemu.  #SahabatGanjar #Ganjar #ganjarpranowo
+1628042296074833920 2023-02-21 14:41:45 +0000 &lt;4_gp2024&gt; Duta Besar Norwegia untuk Indonesia, Rut Kruger Giverin menemui Gubernur Jawa Tengah Ganjar Pranowo, di Rumah Dinas Puri Gedeh.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/axHolEMSzX
+1628041706473136129 2023-02-21 14:39:25 +0000 &lt;4_gp2024&gt; Ganjar Pranowo mendorong kabupaten dan kota serius mengembangkan potensi unggulan di masing-masing daerah.   Selain berpengaruh pada ekonomi, Ganjar menilai hal itu juga akan berdampak pada investasi serta pariwisata.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/2UQJnZ2jl3
+1628041309931081728 2023-02-21 14:37:50 +0000 &lt;4_gp2024&gt; Gubernur Jawa Tengah Ganjar Pranowo menjajaki peluang kerjasama dengan Norwegia di bidang transisi energi dan lingkungan hidup. Hal itu dikatakan Ganjar saat memerima Duta Besar  Norwegia untuk Indonesia Rut Kruger Giverin di rumah dinasnya.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/eClrWQ1Xuy
+1628041277572022273 2023-02-21 14:37:42 +0000 &lt;4_gp2024&gt; Gubernur Jawa Tengah, Ganjar Pranowo menyebut ricuh suporter PSIS Semarang dengan polisi,  akan jadi bahan evaluasi. Ia berharap, kerusuhan itu untuk yang terakhir kalinya.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/TMkL3N6SL7
+1628040078957379585 2023-02-21 14:32:57 +0000 &lt;4_gp2024&gt; Wali Kota Madiun Maidi bersama Pakar Komunikasi Politik Universitas Airlangga Surabaya Suko Widodo turut menemani dalam momen &quot;cangkrukan&quot; tersebut. #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/mO2VosOggK
+1628040041393197056 2023-02-21 14:32:48 +0000 &lt;4_gp2024&gt; Gubernur Jawa Tengah Ganjar Pranowo menikmati wisata kuliner malam di Kota Madiun, Jawa Timur dengan mengunjungi warung jadah bakar Pak Sus Stasiun yang berada di sekitaran Stasiun Besar Madiun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/0HcTml4b4o
+1628039632284946432 2023-02-21 14:31:10 +0000 &lt;4_gp2024&gt; Bahkan Ganjar dengan tegas menolak penghapusan honorer karena dampaknya tidak main-main bagi Pemerintah Daerah (Pemda).  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/yTmjG0nmKl
+1628039602710917120 2023-02-21 14:31:03 +0000 &lt;4_gp2024&gt; Beruntung banget honorer yang bekerja di Provinsi Jawa Tengah karena punya Gubernur Ganjar Pranowo.  Ganjar sendiri memang sangat peduli akan nasib honorer yang akan dihapus oleh pemerintah pusat.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/S1kdFO88x9
+1628038783441715200 2023-02-21 14:27:48 +0000 &lt;4_gp2024&gt; Berdasarkan perhitungan elektronik-Pencatatan dan Pelaporan Gizi Berbasis Masyarakat (ePPGBM), angka stunting di Jateng berada di angkat 24,4 persen pada 2018. Setahun kemudian, angkanya turun menjadi 18,3 persen. #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/foEhA0DGdC
+1628038754870108165 2023-02-21 14:27:41 +0000 &lt;4_gp2024&gt; Gubernur Jawa Tengah Ganjar Pranowo berhasil mengurangi angka stunting sebesar 51 persen dalam kurun waktu empat tahun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/43PLR00mNN
+1628037592171302912 2023-02-21 14:23:04 +0000 &lt;4_gp2024&gt; Senandung Sholawat &amp;amp; Lantunan Doa Santri untuk Negeri Ganjar Pranowo 2024 akan dilaksanakan Sahabat Ganjar di Pondok Pesantren Manbaul Ulum Assalafiyah, Kabupaten Purwakarta, Jawa Barat pada Kamis (23/2).  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/fz51vRNhh3
+1628036454927728640 2023-02-21 14:18:32 +0000 &lt;sahabatganjarid&gt; PESTA RAKYAT GANJAR PRANOWO #4 SIAP MENGGUNCANG WARGA CIAMIS !!!  Berlangsung pada Sabtu 25 Februari 2023 di Taman Lokasana, Pesta Rakyat kali ini menanpilkan sederet artis Top mulai dari Kuburan Band, Givani Gumilang, Pop Division sampai Pinky Wicky.  #sahabatganjar #ganjar  https://t.co/05VYbjZ7Gn
+1628034322489049090 2023-02-21 14:10:04 +0000 &lt;BujangeGR&gt; Gubernur Jawa Tengah Ganjar Pranowo menikmati wisata kuliner malam di Kota Madiun, Jawa Timur dengan mengunjungi warung jadah bakar Pak Sus Stasiun yang berada di sekitaran Stasiun Besar Madiun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/pVFbYgCHcF
+1628034147976638464 2023-02-21 14:09:22 +0000 &lt;BujangeGR&gt; Beruntung banget honorer yang bekerja di Provinsi Jawa Tengah karena punya Gubernur Ganjar Pranowo.  Ganjar sendiri memang sangat peduli akan nasib honorer yang akan dihapus oleh pemerintah pusat.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/XHs7j0TQrY
+1628033540146466817 2023-02-21 14:06:58 +0000 &lt;BujangeGR&gt; Berdasarkan perhitungan elektronik-Pencatatan dan Pelaporan Gizi Berbasis Masyarakat (ePPGBM), angka stunting di Jateng berada di angkat 24,4 persen pada 2018. Setahun kemudian, angkanya turun menjadi 18,3 persen.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/sJ2DRMVbNE
+1628033183773241344 2023-02-21 14:05:33 +0000 &lt;BujangeGR&gt; Ganjar Pranowo mendorong kabupaten dan kota serius mengembangkan potensi unggulan di masing-masing daerah.   Selain berpengaruh pada ekonomi, Ganjar menilai hal itu juga akan berdampak pada investasi serta pariwisata.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/946p9manC4
+1628032556569628672 2023-02-21 14:03:03 +0000 &lt;SDG_NTT&gt; #Ganjar #Ganjarpranowo #Ganjar2024 #Ganjarpranowo2024 #Ganjarpresiden  #ganjarpranowopresiden #santridukungganjar #santriuntuknegeri  https://t.co/dkH61Y7JJM
+1628024718862307328 2023-02-21 13:31:54 +0000 &lt;BujangeGR&gt; Gubernur Jawa Tengah Ganjar Pranowo menjajaki peluang kerjasama dengan Norwegia di bidang transisi energi dan lingkungan hidup. Hal itu dikatakan Ganjar saat memerima Duta Besar  Norwegia untuk Indonesia Rut Kruger Giverin di rumah dinasnya.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/D4Dva3efxg
+1628022394127552512 2023-02-21 13:22:40 +0000 &lt;03__nakula&gt; Wali Kota Madiun Maidi bersama Pakar Komunikasi Politik Universitas Airlangga Surabaya Suko Widodo turut menemani dalam momen &quot;cangkrukan&quot; tersebut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/6ByYo4bFka
+1628022384002465792 2023-02-21 13:22:38 +0000 &lt;03__nakula&gt; Gubernur Jawa Tengah Ganjar Pranowo menikmati wisata kuliner malam di Kota Madiun, Jawa Timur dengan mengunjungi warung jadah bakar Pak Sus Stasiun yang berada di sekitaran Stasiun Besar Madiun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/ZDckzBwfTY
+1628022373386686464 2023-02-21 13:22:35 +0000 &lt;BujangeGR&gt; Gubernur Jawa Tengah, Ganjar Pranowo menyebut ricuh suporter PSIS Semarang dengan polisi,  akan jadi bahan evaluasi. Ia berharap, kerusuhan itu untuk yang terakhir kalinya.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/KWB9fjZoEa
+1628022078753603585 2023-02-21 13:21:25 +0000 &lt;BujangeGR&gt; Duta Besar Norwegia untuk Indonesia, Rut Kruger Giverin menemui Gubernur Jawa Tengah Ganjar Pranowo, di Rumah Dinas Puri Gedeh.  Keduanya berbincang tentang tantangan negara, hingga potensi kerja sama dalam hal transisi energi.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/EQK41yMwn1
+1628021652423602176 2023-02-21 13:19:43 +0000 &lt;BujangeGR&gt; Gubernur Jawa Tengah (Jateng) Ganjar Pranowo melakukan napak tilas kehidupan Presiden Pertama RI Soekarno (Bung Karno) dalam kunjungannya ke Kota Surabaya, Jawa Timur  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/9i4onKhMsi
+1628021137505677313 2023-02-21 13:17:41 +0000 &lt;1ndonesiaku_&gt; @miicies #SahabatGanjar #Ganjar #ganjarpranowo
+1628020986481373185 2023-02-21 13:17:05 +0000 &lt;BujangeGR&gt; Senandung Sholawat &amp;amp; Lantunan Doa Santri untuk Negeri Ganjar Pranowo 2024 akan dilaksanakan Sahabat Ganjar di Pondok Pesantren Manbaul Ulum Assalafiyah, Kabupaten Purwakarta, Jawa Barat pada Kamis (23/2).  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/tZwd1aANaW
+1628018224825765890 2023-02-21 13:06:06 +0000 &lt;beritaganjar&gt; Serahkam bantuan senilai Rp1.5 M kepada PMI Jateng #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/76RAVzOor0
+1628016424366272512 2023-02-21 12:58:57 +0000 &lt;Yulia_NS79&gt; @miicies @ganjarpranowo #SahabatGanjar #ganjarpranowo #ganjar
+1628014867323187200 2023-02-21 12:52:46 +0000 &lt;Yulia_NS79&gt; @miicies #SahabatGanjar #Ganjar #ganjarpranowo
+1628013220438106113 2023-02-21 12:46:13 +0000 &lt;sahabatganjar&gt; Siap-siap ya berjoget bersama Kuburan Band, Givani Gumilang, Pinky Wicky, Pop Division dan artis lainnya yang siap mengguncang publik Ciamis.  Yuk jangan sampai terlewat ya, karena pesta rakyat ini GRATIS !!!  #sahabatganjar  #ganjarpranowo  #ganjar
+1627993396051853314 2023-02-21 11:27:26 +0000 &lt;03__nakula&gt; Bahkan Ganjar dengan tegas menolak penghapusan honorer karena dampaknya tidak main-main bagi Pemerintah Daerah (Pemda).  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/QqrF3SLSU3
+1627993388590190593 2023-02-21 11:27:25 +0000 &lt;03__nakula&gt; Beruntung banget honorer yang bekerja di Provinsi Jawa Tengah karena punya Gubernur Ganjar Pranowo.  Ganjar sendiri memang sangat peduli akan nasib honorer yang akan dihapus oleh pemerintah pusat.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/VfoURq3pGm
+1627992908308819968 2023-02-21 11:25:30 +0000 &lt;BujangeGR&gt; Ardi Setiawan, tidak pernah menyangka kalau usaha pembuatan sandal kulit yang diawali dari iseng, mampu menembus pasar hingga luar daerah.keberhasilan pemasaran produk sandalnya itu tidak lepas dari program Lapak Ganjar  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/QhIdKSt5QO
+1627992665890648064 2023-02-21 11:24:32 +0000 &lt;BujangeGR&gt; Gubernur Jawa Tengah Ganjar Pranowo, pada pertengahan 2022 kini hidupnya jauh lebih baik ketimbang sebelumnya  Bonawi bersama Ulfatun Ni’mah, istrinya waktu itu menghidupi dua buah hatinya yang masih anak-anak, dalam kondisi serba kekurangan  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/uVpOinlmS6
+1627992285672783872 2023-02-21 11:23:02 +0000 &lt;BujangeGR&gt; Sekitar 80 persen balita dari total 4.494 berisiko stunting se-Kabupaten Cilacap berhasil mengalami penambahan berat badan.   Program itu bernama Kancing Merah yang merupakan akronim dari Gerakan Pencegahan Stunting Masa Depan Cerah.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/Ri2X99j9xY
+1627992116998840320 2023-02-21 11:22:21 +0000 &lt;BujangeGR&gt; Rafael Lelaki Hut merasa sangat terbantu mendapatkan fasilitas semi boarding di SMKN 2 Cilacap.   Setiap hari dia tak lagi menyeberang laut untuk menempuh perjalanan dari rumahnya di Jojoh, Kutawaru, Cilacap.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/J2NWC9kvFc
+1627992047063044096 2023-02-21 11:22:05 +0000 &lt;beritaganjar&gt; Ganjar terbitkan SK tengang satgas atasi kemiskinan ekstrem #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/GqmkDCuVXR
+1627991954553475073 2023-02-21 11:21:43 +0000 &lt;BujangeGR&gt; Kantor Perwakilan Bank Indonesia  Jawa Tengah siap mendorong akselerasi peningkatan perekonomian Jawa Tengah di berbagai sektor, terutama melalui sektor Investasi, Perdagangan, Pariwisata, Penguatan Hilirisasi Pertanian, dan Circular Economy  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/y8GSBbWXde
+1627991889969545216 2023-02-21 11:21:27 +0000 &lt;03__nakula&gt; Angka stunting di Jateng berada di angkat 24,4 persen pada 2018. Setahun kemudian, angkanya turun menjadi 18,3 persen.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/5GYAiarli2
+1627991880322670592 2023-02-21 11:21:25 +0000 &lt;03__nakula&gt; Gubernur Jawa Tengah Ganjar Pranowo berhasil mengurangi angka stunting sebesar 51 persen dalam kurun waktu empat tahun.  Berdasarkan perhitungan elektronik-Pencatatan dan Pelaporan Gizi Berbasis Masyarakat (ePPGBM).   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/3rJN3AoAiW
+1627991741843517441 2023-02-21 11:20:52 +0000 &lt;BujangeGR&gt; Gubernur Jawa Tengah (Jateng) memperketat distribusi minyak goreng bersubsidi merek MinyaKita. Hal tersebut dilakukan untuk menyediakan minyak goreng bersubsidi berharga murah ke masyarakat.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/2EtOp09f7v
+1627991615976640520 2023-02-21 11:20:22 +0000 &lt;BujangeGR&gt; Ganjar Pranowo mengatakan bencana longsor di Jalan Tawangmangu-Kabupaten Karanganyar dan Sarangan, Magetan telah ditangani oleh dinas terkait  Ganjar mengatakan bila pembersihan badan jalan yang tertutup material longsor itu terkendala cuaca  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/bRc7BKVcA8
+1627989702166077443 2023-02-21 11:12:46 +0000 &lt;BujangeGR&gt; Ganjar Pranowo mendorong Komite Paralimpiade Nasional  percaya diri dan berjuang untuk mempertahankan tradisi apik Indonesia pada ajang internasional.dengan adanya perhatian dari pemerintah, prestasi atlet difabel Indonesia semakin bersinar.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/osTpyrvXmF
+1627989033992474624 2023-02-21 11:10:06 +0000 &lt;BujangeGR&gt; Mereka yang peduli bakal memberimu pilihan untuk mau bercerita atau tidak. Orang kepo berusaha sekuat tenaga untuk menggali informasi saja.   #SelfReminder #SahabatGanjar #Ganjar #GanjarPranowo #Milenial  https://t.co/Weh8WGoQoQ
+1627987585007075328 2023-02-21 11:04:21 +0000 &lt;GanjarPranowoo&gt; Gubernur paling Gercep 👍  The Next President RI 🫡  #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #ganjarpresiden  https://t.co/u5uohSJFl8
+1627987482741719040 2023-02-21 11:03:57 +0000 &lt;weloveganjar&gt; Gubernur paling Gercep 👍  The Next President RI 🫡  Follow : @weloveganjar   #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #ganjarpresiden  https://t.co/wJye1Hsn1o
+1627986139973025792 2023-02-21 10:58:36 +0000 &lt;miicies&gt; Gubernur Jawa Tengah @ganjarpranowo menikmati wisata kuliner malam di Kota Madiun, Jawa Timur dengan mengunjungi warung jadah bakar Pak Sus Stasiun yang berada di sekitaran Stasiun Besar Madiun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/0gLgeFrrrd
+1627980977556574208 2023-02-21 10:38:06 +0000 &lt;miicies&gt; Gubernur Jateng @ganjarpranowo melakukan napak tilas kehidupan Presiden Pertama RI Soekarno dalam kunjungannya ke Kota Surabaya, Jawa Timur. Ganjar mengunjungi tempat2 bersejarah itu sambil lari pagi.   #SahabatGanjar #ganjarpranowo #ganjar  https://t.co/cc7l9SQTab
+1627978948134174726 2023-02-21 10:30:02 +0000 &lt;Genpi_Co&gt; Para relawan dari Srikandi Ganjar ingin melahirkan sutradara andal dengan menggelar workshop alur dan pembuatan film. #Ganjar  https://t.co/3MHWEtAKpp
+1627975634067804160 2023-02-21 10:16:52 +0000 &lt;murianewscom&gt; Metro Jateng Ganjar Gandeng PKK Kendalikan Inflasi dan Turunkan Kemiskinan di Jateng   Selengkapnya Klik Tautan Berikut ini  #semarang #gubernurjateng #ganjar #PKK #Inflasi #Jateng    https://t.co/abkfvIWi9c
+1627969781407289344 2023-02-21 09:53:36 +0000 &lt;sahabatganjarid&gt; Berdasarkan perhitungan elektronik-Pencatatan dan Pelaporan Gizi Berbasis Masyarakat (ePPGBM), angka stunting di Jateng berada di angkat 24,4 persen pada 2018. Setahun kemudian, angkanya turun menjadi 18,3 persen.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/PmPm4Kfs9l
+1627969771961729030 2023-02-21 09:53:34 +0000 &lt;sahabatganjarid&gt; Gubernur Jawa Tengah Ganjar Pranowo berhasil mengurangi angka stunting sebesar 51 persen dalam kurun waktu empat tahun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/R1rEOPHdnG
+1627963364470321152 2023-02-21 09:28:06 +0000 &lt;sahabatganjarid&gt; Wali Kota Madiun Maidi bersama Pakar Komunikasi Politik Universitas Airlangga Surabaya Suko Widodo turut menemani dalam momen &quot;cangkrukan&quot; tersebut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/95O3yrAonI
+1627963298439393280 2023-02-21 09:27:51 +0000 &lt;AryPrasetyo_85&gt; @ganjarpranowo mendorong kabupaten dan kota serius mengembangkan potensi unggulan di masing-masing daerah.   Selain berpengaruh pada ekonomi, Ganjar menilai hal itu juga akan berdampak pada investasi serta pariwisata.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/XZYzHwX88U
+1627963254436950017 2023-02-21 09:27:40 +0000 &lt;sahabatganjarid&gt; Gubernur Jawa Tengah Ganjar Pranowo menikmati wisata kuliner malam di Kota Madiun, Jawa Timur dengan mengunjungi warung jadah bakar Pak Sus Stasiun yang berada di sekitaran Stasiun Besar Madiun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/N2UFTdKSEe
+1627963170185957376 2023-02-21 09:27:20 +0000 &lt;AryPrasetyo_85&gt; Rut berterima kasih kepada Ganjar yang meluangkan waktu untuk bertemu.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/sVaHPRck5g
+1627962166103117825 2023-02-21 09:23:21 +0000 &lt;AryPrasetyo_85&gt; Duta Besar Norwegia untuk Indonesia, Rut Kruger Giverin menemui Gubernur Jawa Tengah @ganjarpranowo, di Rumah Dinas Puri Gedeh.  Keduanya berbincang tentang tantangan negara, hingga potensi kerja sama dalam hal transisi energi. #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/JGlHY36cBY
+1627961076141916160 2023-02-21 09:19:01 +0000 &lt;IDSahabatGanjar&gt; Ganjar Pranowo mendorong kabupaten dan kota serius mengembangkan potensi unggulan di masing-masing daerah.   Selain berpengaruh pada ekonomi, Ganjar menilai hal itu juga akan berdampak pada investasi serta pariwisata.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/Qx5F3IMKbs
+1627961026003243009 2023-02-21 09:18:49 +0000 &lt;AryPrasetyo_85&gt; Gubernur Jawa Tengah @ganjarpranowo menjajaki peluang kerjasama dengan Norwegia di bidang transisi energi dan lingkungan hidup. Hal itu dikatakan Ganjar saat memerima Duta Besar  Norwegia untuk Indonesia Rut Kruger Giverin di rumah dinasnya.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/rfX5xel5It
+1627960913964994565 2023-02-21 09:18:22 +0000 &lt;sahabatganjar&gt; Senandung Sholawat &amp;amp; Lantunan Doa Santri untuk Negeri Ganjar Pranowo 2024 akan dilaksanakan Sahabat Ganjar di Pondok Pesantren Manbaul Ulum Assalafiyah, Kabupaten Purwakarta, Jawa Barat pada Kamis (23/2).  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/mkMpYIJcn6
+1627957902802821120 2023-02-21 09:06:24 +0000 &lt;AryPrasetyo_85&gt; Bahkan Ganjar dengan tegas menolak penghapusan honorer karena dampaknya tidak main-main bagi Pemerintah Daerah (Pemda).  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/usKy4azgzs
+1627957627312545793 2023-02-21 09:05:18 +0000 &lt;AryPrasetyo_85&gt; angka stunting di Jateng berada di angkat 24,4 persen pada 2018. Setahun kemudian, angkanya turun menjadi 18,3 persen.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/AoZttyI8lo
+1627957196297506817 2023-02-21 09:03:36 +0000 &lt;AryPrasetyo_85&gt; Gubernur Jawa Tengah, @ganjarpranowo menyebut ricuh suporter PSIS Semarang dengan polisi,  akan jadi bahan evaluasi. Ia berharap, kerusuhan itu untuk yang terakhir kalinya.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/sPEvJYEtv8
+1627956622017597440 2023-02-21 09:01:19 +0000 &lt;AryPrasetyo_85&gt; Gubernur Jawa Tengah @ganjarpranowo berhasil mengurangi angka stunting sebesar 51 persen dalam kurun waktu empat tahun.  Berdasarkan perhitungan elektronik-Pencatatan dan Pelaporan Gizi Berbasis Masyarakat (ePPGBM), #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/BIUhShc66A
+1627955839096229890 2023-02-21 08:58:12 +0000 &lt;AryPrasetyo_85&gt; Wali Kota Madiun Maidi bersama Pakar Komunikasi Politik Universitas Airlangga Surabaya Suko Widodo turut menemani dalam momen &quot;cangkrukan&quot; tersebut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/Cq4oLRwQ7C
+1627955769533689856 2023-02-21 08:57:56 +0000 &lt;AryPrasetyo_85&gt; Beruntung banget honorer yang bekerja di Provinsi Jawa Tengah karena punya Gubernur @ganjarpranowo.  Ganjar sendiri memang sangat peduli akan nasib honorer yang akan dihapus oleh pemerintah pusat. #sahabatganjar #ganjarpranowo #ganjar  https://t.co/Re2sH1DxUb
+1627955114026876928 2023-02-21 08:55:19 +0000 &lt;beritafaktaind&gt; Ganjar Pranowo jaln kerjasama dengan Jepang. #ganjarpranowo #ganjar #indonesia #jepang #transportasi #pemilu2024 #capres2024   #SHOHEI #SMROOKIES  https://t.co/zEMdLQdvd1
+1627954888557879296 2023-02-21 08:54:26 +0000 &lt;AryPrasetyo_85&gt; Gubernur Jawa Tengah @ganjarpranowo menikmati wisata kuliner malam di Kota Madiun, Jawa Timur dengan mengunjungi warung jadah bakar Pak Sus Stasiun yang berada di sekitaran Stasiun Besar Madiun. #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/oT5tkRyJYx
+1627952153712291840 2023-02-21 08:43:33 +0000 &lt;GanjarPranowoo&gt; Bapak Ganjar is the best🤟  The Next Presiden RI 🫡  #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #ganjarpresiden  https://t.co/epd2gNj29Y
+1627952011122728960 2023-02-21 08:42:59 +0000 &lt;weloveganjar&gt; Bapak Ganjar is the best🤟  The Next Presiden RI 🫡  Follow : @weloveganjar   #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #ganjarpresiden  https://t.co/i5FRvmEnZm
+1627950691477241857 2023-02-21 08:37:45 +0000 &lt;AryPrasetyo_85&gt; Ganjar mengunjungi tempat-tempat bersejarah itu sambil lari pagi. Ia sempat melihat dari halaman depan tempat kelahiran pendiri bangsa yang terletak di  gang.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/EMndAoigsB
+1627950674112819201 2023-02-21 08:37:41 +0000 &lt;MakGanjarOfc&gt; Barang bekas jadi Cuan? Bisa dong, bareng mak Ganjar Sulsel ni mak🥰 Follow @MakGanjarOfc #makganjar #ganjarpranowo #ganjar #ganjaforpresident2024 #ganjarpresiden2024 #barangbekas #depremoldu #WSMDS #turkeyearthquake2023 #บิวจักรพันธ์ #زلزال  https://t.co/cCtCvRxJZN
+1627950604223135744 2023-02-21 08:37:24 +0000 &lt;AryPrasetyo_85&gt; Gubernur Jawa Tengah (Jateng) @ganjarpranowo melakukan napak tilas kehidupan Presiden Pertama RI Soekarno (Bung Karno) dalam kunjungannya ke Kota Surabaya, Jawa Timur (Jatim).   #sahabatganjar #ganjarpranowo #ganjar  https://t.co/ge1pYQmOM0
+1627948850689478656 2023-02-21 08:30:26 +0000 &lt;sahabatganjarid&gt; Gubernur Jawa Tengah, Ganjar Pranowo menyebut ricuh suporter PSIS Semarang dengan polisi,  akan jadi bahan evaluasi. Ia berharap, kerusuhan itu untuk yang terakhir kalinya.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/vRkKbuah2k
+1627946139969527809 2023-02-21 08:19:40 +0000 &lt;AkuAtikaFaya&gt; Bencana longsor di Jalan Tawangmangu-Kabupaten Karanganyar dan Sarangan, Magetan telah ditangani oleh dinas terkait.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/ZgBirlB2om
+1627944664686002177 2023-02-21 08:13:48 +0000 &lt;sahabatganjar&gt; Berdasarkan perhitungan elektronik-Pencatatan dan Pelaporan Gizi Berbasis Masyarakat (ePPGBM), angka stunting di Jateng berada di angkat 24,4 persen pada 2018. Setahun kemudian, angkanya turun menjadi 18,3 persen.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/hAwvhTCU1u
+1627944643550912514 2023-02-21 08:13:43 +0000 &lt;sahabatganjar&gt; Gubernur Jawa Tengah Ganjar Pranowo berhasil mengurangi angka stunting sebesar 51 persen dalam kurun waktu empat tahun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/a0sM6Lovt9
+1627942020278030336 2023-02-21 08:03:17 +0000 &lt;sahabatganjarid&gt; Ganjar Pranowo mendorong kabupaten dan kota serius mengembangkan potensi unggulan di masing-masing daerah.   Selain berpengaruh pada ekonomi, Ganjar menilai hal itu juga akan berdampak pada investasi serta pariwisata.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/My6xU69Zda
+1627939264674820096 2023-02-21 07:52:21 +0000 &lt;IDSahabatGanjar&gt; Tau gak sih milenial, definisi sukses itu bukan tentang pencapaian, tapi pertumbuhan diri!  #SelfReminder #SahabatGanjar #Ganjar #GanjarPranowo #Milenial  https://t.co/2C1dfuLWsd
+1627938895710265345 2023-02-21 07:50:53 +0000 &lt;1ndonesiaku_&gt; @miicies @ganjarpranowo #SahabatGanjar #Ganjar #ganjarpranowo
+1627935382288621568 2023-02-21 07:36:55 +0000 &lt;sahabatganjar&gt; Bahkan Ganjar dengan tegas menolak penghapusan honorer karena dampaknya tidak main-main bagi Pemerintah Daerah (Pemda).  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/jgyaxKszRc
+1627935368082513920 2023-02-21 07:36:51 +0000 &lt;sahabatganjar&gt; Beruntung banget honorer yang bekerja di Provinsi Jawa Tengah karena punya Gubernur Ganjar Pranowo.  Ganjar sendiri memang sangat peduli akan nasib honorer yang akan dihapus oleh pemerintah pusat.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/IvRlbRTEiM
+1627935341452861442 2023-02-21 07:36:45 +0000 &lt;Yulia_NS79&gt; @miicies @ganjarpranowo #SahabatGanjar #Ganjar #ganjarpranowo
+1627933665727766529 2023-02-21 07:30:06 +0000 &lt;sahabatganjarid&gt; Rut berterima kasih kepada Ganjar yang meluangkan waktu untuk bertemu.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/U15cg73p0r
+1627933651186118658 2023-02-21 07:30:02 +0000 &lt;sahabatganjarid&gt; Duta Besar Norwegia untuk Indonesia, Rut Kruger Giverin menemui Gubernur Jawa Tengah Ganjar Pranowo, di Rumah Dinas Puri Gedeh.  Keduanya berbincang tentang tantangan negara, hingga potensi kerja sama dalam hal transisi energi.   #SahabatGanjar #Ganjar #ganjarpranowo
+1627926291545739266 2023-02-21 07:00:47 +0000 &lt;sahabatganjarid&gt; Bahkan Ganjar dengan tegas menolak penghapusan honorer karena dampaknya tidak main-main bagi Pemerintah Daerah (Pemda).  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/3TNN55auCv
+1627926282695737346 2023-02-21 07:00:45 +0000 &lt;sahabatganjarid&gt; Beruntung banget honorer yang bekerja di Provinsi Jawa Tengah karena punya Gubernur Ganjar Pranowo.  Ganjar sendiri memang sangat peduli akan nasib honorer yang akan dihapus oleh pemerintah pusat.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/2AVjAZeJgi
+1627921101656588288 2023-02-21 06:40:10 +0000 &lt;03__nakula&gt; Ya, Rafael adalah salah satu siswa yang merasakan manfaat sekolah semi boarding, yang digagas Gubernur Jawa Tengah Ganjar Pranowo.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/Cp2ssCtWJ7
+1627921094454960128 2023-02-21 06:40:08 +0000 &lt;03__nakula&gt; Rafael Lelaki Hut merasa sangat terbantu mendapatkan fasilitas semi boarding di SMKN 2 Cilacap.   Setiap hari dia tak lagi menyeberang laut untuk menempuh perjalanan dari rumahnya di Jojoh, Kutawaru, Cilacap.  #Sahabatganjar #ganjarpranowo #ganjar  https://t.co/RioohlrAtJ
+1627918936254849024 2023-02-21 06:31:34 +0000 &lt;sahabatganjarid&gt; Ganjar mengunjungi tempat-tempat bersejarah itu sambil lari pagi. Ia sempat melihat dari halaman depan tempat kelahiran pendiri bangsa yang terletak di  gang.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/Tw5EvWP3ZV
+1627918932140253184 2023-02-21 06:31:33 +0000 &lt;sahabatganjarid&gt; Gubernur Jawa Tengah (Jateng) Ganjar Pranowo melakukan napak tilas kehidupan Presiden Pertama RI Soekarno (Bung Karno) dalam kunjungannya ke Kota Surabaya, Jawa Timur (Jatim).   #sahabatganjar #ganjarpranowo #ganjar  https://t.co/QPNRHt0lj9
+1627915539514556418 2023-02-21 06:18:04 +0000 &lt;sahabatganjar&gt; Ganjar mengunjungi tempat-tempat bersejarah itu sambil lari pagi. Ia sempat melihat dari halaman depan tempat kelahiran pendiri bangsa yang terletak di  gang.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/H4rboH3vlx
+1627915514763948033 2023-02-21 06:17:58 +0000 &lt;sahabatganjar&gt; Gubernur Jawa Tengah (Jateng) Ganjar Pranowo melakukan napak tilas kehidupan Presiden Pertama RI Soekarno (Bung Karno) dalam kunjungannya ke Kota Surabaya, Jawa Timur (Jatim).   #sahabatganjar #ganjarpranowo #ganjar  https://t.co/FnONs2qtqr
+1627912318196781057 2023-02-21 06:05:16 +0000 &lt;IDSahabatGanjar&gt; Gubernur Jawa Tengah Ganjar Pranowo menjajaki peluang kerjasama dengan Norwegia di bidang transisi energi dan lingkungan hidup. Hal itu dikatakan Ganjar saat memerima Duta Besar  Norwegia untuk Indonesia Rut Kruger Giverin di rumah dinasnya.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/9FqpLnscBo
+1627907443526348801 2023-02-21 05:45:54 +0000 &lt;Gingsul97280757&gt; Senam Sehat Indonesia Kuat Ganjar Pranowo 2024 akan dilaksanakan Sahabat Ganjar di Kabupaten Kuningan, Jawa Barat pada Sabtu, 25 Februari 2023.   langsung hubungi 089603441414 (Lala) atau 085864158182 (Dyan).   #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/ShrXDrQq8P
+1627906976444469248 2023-02-21 05:44:02 +0000 &lt;Gingsul97280757&gt; Proses pengenalan dan pembuatan Peuyeum Sunda akan menjadi kegiatan Sahabat Ganjar di Kabupaten Kuningan, Jawa Barat.  Kegiatan ini akan dilaksanakan pada Sabtu, 25 Februari 2023, Jangan lupa pada datang ya!  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/rv0GMXhG4u
+1627906109796405248 2023-02-21 05:40:36 +0000 &lt;sahabatganjar&gt; I NEWS , SPECIAL REPORT : Selasa, 21 Februari 2023 - 06.35 WIB  PEDULI DENGAN KESEHATAN, SAHABAT GANJAR KALIMANTAN SELATAN GELAR CEK KESEHATAN GRATIS  Banjar, Kalimantan Selatan  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/pcZOjNlLWO
+1627905483553243136 2023-02-21 05:38:06 +0000 &lt;miicies&gt; Gubernur Jawa Tengah @ganjarpranowo memperketat distribusi minyak goreng bersubsidi merek MinyaKita. Hal tersebut dilakukan untuk menyediakan minyak goreng bersubsidi berharga murah ke masyarakat.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/2i6sjGh3pi
+1627903860907069446 2023-02-21 05:31:40 +0000 &lt;GanjarPranowoo&gt; Terimakasih banyak Bapak Ganjar, Rumah Bonawi tak lagi bocor atapnya dan sudah layak Huni 🥹  The Next President RI 🫡  #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/b1NUHRbXGi
+1627903601535516672 2023-02-21 05:30:38 +0000 &lt;weloveganjar&gt; Silahkan di tiru demi kemajuan bersama 🥹  The Next President RI 🫡  #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/9dnERbZuND
+1627899416719028224 2023-02-21 05:14:00 +0000 &lt;sahabatganjar&gt; KOMPAS TV, KOMPAS UPDATE : Senin, 20 Februari 2023 - 19.03 WIB  RELAWAN SAHABAT GANJAR DI MAJALENGKA GELAR SENAM BUGAR DAN PELATIHAN KREASI BAGI WARGA*  Majalengka, Jawa Barat  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/KI3OWQVluo
+1627897231507591168 2023-02-21 05:05:19 +0000 &lt;IDSahabatGanjar&gt; Gubernur Jawa Tengah, Ganjar Pranowo menyebut ricuh suporter PSIS Semarang dengan polisi,  akan jadi bahan evaluasi. Ia berharap, kerusuhan itu untuk yang terakhir kalinya.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/0oFvIdzjn0
+1627892038623539201 2023-02-21 04:44:41 +0000 &lt;IDSahabatGanjar&gt; Wali Kota Madiun Maidi bersama Pakar Komunikasi Politik Universitas Airlangga Surabaya Suko Widodo turut menemani dalam momen &quot;cangkrukan&quot; tersebut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/ObQ7e3KybT
+1627892022840528902 2023-02-21 04:44:37 +0000 &lt;IDSahabatGanjar&gt; Gubernur Jawa Tengah Ganjar Pranowo menikmati wisata kuliner malam di Kota Madiun, Jawa Timur dengan mengunjungi warung jadah bakar Pak Sus Stasiun yang berada di sekitaran Stasiun Besar Madiun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/48dpmVn0LO
+1627886135463784449 2023-02-21 04:21:14 +0000 &lt;miicies&gt; Masih ingat Bonawi, warga Desa Troso, Kabupaten Jepara yang secara mengejutkan rumahnya dikunjungi Gubernur Jawa tengah @ganjarpranowo pada pertengahan 2022 lalu? Kini, hidupnya jauh lebih baik ketimbang sebelumnya.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/6TMPyYW3Ij
+1627883841036910592 2023-02-21 04:12:06 +0000 &lt;03__nakula&gt; Program itu bernama Kancing Merah yang merupakan akronim dari Gerakan Pencegahan Stunting Masa Depan Cerah.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/kvEO3MtoXH
+1627883831545196545 2023-02-21 04:12:04 +0000 &lt;03__nakula&gt; Sekitar 80 persen balita dari total 4.494 berisiko stunting se-Kabupaten Cilacap berhasil mengalami penambahan berat badan.   Hal ini tak lepas dari program pencegahan stunting, yang diluncurkan Gubernur Jateng Ganjar Pranowo.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/gLHryqLQLg
+1627881662712528896 2023-02-21 04:03:27 +0000 &lt;IDSahabatGanjar&gt; Berdasarkan perhitungan elektronik-Pencatatan dan Pelaporan Gizi Berbasis Masyarakat (ePPGBM), angka stunting di Jateng berada di angkat 24,4 persen pada 2018. Setahun kemudian, angkanya turun menjadi 18,3 persen.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/UOlPcNRCet
+1627881647302651905 2023-02-21 04:03:23 +0000 &lt;IDSahabatGanjar&gt; Gubernur Jawa Tengah Ganjar Pranowo berhasil mengurangi angka stunting sebesar 51 persen dalam kurun waktu empat tahun.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/3M7VLpjUNX
+1627881527735652352 2023-02-21 04:02:55 +0000 &lt;sahabatganjarid&gt; Senam Sehat Indonesia Kuat Ganjar Pranowo 2024 akan dilaksanakan Sahabat Ganjar di Kabupaten Kuningan, Jawa Barat pada Sabtu 25 Februari 2023.  Untuk kamu yang mau ikutan kegiatan ini bisa banget, langsung hubungi 0896-0344-1414 (LALA)  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/f7wmQFoaCs
+1627881173895761920 2023-02-21 04:01:31 +0000 &lt;sahabatganjar&gt; Ayo kita bergerak bersama untuk kehidupan yang aktif dan sehat bersama Sahabat Ganjar yang berada di Kab. Cirebon, Jawa Barat! mari bergabung bersama kami dalam kegiatan senam bersama yang akan diselenggarakan pada tanggal 26 Februari 2023.  #SahabatGanjar #GanjarPranowo #Ganjar  https://t.co/jh8n9TuIBk
+1627875196886716416 2023-02-21 03:37:46 +0000 &lt;IDSahabatGanjar&gt; Ganjar sendiri memang sangat peduli akan nasib honorer yang akan dihapus oleh pemerintah pusat.  Bahkan Ganjar dengan tegas menolak penghapusan honorer karena dampaknya tidak main-main bagi Pemerintah Daerah (Pemda).  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/MWvhehpJkB
+1627875163802066945 2023-02-21 03:37:38 +0000 &lt;IDSahabatGanjar&gt; Beruntung banget honorer yang bekerja di Provinsi Jawa Tengah karena punya Gubernur Ganjar Pranowo.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/2WdUXzXP5Z
+1627873839194710016 2023-02-21 03:32:22 +0000 &lt;sahabatganjar&gt; Proses pengenalan dan pembuatan Peuyeum Sunda akan menjadi kegiatan Sahabat Ganjar di Kabupaten Kuningan, Jawa Barat.  Kegiatan ini akan dilaksanakan pada Sabtu, 25 Februari 2023, Jangan lupa pada datang ya!  #sahabatganjar #ganjarpranowo #Ganjar  https://t.co/kJ69LTHils
+1627873376953049088 2023-02-21 03:30:32 +0000 &lt;sahabatganjarid&gt; BERSIH INDONESIAKU !!! Yuk Sahabat ikuti Sosialisasi Pengelolaan Sampah bersama Sahabat Ganjar.  Berlangsung pada Kamis 23 Februari 2023 di Kabupaten Banjar, Jawa Barat. Kita akan kasih tau nih, apa saja sih yang bisa dikelola dari sampah.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/lnRSIWUa5Q
+1627871816256716800 2023-02-21 03:24:20 +0000 &lt;IDSahabatGanjar&gt; Ganjar mengunjungi tempat-tempat bersejarah itu sambil lari pagi. Ia sempat melihat dari halaman depan tempat kelahiran pendiri bangsa yang terletak di  gang.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/VKT5vAoaEI
+1627871786527522817 2023-02-21 03:24:12 +0000 &lt;IDSahabatGanjar&gt; Gubernur Jawa Tengah (Jateng) Ganjar Pranowo melakukan napak tilas kehidupan Presiden Pertama RI Soekarno (Bung Karno) dalam kunjungannya ke Kota Surabaya, Jawa Timur (Jatim).   #sahabatganjar #ganjarpranowo #ganjar  https://t.co/lpEWVEhXAw
+1627865821950386178 2023-02-21 03:00:30 +0000 &lt;sahabatganjarid&gt; Kalian sering mendengar istilah ecoprint? Kalo tidak mendingan langsung join deh bareng kita.  Berlangsung pada Jumat 24 Februari 2023 di Kabupaten Sumedang, kita mengadakan Pengenalan serta Pelatihan Ecoprint.  Jangan lupa bergabung bersama kita ya...  #sahabatganjar #ganjar  https://t.co/cqEZqx2cEY
+1627851663871733761 2023-02-21 02:04:15 +0000 &lt;GanjarPranowoo&gt; Bapak Ganjar telah bangun jembatan untuk Masyarakat Sijono 👍  #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/wKhSOOPISV
+1627851460938694656 2023-02-21 02:03:26 +0000 &lt;beritaganjar&gt; Bapak Ganjar bangun jembatan untuk masyarakat Sijono 👍  #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/UOyQg69Rz6
+1627851091995168773 2023-02-21 02:01:58 +0000 &lt;weloveganjar&gt; Bapak Ganjar serahkan banguan kepada PMI Jateng senilai Rp. 1,5 Miliar   #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/qB3J0mdUrZ
+1627843270746296322 2023-02-21 01:30:54 +0000 &lt;03__nakula&gt; Bonawi bersama Ulfatun Ni’mah, istrinya waktu itu menghidupi dua buah hatinya yang masih anak-anak, dalam kondisi serba kekurangan.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/qnVVNaAuXs
+1627843258037710848 2023-02-21 01:30:51 +0000 &lt;03__nakula&gt; Masih ingat Bonawi, warga Desa Troso, Kabupaten Jepara yang secara mengejutkan rumahnya dikunjungi Gubernur Jawa Tengah Ganjar Pranowo, pada pertengahan 2022 lalu? Kini, hidupnya jauh lebih baik ketimbang sebelumnya.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/ONwIlNUj0l
+1627723196169617410 2023-02-20 17:33:46 +0000 &lt;sahabatganjar&gt; I NEWS , I NEWS SORE : Senin, 20 Februari 2023 - 17.00 WIB  PEDULI DENGAN KESEHATAN, SAHABAT GANJAR KALIMANTAN SELATAN GELAR CEK KESEHATAN GRATIS  Banjar, Kalimantan Selatan  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/NOJieZxpyf
+1627709788091195392 2023-02-20 16:40:29 +0000 &lt;4_gp2024&gt; Nah, itu adalah salah satu cirinya nih, Sahabat. Untuk itu, kamu hati-hati ya dengan siapa kamu cerita! #SelfReminder #SahabatGanjar #Ganjar #GanjarPranowo #Milenial  https://t.co/EStnxezyi9
+1627709770655490048 2023-02-20 16:40:25 +0000 &lt;4_gp2024&gt; Mereka yang peduli bakal memberimu pilihan untuk mau bercerita atau tidak. Orang kepo berusaha sekuat tenaga untuk menggali informasi saja.   #SelfReminder #SahabatGanjar #Ganjar #GanjarPranowo #Milenial  https://t.co/HOsHkY0dKZ
+1627708911842373633 2023-02-20 16:37:00 +0000 &lt;4_gp2024&gt; Ganjar berharap dengan adanya perhatian dari pemerintah, prestasi atlet difabel Indonesia semakin bersinar.  Ia juga mendukung keberadaan Sekolah Khusus Olahraga bagi penyandang difabel. #SahabatGanjar #Ganjar #ganjarpranowo
+1627708907648094208 2023-02-20 16:36:59 +0000 &lt;4_gp2024&gt; Ganjar Pranowo mendorong Komite Paralimpiade Nasional  percaya diri dan berjuang untuk mempertahankan tradisi apik Indonesia pada ajang internasional.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/OJbYx2VWod
+1627708551434215427 2023-02-20 16:35:34 +0000 &lt;4_gp2024&gt; Ganjar Pranowo mengatakan bencana longsor di Jalan Tawangmangu-Kabupaten Karanganyar dan Sarangan, Magetan telah ditangani oleh dinas terkait.  Ganjar mengatakan bila pembersihan badan jalan yang tertutup material longsor itu terkendala cuaca.   #SahabatGanjar #Ganjar  https://t.co/lGUWRq6ChY
+1627708024583520257 2023-02-20 16:33:29 +0000 &lt;4_gp2024&gt; Gubernur Jawa Tengah (Jateng) memperketat distribusi minyak goreng bersubsidi merek MinyaKita. Hal tersebut dilakukan untuk menyediakan minyak goreng bersubsidi berharga murah ke masyarakat.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/o3S16wAofF
+1627707866122719232 2023-02-20 16:32:51 +0000 &lt;4_gp2024&gt; Kantor Perwakilan Bank Indonesia  Jawa Tengah siap mendorong akselerasi peningkatan perekonomian Jawa Tengah di berbagai sektor, terutama melalui sektor Investasi, Perdagangan, Pariwisata, Penguatan Hilirisasi Pertanian &amp;amp; Circular Economy.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/7disfXhCHc
+1627707274683904000 2023-02-20 16:30:30 +0000 &lt;4_gp2024&gt; Ya, Rafael adalah salah satu siswa yang merasakan manfaat sekolah semi boarding, yang digagas Gubernur Jawa Tengah Ganjar Pranowo. #sahabatganjar #ganjarpranowo #ganjar  https://t.co/JVTZlqUBOc
+1627707241351745536 2023-02-20 16:30:22 +0000 &lt;4_gp2024&gt; Rafael Lelaki Hut merasa sangat terbantu mendapatkan fasilitas semi boarding di SMKN 2 Cilacap.   Setiap hari dia tak lagi menyeberang laut untuk menempuh perjalanan dari rumahnya di Jojoh, Kutawaru, Cilacap.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/RIxLau9Mzn
+1627706770272710663 2023-02-20 16:28:30 +0000 &lt;4_gp2024&gt; Program itu bernama Kancing Merah yang merupakan akronim dari Gerakan Pencegahan Stunting Masa Depan Cerah. #sahabatganjar #ganjarpranowo #ganjar  https://t.co/RsQ96GiqfD
+1627706736177217538 2023-02-20 16:28:21 +0000 &lt;4_gp2024&gt; Sekitar 80 persen balita dari total 4.494 berisiko stunting se-Kabupaten Cilacap berhasil mengalami penambahan berat badan.   Hal ini tak lepas dari program pencegahan stunting, yang diluncurkan Gubernur Jateng Ganjar Pranowo.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/rwpEORqv16
+1627706304486834182 2023-02-20 16:26:38 +0000 &lt;4_gp2024&gt; Bonawi bersama Ulfatun Ni’mah, istrinya waktu itu menghidupi dua buah hatinya yang masih anak-anak, dalam kondisi serba kekurangan. #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/oq0gth5k0T
+1627706269904805891 2023-02-20 16:26:30 +0000 &lt;4_gp2024&gt; Masih ingat Bonawi, warga Desa Troso, Kabupaten Jepara yang secara mengejutkan rumahnya dikunjungi Gubernur Jawa Tengah Ganjar Pranowo, pada pertengahan 2022 lalu? Kini, hidupnya jauh lebih baik ketimbang sebelumnya.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/d0AKnDZLso
+1627705822246752256 2023-02-20 16:24:43 +0000 &lt;4_gp2024&gt; Ardi mengungkapkan, keberhasilan pemasaran produk sandalnya itu tidak lepas dari program Lapak Ganjar, promosi gratis melalui instastory Gubernur Jawa Tengah Ganjar Pranowo. #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/0LMjRq4NFC
+1627705784573501440 2023-02-20 16:24:35 +0000 &lt;4_gp2024&gt; Ardi Setiawan, tidak pernah menyangka kalau usaha pembuatan sandal kulit yang diawali dari iseng, mampu menembus pasar hingga luar daerah.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/v17DLFPdLF
+1627702868831768577 2023-02-20 16:12:59 +0000 &lt;sahabatganjarid&gt; Kompetisi Standup Comedy digelar Sahabat Ganjar di Kabupaten Bekasi, Jawa Barat  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/V4nX4x7LJa
+1627678884480294918 2023-02-20 14:37:41 +0000 &lt;sahabatganjar&gt; Kompetisi Standup Comedy digelar Sahabat Ganjar di Kabupaten Bekasi, Jawa Barat  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/p1hn6pmvz9
+1627674293609041920 2023-02-20 14:19:26 +0000 &lt;SahabatGanjarGK&gt; Rafael Lelaki Hut merasa sangat terbantu mendapatkan fasilitas semi boarding di SMKN 2 Cilacap.   Setiap hari dia tak lagi menyeberang laut untuk menempuh perjalanan dari rumahnya di Jojoh, Kutawaru, Cilacap.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/TmsrAMn3aC
+1627670131735404544 2023-02-20 14:02:54 +0000 &lt;SahabatGanjarGK&gt; Sekitar 80 persen balita dari total 4.494 berisiko stunting se-Kabupaten Cilacap berhasil mengalami penambahan berat badan.  Program itu bernama Kancing Merah yang merupakan akronim dari Gerakan Pencegahan Stunting Masa Depan Cerah.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/F0RW1bcTiO
+1627669517194366981 2023-02-20 14:00:28 +0000 &lt;SahabatGanjarGK&gt; Masih ingat Bonawi, warga Desa Troso, Kabupaten Jepara yang secara mengejutkan rumahnya dikunjungi Gubernur Jawa Tengah Ganjar Pranowo, pada pertengahan 2022 lalu? Kini, hidupnya jauh lebih baik ketimbang sebelumnya.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/0h4vpZiIj4
+1627669039295385602 2023-02-20 13:58:34 +0000 &lt;SahabatGanjarGK&gt; Ardi Setiawan, tidak pernah menyangka kalau usaha pembuatan sandal kulit yang diawali dari iseng, mampu menembus pasar hingga luar daerah.  Ardi mengungkapkan, keberhasilan pemasaran produk sandalnya itu tidak lepas dari program Lapak Ganjar #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/yk68nffAWe
+1627667287812734977 2023-02-20 13:51:36 +0000 &lt;sahabatganjar&gt; Mari ramaikan dan meriahkan kegiatan gotong royong bersama Sahabat Ganjar di Kota Tasikmalaya, pada Jum&#39;at, 24 Februari 2023.  Melalui kegiatan ini #SahabatGanjar bersinergi dengan warga sekitar dalam melakukan mengecat pos kamling dan menjaga ke indahan lingkungan.   #Ganjar  https://t.co/MIXC8LwDXG
+1627661934337331202 2023-02-20 13:30:20 +0000 &lt;sdg_sumsel1&gt; Halo para santri, Hari ini SDG Sumsel kali ini mendatangi Pondok Pesantren Assanadiyah. (20/02/2023)  #santridukungganjar #santrinusantara #santriindonesia #ganjarpranowo #ganjar #ganjarpresiden2024 #alimulama #pondokpesantren @SDGanjar @ganjarpranowo  https://t.co/7hlSNWBGWp
+1627659851638927360 2023-02-20 13:22:03 +0000 &lt;FayaAtika&gt; Koridor Perdagangan, Investasi dan Pariwisata (Keris) Jateng, melakukan berbagai upaya progresif, inovatif dan kreatif untuk mendongkrak ekonomi Jawa Tengah agar semakin melaju dan bertumbuh lebih baik.   #SahabatGanjar #ganjarpranowo #Ganjar  https://t.co/3j2by0kxkG
+1627654710143631361 2023-02-20 13:01:37 +0000 &lt;sahabatganjar&gt; Kalian sering mendengar istilah ecoprint? Kalo tidak mendingan langsung join deh bareng kita.  Berlangsung pada Jumat, 24 Februari 2023 di Kabupaten Sumedang, kita mengadakan Pengenalan serta Pelatihan Ecoprint.  Jangan lupa bergabung bersama kita ya...  #sahabatganjar  #ganjar  https://t.co/6UMs9IJkTU
+1627645382594564096 2023-02-20 12:24:34 +0000 &lt;AkuAtikaFaya&gt; Berkat Program &quot;Kancing Merah&quot;, 80 persen dari total 4.494 balita berisiko stunting di Kabupaten Cilacap berhasil mengalami penambahan berat badan.   #sahabatganjar #ganjarpranowo #ganjar  https://t.co/vHKJztxERF
+1627645343520391169 2023-02-20 12:24:24 +0000 &lt;AkuAtikaFaya&gt; Lagi...... Ganjar Pranowo meluncurkan Program pencegahan stunting Program itu bernama Kancing Merah merupakan akronim dari &quot;Gerakan Pencegahan Stunting Masa Depan Cerah&quot;.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/PihCQqLatI
+1627638426630754305 2023-02-20 11:56:55 +0000 &lt;miicies&gt; Sekitar 80 persen balita dari total 4.494 berisiko stunting se-Kabupaten Cilacap berhasil mengalami penambahan berat badan.   Hal ini tak lepas dari program pencegahan stunting, Kancing Merah yang diluncurkan Gubernur Jateng @ganjarpranowo.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/K8ZAkZmy6W
+1627636951624089602 2023-02-20 11:51:03 +0000 &lt;miicies&gt; Rafael adalah salah satu siswa yang merasakan manfaat sekolah semi boarding, yang digagas Gubernur Jawa Tengah @ganjarpranowo.  Setiap hari dia tak lagi menyeberang laut untuk menempuh perjalanan dari rumahnya di Jojoh, Kutawaru, Cilacap.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/tq8TaPZm1X
+1627636841817198592 2023-02-20 11:50:37 +0000 &lt;miicies&gt; @ganjarpranowo mengatakan bencana longsor di Jalan Tawangmangu-Kabupaten Karanganyar dan Sarangan, Magetan telah ditangani oleh dinas terkait.  Sebagai upaya antisipasi dan pencegahan ia harap masyarakat memanfaatkan musim penghujan untuk menanam pohon.  #SahabatGanjar #Ganjar  https://t.co/rRPhl8ikbB
+1627635128481779713 2023-02-20 11:43:49 +0000 &lt;FayaAtika&gt; Ardi bahkan tidak pernah menyangka kalau usaha pembuatan sandal kulit nya mampu menembus pasar hingga luar daerah.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/k97zzTth8i
+1627635101583679488 2023-02-20 11:43:42 +0000 &lt;FayaAtika&gt; Ardi Setiawan mengungkapkan program Lapak Ganjar, promosi gratis melalui instastory Gubernur Jawa Tengah Ganjar Pranowo, mempunyai andil dalam pemasaran produk sandalnya   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/1tJZL99ohY
+1627631374458040320 2023-02-20 11:28:54 +0000 &lt;AkuAtikaFaya&gt; Ganjar Pranowo memperketat distribusi minyak goreng bersubsidi merek MinyaKita agar subsidinya tepat sasaran dan di nikmati masyarakat  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/buCc9cCuj5
+1627630195040722944 2023-02-20 11:24:13 +0000 &lt;beritaganjar&gt; Lapak sandal kulit Jepara melejit #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/wqPGaGrReA
+1627629186277048321 2023-02-20 11:20:12 +0000 &lt;GanjarPranowoo&gt; Ajak Masyarakat, sampaikan aspirasi dalam Musrenbang Keliling   The Next President RI 🫡  #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/joUEjkL7NL
+1627629060573761536 2023-02-20 11:19:42 +0000 &lt;weloveganjar&gt; Ajak Masyarakat, sampaikan aspirasi dalam Musrenbang Keliling   The Next President RI 🫡  Follow : @weloveganjar   #Ganjar #GanjarPranowo #RelawanGanjar #RelawanGanjarPranowo #JawaTengah #JatengGayeng #PakGanjar #MasGanjar #GanjarPresiden  https://t.co/sHsseSVAjG
+1627621514450448384 2023-02-20 10:49:43 +0000 &lt;IDSahabatGanjar&gt; Kalian sering mendengar istilah ecoprint? Kalo tidak mendingan langsung join deh bareng kita.  Berlangsung pada Jumat 24 Februari 2023 di Kabupaten Sumedang, kita mengadakan Pengenalan serta Pelatihan Ecoprint.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/bbJiQJ6fDt
+1627620454872813568 2023-02-20 10:45:30 +0000 &lt;sahabatganjarid&gt; Apa saja kegiatan Sahabat Ganjar di Kabupaten Majalengka, pada hari Minggu 19 Februari?? Yuk simak video berikut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/M0o6cIyFv6
+1627618117496229888 2023-02-20 10:36:13 +0000 &lt;Yulia_NS79&gt; @miicies @ganjarpranowo #SahabatGanjar #ganjarpranowo #ganjar
+1627617950558720001 2023-02-20 10:35:33 +0000 &lt;IDSahabatGanjar&gt; BERSIH INDONESIAKU !!! Yuk Sahabat ikuti Sosialisasi Pengelolaan Sampah bersama Sahabat Ganjar.  Berlangsung pada Kamis 23 Februari 2023 di Kabupaten Banjar, Jawa Barat. Kita akan kasih tau nih, apa saja sih yang bisa dikelola dari sampah.  #sahabatganjar #ganjarpranowo #ganjar  https://t.co/bWYtgaKdNF
+1627614741098278913 2023-02-20 10:22:48 +0000 &lt;IDSahabatGanjar&gt; Ganjar mengatakan bila pembersihan badan jalan yang tertutup material longsor itu terkendala cuaca.   ebagai upaya antisipasi dan pencegahan ia harap masyarakat memanfaatkan musim penghujan untuk menanam pohon.  #SahabatGanjar #Ganjar #ganjarpranowo
+1627614735977050112 2023-02-20 10:22:47 +0000 &lt;IDSahabatGanjar&gt; Ganjar Pranowo mengatakan bencana longsor di Jalan Tawangmangu-Kabupaten Karanganyar dan Sarangan, Magetan telah ditangani oleh dinas terkait.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/yoGThathjM
+1627614543303315458 2023-02-20 10:22:01 +0000 &lt;IDSahabatGanjar&gt; Ganjar berharap dengan adanya perhatian dari pemerintah, prestasi atlet difabel Indonesia semakin bersinar.  Ia juga mendukung keberadaan Sekolah Khusus Olahraga bagi penyandang difabel.  #SahabatGanjar #Ganjar #ganjarpranowo
+1627614538496638976 2023-02-20 10:22:00 +0000 &lt;IDSahabatGanjar&gt; Ganjar Pranowo mendorong Komite Paralimpiade Nasional  percaya diri dan berjuang untuk mempertahankan tradisi apik Indonesia pada ajang internasional.   #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/YvdYyzvraD
+1627611741592129537 2023-02-20 10:10:53 +0000 &lt;sahabatganjar&gt; Apa saja kegiatan Sahabat Ganjar di Kabupaten Majalengka, pada hari Minggu 19 Februari?? Yuk simak video berikut.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/UIKbvR18fD
+1627611140531568642 2023-02-20 10:08:30 +0000 &lt;AryPrasetyo_85&gt; Ia juga mendukung keberadaan Sekolah Khusus Olahraga bagi penyandang difabel.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/XsK2thkwnN
+1627611007836385280 2023-02-20 10:07:58 +0000 &lt;AryPrasetyo_85&gt; Sebagai upaya antisipasi dan pencegahan ia harap masyarakat memanfaatkan musim penghujan untuk menanam pohon.  #SahabatGanjar #Ganjar #ganjarpranowo  https://t.co/2z4hWwcyRI
+[!] No more data! Scraping will stop now.
+found 0 deleted tweets in this search.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">PlaceHolder</span>
+<span class="n">Tweets_df</span> <span class="o">=</span> <span class="n">twint</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">panda</span><span class="o">.</span><span class="n">Tweets_df</span>
+<span class="n">data</span><span class="o">=</span><span class="n">Tweets_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-454d231d-ce30-4518-a761-c8175ed138ae">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>conversation_id</th>
+      <th>created_at</th>
+      <th>date</th>
+      <th>timezone</th>
+      <th>place</th>
+      <th>tweet</th>
+      <th>language</th>
+      <th>hashtags</th>
+      <th>cashtags</th>
+      <th>...</th>
+      <th>geo</th>
+      <th>source</th>
+      <th>user_rt_id</th>
+      <th>user_rt</th>
+      <th>retweet_id</th>
+      <th>reply_to</th>
+      <th>retweet_date</th>
+      <th>translate</th>
+      <th>trans_src</th>
+      <th>trans_dest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1628073724066017281</td>
+      <td>1628073711457939460</td>
+      <td>1.676998e+12</td>
+      <td>2023-02-21 16:46:38</td>
+      <td>+0000</td>
+      <td></td>
+      <td>Berdasarkan perhitungan elektronik-Pencatatan ...</td>
+      <td>in</td>
+      <td>[sahabatganjar, ganjar, ganjarpranowo]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1628073711457939460</td>
+      <td>1628073711457939460</td>
+      <td>1.676998e+12</td>
+      <td>2023-02-21 16:46:35</td>
+      <td>+0000</td>
+      <td></td>
+      <td>Gubernur Jawa Tengah Ganjar Pranowo berhasil m...</td>
+      <td>in</td>
+      <td>[sahabatganjar, ganjar, ganjarpranowo]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1628073015434178560</td>
+      <td>1628073015434178560</td>
+      <td>1.676998e+12</td>
+      <td>2023-02-21 16:43:49</td>
+      <td>+0000</td>
+      <td></td>
+      <td>JURUS PEMERINTAH ATASI INFLASI #GolkarIndonesi...</td>
+      <td>in</td>
+      <td>[golkarindonesia, airlanggahartarto, uuciptake...</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1628047864105680896</td>
+      <td>1628047864105680896</td>
+      <td>1.676992e+12</td>
+      <td>2023-02-21 15:03:53</td>
+      <td>+0000</td>
+      <td></td>
+      <td>Saat memerima Duta Besar  Norwegia untuk Indon...</td>
+      <td>in</td>
+      <td>[sahabatganjar, ganjar, ganjarpranowo]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1628045934679699457</td>
+      <td>1628045934679699457</td>
+      <td>1.676991e+12</td>
+      <td>2023-02-21 14:56:13</td>
+      <td>+0000</td>
+      <td></td>
+      <td>Sahabat Ganjar menggelar acara Senandung Shola...</td>
+      <td>in</td>
+      <td>[sahabatganjar, ganjar, ganjarpranowo]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>1627614543303315458</td>
+      <td>1627614538496638976</td>
+      <td>1.676889e+12</td>
+      <td>2023-02-20 10:22:01</td>
+      <td>+0000</td>
+      <td></td>
+      <td>Ganjar berharap dengan adanya perhatian dari p...</td>
+      <td>in</td>
+      <td>[sahabatganjar, ganjar, ganjarpranowo]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>1627614538496638976</td>
+      <td>1627614538496638976</td>
+      <td>1.676889e+12</td>
+      <td>2023-02-20 10:22:00</td>
+      <td>+0000</td>
+      <td></td>
+      <td>Ganjar Pranowo mendorong Komite Paralimpiade N...</td>
+      <td>in</td>
+      <td>[sahabatganjar, ganjar, ganjarpranowo]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>1627611741592129537</td>
+      <td>1627611741592129537</td>
+      <td>1.676888e+12</td>
+      <td>2023-02-20 10:10:53</td>
+      <td>+0000</td>
+      <td></td>
+      <td>Apa saja kegiatan Sahabat Ganjar di Kabupaten ...</td>
+      <td>in</td>
+      <td>[sahabatganjar, ganjar, ganjarpranowo]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>1627611140531568642</td>
+      <td>1627603449373401090</td>
+      <td>1.676888e+12</td>
+      <td>2023-02-20 10:08:30</td>
+      <td>+0000</td>
+      <td></td>
+      <td>Ia juga mendukung keberadaan Sekolah Khusus Ol...</td>
+      <td>in</td>
+      <td>[sahabatganjar, ganjar, ganjarpranowo]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>179</th>
+      <td>1627611007836385280</td>
+      <td>1627603288286957570</td>
+      <td>1.676888e+12</td>
+      <td>2023-02-20 10:07:58</td>
+      <td>+0000</td>
+      <td></td>
+      <td>Sebagai upaya antisipasi dan pencegahan ia har...</td>
+      <td>in</td>
+      <td>[sahabatganjar, ganjar, ganjarpranowo]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<p>180 rows × 38 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-454d231d-ce30-4518-a761-c8175ed138ae')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-454d231d-ce30-4518-a761-c8175ed138ae button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-454d231d-ce30-4518-a761-c8175ed138ae');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;negeri_pajak.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>  
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/sainsdata/filcsv/Ganjar.csv&#39;</span><span class="p">)</span>  
+<span class="n">filepath</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+<span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">joblib</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/sainsdata/tugas/caca.csv&#39;</span>
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/content/drive/MyDrive/sainsdata/tugas/caca.csv&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="markdown-notebooks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="berita.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Crawling Website Berita</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Maulana
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
